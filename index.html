@@ -148,19 +148,31 @@
           </nav>
 
           <div class="header-bottom-actions">
-            <button class="header-bottom-actions-btn" aria-label="Search">
+            <button
+              class="header-bottom-actions-btn"
+              id="search-btn"
+              aria-label="Search"
+            >
               <ion-icon name="search-outline"></ion-icon>
 
               <span>Search</span>
             </button>
 
-            <button class="header-bottom-actions-btn" aria-label="Profile">
+            <button
+              class="header-bottom-actions-btn"
+              id="login-btn"
+              aria-label="Profile"
+            >
               <ion-icon name="person-outline"></ion-icon>
 
               <span>Profile</span>
             </button>
 
-            <button class="header-bottom-actions-btn" aria-label="Cart">
+            <button
+              class="header-bottom-actions-btn"
+              id="cart-btn"
+              aria-label="Cart"
+            >
               <ion-icon name="cart-outline"></ion-icon>
 
               <span>Cart</span>
@@ -175,6 +187,66 @@
 
               <span>Menu</span>
             </button>
+
+            <form action="" class="search-form">
+              <input
+                type="search"
+                id="shearch-box"
+                placeholder="shearch here..."
+              />
+              <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+            <div class="shopping-cart">
+              <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="assets/images/cash.png" alt="" />
+                <div class="content">
+                  <h3>10 points</h3>
+                  <span class="price">50 Egp</span>
+                  <span class="quantity"></span>
+                </div>
+              </div>
+              <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="assets/images/cash.png" alt="" />
+                <div class="content">
+                  <h3>10 points</h3>
+                  <span class="price">50 Egp</span>
+                  <span class="quantity"></span>
+                </div>
+              </div>
+              <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="assets/images/cash.png" alt="" />
+                <div class="content">
+                  <h3>10 points</h3>
+                  <span class="price">50 Egp</span>
+                  <span class="quantity"></span>
+                </div>
+              </div>
+              <div class="total">total : $19.67</div>
+              <a href="#" class="btn">check out</a>
+            </div>
+
+            <form action="" class="login-form">
+              <h3>login now</h3>
+              <input
+                type="email"
+                name="email"
+                class="box"
+                placeholder="your email"
+              />
+              <input
+                type="password"
+                name="password"
+                class="box"
+                placeholder="your password"
+              />
+              <p>forget your password ? <a href="#">click here</a></p>
+              <p>don't have acount ? <a href="#">creat now</a></p>
+              <a href="#" class="btn">login</a>
+            </form>
           </div>
         </div>
       </div>
