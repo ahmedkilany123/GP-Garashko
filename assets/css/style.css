@@ -353,17 +353,22 @@ a {
   font-size: 15px;
 }
 
-.header-top-btn {
+.header .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
   background: var(--orange-soda);
   color: var(--white);
   font-size: var(--fs-6);
   font-weight: var(--fw-700);
-  padding: 4px 15px;
+  padding: 4px 8px;
   /* color: aqua; */
 }
 
-.header-top-btn:is(:hover, :focus) {
+.header .btn:is(:hover, :focus) {
   --orange-soda: hsl(7, 72%, 46%);
+  color: var(--black);
 }
 
 .header-bottom {
@@ -373,7 +378,7 @@ a {
 
 .header-bottom .logo img {
   margin-inline: auto;
-  width: 180px;
+  width: 150px;
   height: 50px;
 }
 
@@ -802,6 +807,11 @@ a {
   width: max-content;
   margin-inline: auto;
   margin-bottom: 20px;
+}
+.service-card .card-icon img {
+  max-width: 100%;
+  width: 250px;
+  height: 200px;
 }
 
 .service-card .card-title {
