@@ -46,6 +46,15 @@
   -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- 
     - google font link
   -->
@@ -235,9 +244,10 @@
 
             <form action="" class="search-form">
               <input
+                dir="auto"
                 type="search"
                 id="shearch-box"
-                placeholder="shearch here..."
+                placeholder="search here..."
               />
               <label for="search-box" class="fas fa-search"></label>
             </form>
@@ -247,7 +257,7 @@
                 <i class="fas fa-trash"></i>
                 <img src="assets/images/cash.png" alt="" />
                 <div class="content">
-                  <h3>10 points</h3>
+                  <h3>50 points</h3>
                   <span class="price">50 Egp</span>
                   <span class="quantity"></span>
                 </div>
@@ -256,8 +266,8 @@
                 <i class="fas fa-trash"></i>
                 <img src="assets/images/cash.png" alt="" />
                 <div class="content">
-                  <h3>10 points</h3>
-                  <span class="price">50 Egp</span>
+                  <h3>100 points</h3>
+                  <span class="price">100 Egp</span>
                   <span class="quantity"></span>
                 </div>
               </div>
@@ -265,13 +275,13 @@
                 <i class="fas fa-trash"></i>
                 <img src="assets/images/cash.png" alt="" />
                 <div class="content">
-                  <h3>10 points</h3>
-                  <span class="price">50 Egp</span>
+                  <h3>150 points</h3>
+                  <span class="price">150 Egp</span>
                   <span class="quantity"></span>
                 </div>
               </div>
-              <div class="total">total : $19.67</div>
-              <a href="#" class="btn">check out</a>
+              <div class="total">total : 400 Egp</div>
+              <a href="#" class="btn check-cart">check out</a>
             </div>
 
             <form action="" class="login-form">
@@ -289,8 +299,8 @@
                 placeholder="your password"
               />
               <p>forget your password ? <a href="#">click here</a></p>
-              <p>don't have acount ? <a href="#">creat now</a></p>
-              <a href="#" class="btn">login</a>
+              <p>don't have acount ? <a href="login.html">creat now</a></p>
+              <input type="submit" class="btn btn-log" value="login" />
             </form>
           </div>
         </div>
@@ -326,7 +336,7 @@
             <figure class="hero-banner">
               <img
                 src="./assets/images/home.gif"
-                alt="Modern house model"
+                alt="Garashko"
                 class="w-100"
               />
             </figure>
@@ -862,9 +872,9 @@
 
         <section class="features">
           <div class="container">
-            <p class="section-subtitle">Our Aminities</p>
+            <p class="section-subtitle">Our Features</p>
 
-            <h2 class="h2 section-title">Building Aminities</h2>
+            <h2 class="h2 section-title">What distinguishes us</h2>
 
             <ul class="features-list">
               <li>
@@ -1218,26 +1228,42 @@
 
             <ul class="social-list">
               <li>
-                <a href="#" class="social-link">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
+                  class="header-top-social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-facebook"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" class="social-link">
+                <a
+                  href="https://twitter.com/garashko_eg"
+                  class="header-top-social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-twitter"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-linkedin"></ion-icon>
+                <a
+                  href="https://www.instagram.com/garashko_eg"
+                  class="header-top-social-link"
+                  target="_blank"
+                >
+                  <ion-icon name="logo-instagram"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-youtube"></ion-icon>
+                <a
+                  href="https://www.tiktok.com/@garashko_eg"
+                  class="header-top-social-link"
+                  target="_blank"
+                >
+                  <ion-icon name="logo-tiktok"></ion-icon>
                 </a>
               </li>
             </ul>
@@ -1340,7 +1366,7 @@
       <div class="footer-bottom">
         <div class="container">
           <p class="copyright">
-            &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+            &copy; 2024 <a href="#">Garashko</a>. All Rights Reserved
           </p>
         </div>
       </div>

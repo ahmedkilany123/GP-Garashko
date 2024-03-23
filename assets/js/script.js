@@ -1,4 +1,24 @@
-"use strict";
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", function (event) {
+    // منع الحدث الافتراضي
+    event.preventDefault();
+
+    // احصل على قيم المستخدم وكلمة المرور
+    let username = document.querySelector('input[type="email"]').value;
+    let password = document.querySelector('input[type="password"]').value;
+
+    // تحقق من المستخدم وكلمة المرور
+    if (username === "admin@gmail.com" && password === "admin") {
+      // إذا كانت القيم صحيحة، افتح صفحة log.html
+      window.location.href = "prof.html";
+    } else {
+      // إذا كانت القيم غير صحيحة، أظهر رسالة خطأ
+      alert("Invalid username or password!");
+    }
+  });
+
+("use strict");
 
 /**
  * element toggle function
@@ -72,4 +92,36 @@ window.addEventListener("scroll", function () {
   window.scrollY >= 400
     ? header.classList.add("active")
     : header.classList.remove("active");
+});
+
+// cart trash
+
+// احصل على العنصر الأب 'shopping-cart'
+let cart = document.querySelector(".shopping-cart");
+
+// أضف مستمع الحدث للعنصر الأب
+cart.addEventListener("click", function (event) {
+  // تحقق إذا كان الزر الذي تم النقر عليه هو زر الحذف
+  if (
+    event.target.classList.contains("fas") &&
+    event.target.classList.contains("fa-trash")
+  ) {
+    // منع الحدث الافتراضي
+    event.preventDefault();
+
+    // احصل على العنصر الأب 'box' وأزله
+    let box = event.target.closest(".box");
+    box.remove();
+
+    // تحقق من عدد العناصر 'box' المتبقية
+    let remainingBoxes = document.querySelectorAll(".content");
+    if (remainingBoxes.length === 0) {
+      // إذا لم يعد هناك عناصر 'box'، أزل العناصر الأخرى وأضف الرسالة
+      document.querySelector(".total").remove();
+      document.querySelector(".check-cart").remove();
+      let message = document.createElement("div");
+      message.textContent = "add to cart first";
+      document.querySelector(".shopping-cart").appendChild(message);
+    }
+  }
 });
