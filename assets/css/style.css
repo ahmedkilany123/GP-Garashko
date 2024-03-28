@@ -1420,6 +1420,10 @@ section.login {
   background: url(../images/logBack.png);
   background-position: center;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
 }
 section.login .container {
   /* height: 70vh; */
@@ -1491,15 +1495,16 @@ section.login .log-form form input[type="submit"] {
   background: var(--orange-soda);
   color: var(--white);
   border: 1px solid var(--orange-soda);
-  padding: 10px 30px;
+  padding: 5px 20px;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 10px auto;
   display: block;
 }
 section.login .log-form form .or {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
   position: relative;
+  font-weight: 700;
 }
 section.login .log-form form .or::before,
 section.login .log-form form .or::after {
@@ -1518,7 +1523,8 @@ section.login .log-form form .or::after {
 }
 section.login .log-form form ion-icon[name="logo-google"] {
   margin: 10px auto;
-  font-size: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 /*-----------------------------------*\
