@@ -20,13 +20,13 @@
   --raisin-black-1: hsl(227, 29%, 13%);
   --raisin-black-2: hsl(229, 17%, 19%);
   --yellow-green: hsl(89, 72%, 45%);
-  --orange-soda: hsl(9, 100%, 62%);
+  --orange-soda: #00bdda;
   --red: red;
   --cultured-1: hsl(0, 0%, 93%);
   --cultured-2: hsl(192, 24%, 96%);
-  --misty-rose: hsl(7, 56%, 91%);
+  --misty-rose: #ace2e1;
   --alice-blue: hsl(210, 100%, 97%);
-  --seashell: hsl(8, 100%, 97%);
+  --seashell: #f7e2e1;
   --cadet: hsl(200, 15%, 43%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
@@ -1420,7 +1420,6 @@ section.login {
   background: url(../images/logBack.png);
   background-position: center;
   background-size: cover;
-  height: 80vh;
 }
 section.login .container {
   /* height: 70vh; */
@@ -1455,14 +1454,14 @@ section.login .log-form form label {
   font-weight: 700;
   margin-top: 10px;
 }
-section.login .container form input:not(:last-child) {
+section.login .container form input:not(:nth-last-child()) {
   width: 400px;
 }
 section.login .log-form form input[type="email"],
 section.login .log-form form input[type="password"] {
   padding: 5px 10px;
-  /* max-width: 100%;
-  width: 250px; */
+  max-width: 100%;
+  width: 300px;
   border-radius: 6px;
   background: transparent;
   border: 1px solid var(--orange-soda);
@@ -1484,6 +1483,9 @@ section.login .log-form form .help a {
   font-weight: normal;
   margin: 0;
   width: fit-content;
+}
+section.login .log-form form input[type="checkbox"] {
+  margin: 0 5px;
 }
 section.login .log-form form input[type="submit"] {
   background: var(--orange-soda);
@@ -1526,7 +1528,7 @@ section.login .log-form form ion-icon[name="logo-google"] {
 /**
  * responsive for larger than 600px screen
  */
-@media (min-width: 600px) {
+@media (max-width: 667px) {
   /**
    * CUSTOM PROPERTY
    */
@@ -1592,6 +1594,10 @@ section.login .log-form form ion-icon[name="logo-google"] {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+  }
+
+  section.login .container form {
+    width: 75%;
   }
   section.login .log-form img {
     width: 300px;
@@ -1913,6 +1919,10 @@ section.login .log-form form ion-icon[name="logo-google"] {
 
   .footer-link-box {
     flex-basis: 550px;
+  }
+
+  section.login .log-form img {
+    width: 400px;
   }
 }
 
