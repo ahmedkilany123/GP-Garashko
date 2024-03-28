@@ -74,13 +74,6 @@ document.querySelector("#cart-btn").onclick = () => {
   loginForm.classList.remove("active");
   navbar.classList.remove("active");
 };
-let loginForm = document.querySelector(".login-form");
-document.querySelector("#login-btn").onclick = () => {
-  loginForm.classList.toggle("active");
-  saerchform.classList.remove("active");
-  shoppingCart.classList.remove("active");
-  navbar.classList.remove("active");
-};
 
 /**
  * header active state
@@ -125,3 +118,23 @@ cart.addEventListener("click", function (event) {
     }
   }
 });
+
+/**
+ * login page
+ */
+
+let btnLog = document.querySelector("section.login .log-btn");
+let btnCreat = document.querySelector("section.login .creat-btn");
+let logForm = document.querySelector("section.login .form-login");
+let creatForm = document.querySelector("section.login .form-creat");
+
+btnLog.onclick = () => {
+  creatForm.style.display = "none"; // هذا سيخفي نموذج إنشاء الحساب
+  logForm.style.display = "block";
+};
+
+btnCreat.onclick = () => {
+  logForm.style.display = "none"; // هذا سيخفي نموذج تسجيل الدخول
+  creatForm.style.display = "block";
+  // هذا سيظهر نموذج تسجيل الدخول
+};

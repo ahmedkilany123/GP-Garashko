@@ -21,6 +21,7 @@
   --raisin-black-2: hsl(229, 17%, 19%);
   --yellow-green: hsl(89, 72%, 45%);
   --orange-soda: hsl(9, 100%, 62%);
+  --red: red;
   --cultured-1: hsl(0, 0%, 93%);
   --cultured-2: hsl(192, 24%, 96%);
   --misty-rose: hsl(7, 56%, 91%);
@@ -249,6 +250,13 @@ a {
 
 .card-badge.orange {
   background: var(--orange-soda);
+}
+
+input:valid {
+  border: 1px solid var(--orange-soda);
+}
+input:invalid {
+  border: 1px solid var(--red);
 }
 
 .has-scrollbar {
@@ -1404,6 +1412,113 @@ input {
   color: var(--orange-soda);
 }
 
+/*?-----------------------------------*\
+  #login page
+\*------------------------------------*/
+
+section.login {
+  background: url(../images/logBack.png);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+}
+section.login .container {
+  /* height: 70vh; */
+}
+section.login .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 40px;
+}
+section.login .buttons button {
+  padding: 5px 10px;
+}
+section.login .container form {
+  width: 40%;
+}
+section.login .container .log-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+section.login .log-form img {
+  width: 500px;
+}
+section.login .log-form form label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+section.login .container form input:not(:last-child) {
+  width: 400px;
+}
+section.login .log-form form input[type="email"],
+section.login .log-form form input[type="password"] {
+  padding: 5px 10px;
+  /* max-width: 100%;
+  width: 250px; */
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid var(--orange-soda);
+}
+section.login .log-form form .help {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section.login .log-form form .help div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+section.login .log-form form .help label,
+section.login .log-form form .help a {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  width: fit-content;
+}
+section.login .log-form form input[type="submit"] {
+  background: var(--orange-soda);
+  color: var(--white);
+  border: 1px solid var(--orange-soda);
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin: 5px auto;
+  display: block;
+}
+section.login .log-form form .or {
+  text-align: center;
+  margin-top: 10px;
+  position: relative;
+}
+section.login .log-form form .or::before,
+section.login .log-form form .or::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  background: var(--orange-soda);
+  top: 50%;
+}
+section.login .log-form form .or::before {
+  left: 0;
+}
+section.login .log-form form .or::after {
+  right: 0;
+}
+section.login .log-form form ion-icon[name="logo-google"] {
+  margin: 10px auto;
+  font-size: 20px;
+}
+
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -1411,7 +1526,6 @@ input {
 /**
  * responsive for larger than 600px screen
  */
-
 @media (min-width: 600px) {
   /**
    * CUSTOM PROPERTY
@@ -1478,6 +1592,9 @@ input {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+  }
+  section.login .log-form img {
+    width: 300px;
   }
 }
 
@@ -1642,6 +1759,10 @@ input {
 
   .footer {
     margin-bottom: 0;
+  }
+
+  section.login .log-form img {
+    width: 500px;
   }
 }
 

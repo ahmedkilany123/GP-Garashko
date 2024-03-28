@@ -169,7 +169,9 @@
             <div class="navbar-bottom">
               <ul class="navbar-list">
                 <li>
-                  <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                  <a href="index.html" class="navbar-link" data-nav-link
+                    >Home</a
+                  >
                 </li>
 
                 <li>
@@ -299,8 +301,8 @@
                 placeholder="your password"
               />
               <p>forget your password ? <a href="#">click here</a></p>
-              <p>don't have acount ? <a href="#">creat now</a></p>
-              <a href="#" class="btn btn-log">login</a>
+              <p>don't have acount ? <a href="login.html">creat now</a></p>
+              <input type="submit" class="btn btn-log" value="login" />
             </form>
           </div>
         </div>
@@ -309,8 +311,64 @@
 
     <main>
       <article>
-        <section>
-          <div class="container"></div>
+        <section class="login">
+          <div class="container">
+            <div class="buttons">
+              <button class="btn log-btn">login</button>
+              <button class="btn creat-btn">creat acount</button>
+            </div>
+            <div class="log-form">
+              <form action="" method="post" class="form-creat">
+                <label for="email">User Name</label>
+                <input type="email" name="" id="email" />
+                <label for="email">phone number</label>
+                <input type="email" name="" id="email" />
+                <label for="email">Your Email</label>
+                <input type="email" name="" id="email" />
+
+                <label for="password">Your Password</label>
+                <input type="password" name="" id="password" />
+                <label for="password">Confirm Password</label>
+                <input type="password" name="" id="password" />
+
+                <div class="help">
+                  <div>
+                    <input type="checkbox" name="" id="remember" />
+                    <label for="remember">Remember Me</label>
+                  </div>
+                  <a href="#">Forget Password ?</a>
+                </div>
+                <input type="submit" value="Creat Acount" class="btn" />
+
+                <p class="or">Sign up With</p>
+                <ion-icon name="logo-google"></ion-icon>
+              </form>
+
+              <form
+                action=""
+                method="post"
+                class="form-login"
+                style="display: none"
+              >
+                <label for="email">Your Email</label>
+                <input type="email" name="" id="email" />
+
+                <label for="password">Your Password</label>
+                <input type="password" name="" id="password" />
+
+                <div class="help">
+                  <div>
+                    <input type="checkbox" name="" id="remember" />
+                    <label for="remember">Remember Me</label>
+                  </div>
+                  <a href="#">Forget Password ?</a>
+                </div>
+                <input type="submit" value="Login" class="btn" />
+              </form>
+
+              <img src="assets/images/LoginVeg.png" alt="" />
+            </div>
+          </div>
         </section>
       </article>
     </main>
