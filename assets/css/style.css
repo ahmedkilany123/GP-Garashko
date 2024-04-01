@@ -145,6 +145,7 @@ body {
 
 .container {
   padding-inline: 15px;
+  margin: 0 auto;
 }
 
 button,
@@ -386,8 +387,8 @@ input:invalid {
 
 .header-bottom .logo img {
   margin-inline: auto;
-  width: 150px;
-  height: 50px;
+  width: 180px;
+  height: 55px;
 }
 
 .navbar {
@@ -822,14 +823,12 @@ input {
 }
 
 .service-card .card-icon {
-  width: max-content;
+  width: 100%;
   margin-inline: auto;
   margin-bottom: 20px;
 }
 .service-card .card-icon img {
   max-width: 100%;
-  width: 250px;
-  height: 200px;
 }
 
 .service-card .card-title {
@@ -1244,6 +1243,102 @@ input {
   text-transform: uppercase;
 }
 
+/* start team members  */
+
+.team {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.team .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.team .box {
+  position: relative;
+}
+.team .box:hover img {
+  filter: grayscale(100%);
+}
+.team .box::before,
+.team .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  position: absolute;
+  height: 100%;
+  border-radius: 10px;
+  right: 0;
+  top: 0;
+  transition: var(--main-transition);
+}
+.team .box::before {
+  z-index: -2;
+  width: calc(100% - 60px);
+}
+.team .box::after {
+  background-color: #e4e4e4;
+  z-index: -1;
+  width: 0;
+}
+.team .box:hover::after {
+  width: calc(100% - 60px);
+}
+.team .box .data {
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+.team .box .data img {
+  max-width: 100%;
+  width: calc(100% - 60px);
+  border-radius: 10px;
+  transition: var(--main-transition);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.team .box .data .social {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 60px;
+}
+.team .box .data .social a {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.team .box .data .social i {
+  color: #777;
+  z-index: 2;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.team .box .data .social a:hover i {
+  color: var(--main-color);
+}
+.team .box .info {
+  padding-left: 80px;
+}
+.team .box .info h3 {
+  font-size: 22px;
+  color: var(--main-color-alt);
+}
+.team .box .info p {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+/* end team members  */
+
 /*-----------------------------------*\
   #CTA
 \*-----------------------------------*/
@@ -1331,14 +1426,20 @@ input {
 .footer-brand .logo {
   margin-bottom: 15px;
 }
-
+.footer-brand .logo img {
+  width: 100%;
+}
 .section-text {
   font-size: var(--fs-5);
   line-height: 1.8;
   margin-bottom: 30px;
   max-width: 45ch;
 }
-
+.footer .footer-link-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
 .contact-list {
   display: grid;
   gap: 15px;
@@ -1462,10 +1563,11 @@ section.login .container form input:not(:nth-last-child()) {
   width: 400px;
 }
 section.login .log-form form input[type="email"],
-section.login .log-form form input[type="password"] {
+section.login .log-form form input[type="password"],
+section.login .log-form form input[type="text"] {
   padding: 5px 10px;
   max-width: 100%;
-  width: 300px;
+  width: 100%;
   border-radius: 6px;
   background: transparent;
   border: 1px solid var(--orange-soda);
@@ -1564,7 +1666,7 @@ section.login .log-form form ion-icon[name="logo-google"] {
   }
 
   .has-scrollbar > li {
-    min-width: calc(50% - 12.5px);
+    min-width: 100%;
   }
 
   /**
@@ -1572,7 +1674,7 @@ section.login .log-form form ion-icon[name="logo-google"] {
    */
 
   .service-list > li {
-    width: calc(50% - 15px);
+    width: 100%;
   }
 
   /**
@@ -1595,12 +1697,6 @@ section.login .log-form form ion-icon[name="logo-google"] {
   /**
    * FOOTER
    */
-
-  .footer-link-box {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
 
   section.login .container form {
     width: 75%;
