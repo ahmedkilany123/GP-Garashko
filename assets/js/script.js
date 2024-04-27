@@ -20,6 +20,22 @@ document
 
 ("use strict");
 
+async function getUser() {
+  const token = localStorage.getItem("token");
+  console.log("token", token);
+  const response = await fetch("https://gara4ko.onrender.com/api/v1/user", {
+    headers: {
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ",
+    },
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
+getUser();
+// الداتا بيز وقعت
+
 /**
  * element toggle function
  */
@@ -119,6 +135,16 @@ cart.addEventListener("click", function (event) {
   }
 });
 
+let profTop = document.querySelectorAll(".prof-top .menu li .sec-link");
+profTop.forEach(function (el) {
+  el.onclick = function () {
+    profTop.forEach(function (el) {
+      el.classList.remove("active");
+    });
+    this.classList.add("active");
+  };
+});
+
 /**
  * login page
  */
@@ -129,12 +155,105 @@ let logForm = document.querySelector("section.login .form-login");
 let creatForm = document.querySelector("section.login .form-creat");
 
 btnLog.onclick = () => {
-  creatForm.style.display = "none"; // هذا سيخفي نموذج إنشاء الحساب
+  creatForm.style.display = "none"; 
   logForm.style.display = "block";
 };
 
 btnCreat.onclick = () => {
-  logForm.style.display = "none"; // هذا سيخفي نموذج تسجيل الدخول
+  logForm.style.display = "none"; 
   creatForm.style.display = "block";
-  // هذا سيظهر نموذج تسجيل الدخول
 };
+
+//------------------------------------
+// sign in
+document
+  .getElementById("loging-form")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // استخدم FormData لجمع البيانات من النموذج
+    const formData = new FormData(this);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    console.log(
+      JSON.stringify({
+        email,
+        password,
+      })
+    );
+
+    const response = await fetch(
+      "https://gara4ko.onrender.com/api/v1/auth/signIn",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    console.log("#===>token", data.token);
+    if (data?.success) {
+      localStorage.setItem("token", JSON.stringify(data.token));
+      window.location.href = "prof.html";
+      //اخيرا
+    } else {
+      console.log(data);
+      document.querySelector(".message-serv2").innerText =
+        "wrong email or password";
+    }
+  });
+
+
+
+
+
+
+
+  
+//-------------------------------------
+//sign up
+document
+  .querySelector(".form-creat")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var userName = document.getElementById("userName").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+
+    var data = {
+      userName: userName,
+      email: email,
+      password: password,
+      phoneNumber: phoneNumber,
+    };
+
+    fetch("https://gara4ko.onrender.com/api/v1/auth/signUp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        document.querySelector(".message-serv").innerText = data.message;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+//******************************* */
+
