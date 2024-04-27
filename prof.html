@@ -309,14 +309,76 @@
 
     <main>
       <article>
-        <section style="background-color: #eee">
+        <section class="prof-top">
           <div class="container">
-            <img
-              src="https://drive.google.com/file/d/1lDaEk0e0NmKRBYmjra4H18Ym9_oxOTm7/view?usp=sharing"
-              alt=""
-            />
+            <ul class="menu">
+              <li><a href="#" class="sec-link">Dashboard</a></li>
+              <li><a href="#" class="sec-link">My Transactions</a></li>
+              <li><a href="#" class="sec-link">My Vechicles</a></li>
+              <li><a href="#" class="sec-link">My Cards</a></li>
+              <li><a href="#" class="sec-link">Account</a></li>
+            </ul>
           </div>
         </section>
+        <h2>hello, <span class="name-user"></span></h2>
+
+        <div class="dash">
+          <p>Your Details</p>
+          <div class="container">
+            <div class="details">
+              <div class="info">
+                <h3>My Acount</h3>
+                <div class="acount">
+                  <span><i class="fa-regular fa-user"></i></span>
+                  <p>Information</p>
+
+                  <p class="name">aaaa</p>
+                  <p class="email">@@@@</p>
+                </div>
+                <div class="vechicle">
+                  <h3>vechicles</h3>
+                  <p class="serial">1241564</p>
+                </div>
+                <div class="cards">
+                  <h3>Cards</h3>
+                  <p>xxx-xxxx-xxx-xxx</p>
+                </div>
+              </div>
+              <img src="assets/images/transaction-cars.png" alt="" />
+            </div>
+
+            <div class="contact-us">
+              <h3>Email Us</h3>
+              <input type="text" placeholder="Category" />
+              <input type="text" placeholder="Enter Name Of Car Park" />
+              <input type="text" placeholder="Vehicle registration" />
+              <input type="text" placeholder="Booking reference" />
+              <input type="text" placeholder="Subject" />
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Message"
+              ></textarea>
+              <input type="file" placeholder="choose file" />
+
+              <input type="checkbox" name="receive" id="receive" />
+              <label for="receive">
+                I agree to receive information and commercial offers about Saba
+                e.g updates
+              </label>
+              <br />
+              <br />
+              <input type="checkbox" name="personal" id="personal" />
+              <label for="personal">
+                I agree to my personal data being stored and used to receive the
+                newsletter
+              </label>
+              <input type="submit" value="send" />
+            </div>
+          </div>
+        </div>
       </article>
     </main>
 
@@ -525,5 +587,37 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script>
+      window.onload = function () {
+        const token = JSON.parse(localStorage.getItem("token"));
+
+        fetch("https://gara4ko.onrender.com/api/v1/user/", {
+          method: "GET",
+          headers: {
+            token: token,
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.querySelector(".name-user").innerText = data.data.userName;
+            document.querySelector(".name").innerText = data.data.userName;
+            document.querySelector(".email").innerText = data.data.email;
+            document.querySelector(".phone-user").innerText = data.phoneNumber;
+          })
+          .catch((error) => console.error("Error:", error));
+      };
+    </script>
   </body>
 </html>

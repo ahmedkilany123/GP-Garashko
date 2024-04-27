@@ -30,7 +30,7 @@
     <meta property="fb:app_id" content="61557761423216" />
     <meta name="twitter:site" content="@garashko_eg" />
 
-    <title>login</title>
+    <title>Services</title>
 
     <!-- 
     - favicon
@@ -157,13 +157,13 @@
                 <img src="./assets/images/logo.png" alt="Garashko logo" />
               </a>
 
-              <button
+              <btn
                 class="nav-close-btn"
                 data-nav-close-btn
                 aria-label="Close Menu"
               >
                 <ion-icon name="close-outline"></ion-icon>
-              </button>
+              </btn>
             </div>
 
             <div class="navbar-bottom">
@@ -204,7 +204,7 @@
           </nav>
 
           <div class="header-bottom-actions">
-            <button
+            <btn
               class="header-bottom-actions-btn"
               id="search-btn"
               aria-label="Search"
@@ -212,7 +212,7 @@
               <ion-icon id="search-btn" name="search-outline"></ion-icon>
 
               <span>Search</span>
-            </button>
+            </btn>
 
             <a href="login.html">
               <ion-icon name="person-outline"></ion-icon>
@@ -220,7 +220,7 @@
               <span>Profile</span>
             </a>
 
-            <button
+            <btn
               class="header-bottom-actions-btn"
               id="cart-btn"
               aria-label="Cart"
@@ -228,9 +228,9 @@
               <ion-icon name="cart-outline"></ion-icon>
 
               <span>Cart</span>
-            </button>
+            </btn>
 
-            <button
+            <btn
               class="header-bottom-actions-btn"
               data-nav-open-btn
               aria-label="Open Menu"
@@ -238,7 +238,7 @@
               <ion-icon name="menu-outline"></ion-icon>
 
               <span>Menu</span>
-            </button>
+            </btn>
 
             <form action="" class="search-form">
               <input
@@ -306,72 +306,9 @@
     </header>
 
     <main>
-      <article>
-        <section class="login">
-          <div class="container">
-            <div class="buttons">
-              <button class="btn log-btn">login</button>
-              <button class="btn creat-btn">creat acount</button>
-            </div>
-
-            <div class="log-form">
-              <form action="" method="post" class="form-creat">
-                <label for="userName">User Name</label>
-                <input type="text" name="userName" id="userName" required />
-
-                <label for="email">Your Email</label>
-                <input type="email" name="" id="email" required />
-
-                <label for="password">Your password</label>
-                <input type="password" name="" id="password" required />
-
-                <label for="phoneNumber">phone number</label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  required
-                />
-
-                <div class="message-serv"></div>
-
-                <div class="help">
-                  <div>
-                    <input type="checkbox" name="" id="remember" />
-                    <label for="remember">Remember Me</label>
-                  </div>
-                  <a href="#">Forget Password ?</a>
-                </div>
-                <input type="submit" value="Creat Acount" class="btn" />
-
-                <p class="or">Sign up With</p>
-                <ion-icon name="logo-google"></ion-icon>
-              </form>
-
-              <form class="form-login" id="loging-form" style="display: none">
-                <label for="email">Your Email</label>
-                <input type="email" name="email" id="email" required />
-
-                <label for="password">Your Password</label>
-                <input type="password" name="password" id="password" required />
-
-                <div class="message-serv2"></div>
-
-                <div class="help">
-                  <div>
-                    <input type="checkbox" name="" id="remember" />
-                    <label for="remember">Remember Me</label>
-                  </div>
-                  <a href="#">Forget Password ?</a>
-                </div>
-                <input type="submit" value="Login" class="btn" />
-              </form>
-
-              <img src="assets/images/LoginVeg.png" alt="" />
-            </div>
-          </div>
-        </section>
-      </article>
+      <div class="rep-landing">
+        <h1>Car service, maintenance & repair.</h1>
+      </div>
     </main>
 
     <!-- 
@@ -571,6 +508,13 @@
     <!-- 
     - ionicon link
   -->
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
