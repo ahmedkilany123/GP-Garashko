@@ -1,39 +1,218 @@
+// let token;
+// if (!localStorage.getItem("token")) {
+//   token = JSON.parse(localStorage.getItem("token"));
+// }
+// let = {} || JSON.parse(localStorage.getItem("user"));
+// let vehicles = [];
+// // todo ------------------------------
+// async function getUser() {
+//   const token = JSON.parse(localStorage.getItem("token"));
+//   console.log(token);
+// fetch("https://gara4ko.onrender.com/api/v1/user/", {
+//   method: "GET",
+//   headers: {
+//     token: token,
+//     Accept: "application/json, text/plain, */*",
+//     "Content-Type": "application/json",
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((data) => {
+//     document.querySelector(".name-user").innerText = data.data.userName;
+//     document.querySelector(".name").innerText = data.data.userName;
+//     document.querySelector(".email").innerText = data.data.email;
+//     document.querySelector(".phone-user").innerText = data.phoneNumber;
+//   })
+//   .catch((error) => console.error("Error:", error));
+
+///////////////////////////////////////////////////////
+//   const response = await fetch("https://gara4ko.onrender.com/api/v1/user/", {
+//     method: "GET",
+//     headers: {
+//       token,
+//       Accept: "application/json, text/plain, */*",
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   let data =
+//     (await response.json()) || JSON.parse(localStorage.getItem("user"));
+//   console.log("dataaa", data);
+//   localStorage.setItem("user", JSON.stringify(data.data));
+
+//   console.log(data);
+//   return data;
+// }
+
+// setInterval(async () => {
+//   userData = await getUser().then((res) => res.data);
+
+//   console.log("userDataa", userDataa);
+// }, 5000);
+// document.querySelector(".name-user").innerText =
+//   data.data.userName || userData.userName;
+// document.querySelector(".name").innerText =
+//   data.data.userName || userData.userName;
+// document.querySelector(".email").innerText = data.data.email || userData.email;
+// document.querySelector(".phone-user").innerText =
+//   data.phoneNumber || userData.phoneNumber;
+
+// todo ------------------------------
+
+// // sign in
+// document
+//   .getElementById("loging-form")
+//   .addEventListener("submit", async function (e) {
+//     e.preventDefault();
+
+//     // استخدم FormData لجمع البيانات من النموذج
+//     const formData = new FormData(this);
+//     const email = formData.get("email");
+//     const password = formData.get("password");
+
+//     console.log(
+//       JSON.stringify({
+//         email,
+//         password,
+//       })
+//     );
+
+//     const response = await fetch(
+//       "https://gara4ko.onrender.com/api/v1/auth/signIn",
+//       {
+//         method: "POST",
+//         body: JSON.stringify({
+//           email,
+//           password,
+//         }),
+
+//         headers: {
+//           Accept: "application/json, text/plain, */*",
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+
+//     const data = await response.json();
+
+//     if (data?.success) {
+//       token = data.token;
+//       localStorage.setItem("token", JSON.stringify(data.token));
+//       console.log(data);
+//       const userResponse = await getUser();
+//       console.log("userResponse", userResponse);
+//       setTimeout(() => {
+//         window.location.href = "prof.html";
+//       }, 3000);
+
+//       //اخيرا
+//     } else {
+//       document.querySelector(".message-serv2").innerText =
+//         "wrong email or password";
+//     }
+//   });
+
+//-------------------------------------
+//sign up
 document
-  .querySelector(".login-form")
+  .querySelector(".form-creat")
   .addEventListener("submit", function (event) {
-    // منع الحدث الافتراضي
     event.preventDefault();
 
-    // احصل على قيم المستخدم وكلمة المرور
-    let username = document.querySelector('input[type="email"]').value;
-    let password = document.querySelector('input[type="password"]').value;
+    var userName = document.getElementById("userName").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
 
-    // تحقق من المستخدم وكلمة المرور
-    if (username === "admin@gmail.com" && password === "admin") {
-      // إذا كانت القيم صحيحة، افتح صفحة log.html
-      window.location.href = "prof.html";
-    } else {
-      // إذا كانت القيم غير صحيحة، أظهر رسالة خطأ
-      alert("Invalid username or password!");
-    }
+    var data = {
+      userName: userName,
+      email: email,
+      password: password,
+      phoneNumber: phoneNumber,
+    };
+
+    fetch("https://gara4ko.onrender.com/api/v1/auth/signUp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        document.querySelector(".message-serv").innerText = data.message;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   });
 
-("use strict");
+// todo vihcle //
+// function vicData() {
+//   // const token = JSON.parse(localStorage.getItem("token"));
+//   const token =
+//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ";
+//   fetch("https://gara4ko.onrender.com/api/v1/vehicle/vehicles", {
+//     method: "GET",
+//     headers: {
+//       token: token,
+//       Accept: "application/json, text/plain, */*",
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       document.querySelector(".serial").innerText = data.data.vehicle_info;
+//       console.log(data);
+//     })
+//     .catch((error) => console.error("Error:", error));
+// }
+// todo  user //
+// async function getUser() {
+//   const token = localStorage.getItem("token");
 
-async function getUser() {
-  const token = localStorage.getItem("token");
-  console.log("token", token);
-  const response = await fetch("https://gara4ko.onrender.com/api/v1/user", {
-    headers: {
-      token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ",
-    },
-  });
-  const data = await response.json();
-  console.log(data);
-  return data;
-}
-getUser();
+//   const response = await fetch("https://gara4ko.onrender.com/api/v1/user", {
+//     headers: {
+//       token:
+//         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ",
+//     },
+//   });
+//   const data = await response.json();
+//   console.log(data);
+//   vicData();
+//   return data;
+// }
+// getUser();
+
+// getUser();
+// vicData();
+// ("use strict");
+
+//******************************* */
+//******************************* */
+// ملغية حاليا
+// function userData() {
+//   const token = JSON.parse(localStorage.getItem("token"));
+
+//   fetch("https://gara4ko.onrender.com/api/v1/user/", {
+//     method: "GET",
+//     headers: {
+//       token: token,
+//       Accept: "application/json, text/plain, */*",
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       document.querySelector(".name-user").innerText = data.data.userName;
+//       document.querySelector(".name").innerText = data.data.userName;
+//       document.querySelector(".email").innerText = data.data.email;
+//       document.querySelector(".phone-user").innerText = data.data.phoneNumber;
+//     })
+//     .catch((error) => console.error("Error:", error));
+// }
+// userData();
+
 // الداتا بيز وقعت
 
 /**
@@ -135,36 +314,10 @@ cart.addEventListener("click", function (event) {
   }
 });
 
-let profTop = document.querySelectorAll(".prof-top .menu li .sec-link");
-profTop.forEach(function (el) {
-  el.onclick = function () {
-    profTop.forEach(function (el) {
-      el.classList.remove("active");
-    });
-    this.classList.add("active");
-  };
-});
+///*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
 
-/**
- * login page
- */
+// الداتا بيز وقعت
 
-let btnLog = document.querySelector("section.login .log-btn");
-let btnCreat = document.querySelector("section.login .creat-btn");
-let logForm = document.querySelector("section.login .form-login");
-let creatForm = document.querySelector("section.login .form-creat");
-
-btnLog.onclick = () => {
-  creatForm.style.display = "none"; 
-  logForm.style.display = "block";
-};
-
-btnCreat.onclick = () => {
-  logForm.style.display = "none"; 
-  creatForm.style.display = "block";
-};
-
-//------------------------------------
 // sign in
 document
   .getElementById("loging-form")
@@ -212,48 +365,76 @@ document
     }
   });
 
+// user data
 
+function userData() {
+  const token = JSON.parse(localStorage.getItem("token"));
 
-
-
-
-
-  
-//-------------------------------------
-//sign up
-document
-  .querySelector(".form-creat")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var userName = document.getElementById("userName").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var phoneNumber = document.getElementById("phoneNumber").value;
-
-    var data = {
-      userName: userName,
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber,
-    };
-
-    fetch("https://gara4ko.onrender.com/api/v1/auth/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+  fetch("https://gara4ko.onrender.com/api/v1/user/", {
+    method: "GET",
+    headers: {
+      token: token,
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      document.querySelector(".name-user").innerText = data.data.userName;
+      document.querySelector(".name").innerText = data.data.userName;
+      document.querySelector(".email").innerText = data.data.email;
+      document.querySelector(".phone-user").innerText = data.data.phoneNumber;
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        document.querySelector(".message-serv").innerText = data.message;
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  });
+    .catch((error) => console.error("Error:", error));
+}
 
-//******************************* */
+// vechicle
 
+function vicData() {
+  // const token = JSON.parse(localStorage.getItem("token"));
+
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ";
+
+  fetch("https://gara4ko.onrender.com/api/v1/vehicle/vehicles", {
+    method: "GET",
+    headers: {
+      token: token,
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      document.querySelector(
+        ".type"
+      ).innerText = `${data.data[0].vehicle_info.type}`;
+      document.querySelector(
+        ".model"
+      ).innerText = `${data.data[0].vehicle_info.model}`;
+      document.querySelector(
+        ".letters"
+      ).innerText = `${data.data[0].vehicle_license.licenseLetters.join(" ")}`;
+      document.querySelector(
+        ".numbers"
+      ).innerText = `${data.data[0].vehicle_license.licenseNumbers.join(" ")} `;
+
+      // vec2
+      console.log(data);
+      document.querySelector(
+        ".type1"
+      ).innerText = `${data.data[1].vehicle_info.type}`;
+      document.querySelector(
+        ".model1"
+      ).innerText = `${data.data[1].vehicle_info.model}`;
+      document.querySelector(
+        ".letters1"
+      ).innerText = `${data.data[1].vehicle_license.licenseLetters.join(" ")}`;
+      document.querySelector(
+        ".numbers1"
+      ).innerText = `${data.data[1].vehicle_license.licenseNumbers.join(" ")} `;
+    })
+
+    .catch((error) => console.error("Error:", error));
+}

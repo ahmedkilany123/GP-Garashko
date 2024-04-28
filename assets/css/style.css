@@ -20,6 +20,7 @@
   --raisin-black-1: hsl(227, 29%, 13%);
   --raisin-black-2: hsl(229, 17%, 19%);
   --yellow-green: hsl(89, 72%, 45%);
+  --gray: gray;
   --main-color: #00bdda;
   --second-color: #008dda;
   --red: red;
@@ -255,7 +256,35 @@ a {
 .card-badge.orange {
   background: var(--main-color);
 }
-
+textarea,
+input:not(input[type="checkbox"]) {
+  padding: 10px 15px;
+  background: var(--alice-blue);
+  border: none;
+  outline: none;
+  display: block;
+  margin: 15px 0;
+  color: var(--black);
+}
+textarea,
+input:focus::placeholder {
+  color: var(--alice-blue);
+}
+textarea,
+input::placeholder {
+  color: var(--black);
+}
+input[type="checkbox"] {
+  display: inline-block;
+}
+label {
+  font-size: 16px;
+}
+input[type="submit"] {
+  padding: 5px 10px;
+  font-size: 18px;
+  width: fit-content !important;
+}
 input:valid {
   border: 1px solid var(--main-color);
 }
@@ -1505,7 +1534,7 @@ input {
   margin-bottom: 15px;
 }
 .footer-brand .logo img {
-  width: 100%;
+  width: 300px;
 }
 .section-text {
   font-size: var(--fs-5);
@@ -2137,13 +2166,13 @@ section.login .log-form form ion-icon[name="logo-google"] {
 }
 .prof-top .menu li {
 }
-.prof-top .menu li .sec-link {
+.prof-top .menu li a {
   font-size: 20px;
   color: var(--black);
   font-weight: 700;
 }
-.prof-top .menu li .active,
-.prof-top .menu li .sec-link:hover {
+.prof-top .menu li.active a,
+.prof-top .menu li:hover a {
   color: var(--main-color);
 }
 
@@ -2157,7 +2186,7 @@ h2 {
 }
 /* dash section*/
 .dash {
-  /* display: none; */
+  display: none;
   padding: 20px 0 40px 0;
   > p {
     font-size: 22px;
@@ -2219,6 +2248,9 @@ h2 {
         .email {
           margin-top: 10px;
         }
+        .phone-user {
+          margin-top: 10px;
+        }
       }
 
       .vechicle {
@@ -2242,12 +2274,62 @@ h2 {
           font-size: 18px;
         }
       }
+      .vechicle-tab {
+        border-collapse: collapse;
+        width: 70%;
+      }
+
+      .vechicle-tab td,
+      .vechicle-tab th {
+        border: 1px solid var(--cadet);
+        border-radius: 3px;
+        padding: 8px;
+        text-align: center;
+      }
+      .vechicle-tab tr {
+        background-color: white;
+      }
+      .vechicle-tab tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .vechicle-tab tr:hover {
+        background-color: #eee;
+        cursor: pointer;
+      }
+
+      .vechicle-tab th {
+        text-align: center;
+        background-color: var(--main-color);
+        color: white;
+      }
+      .item td {
+        color: var(--black) !important;
+      }
+      .item td span {
+        display: inline-block;
+        text-align: center;
+      }
+      .item td span:nth-child(1) {
+        position: relative;
+        padding-right: 3px;
+        margin-right: 3px;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 2px;
+          height: 100%;
+          right: -3px;
+          background: var(--main-color);
+        }
+      }
+
       .cards {
         padding-top: 20px;
       }
     }
     img {
-      width: 500px;
+      width: 400px;
       left: -70px;
       position: relative;
     }
@@ -2259,38 +2341,135 @@ h2 {
     margin-top: 20px;
     background: var(--cultured-1);
     /* ****** */
-    textarea,
-    input:not(input[type="checkbox"]) {
-      width: 80%;
-      padding: 7px 10px;
-      background: var(--alice-blue);
-      border: none;
-      outline: none;
-      display: block;
-      margin: 15px 0;
-      color: var(--black);
-      &:focus::placeholder {
-        color: var(--alice-blue);
-      }
-      &::placeholder {
-        color: var(--black);
-      }
-    }
-    input[type="checkbox"] {
-      display: inline-block;
-    }
-    label {
-      font-size: 16px;
-    }
-    input[type="submit"] {
-      padding: 5px 10px;
-      font-size: 18px;
-      width: fit-content !important;
-    }
+
     /* ****** */
   }
 }
 
+textarea,
+input:not(input[type="checkbox"]) {
+  width: 80%;
+}
+
+.transaction {
+  display: none;
+  padding: 20px 0 40px;
+  text-align: center;
+  h3 {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .noneOp {
+    img {
+      margin: 0 auto;
+    }
+    p {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 10px 0 0;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cadet);
+    }
+    .btn {
+      width: fit-content;
+      margin: 10px auto;
+    }
+  }
+}
+.vehicle-sec {
+  display: none;
+  padding: 20px 0 40px 0;
+  input {
+    width: 50% !important;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  p {
+  }
+  .btn {
+    padding: 7px 15px;
+    width: fit-content;
+  }
+}
+.cards {
+  display: none;
+  text-align: center;
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  img {
+    margin: 0 auto;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  span {
+    color: var(--cadet);
+    font-weight: 700;
+  }
+  .btn {
+    padding: 7px 15px;
+    width: fit-content;
+    margin: 10px auto;
+  }
+}
+
+.acount-det {
+  display: none;
+  padding: 20px 0;
+  input:not(input[type="checkbox"]) {
+    pointer-events: none;
+    width: 500px !important;
+  }
+
+  .datails {
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 5px;
+      bottom: 0;
+      background: var(--black);
+    }
+    .name,
+    .email {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  .datails2 {
+    .name,
+    .email {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .check {
+      display: flex;
+      gap: 10px;
+      input {
+        width: 20px !important;
+      }
+    }
+  }
+}
+
+main div.active {
+  display: block;
+}
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -2436,19 +2615,48 @@ h2 {
     align-items: flex-start;
   }
 
-  /**
+  /*? prof.html */
+  .prof-top .menu {
+    width: 90%;
+    li a {
+      font-size: 14px;
+    }
+  }
+  .dash {
+    .details {
+      flex-direction: column;
+      .info {
+        width: 100%;
+      }
+      img {
+        top: 5px;
+        left: 0;
+        margin: 0 auto;
+      }
+    }
+    .contact-us {
+      width: 100%;
+      textarea,
+      input:not(input[type="checkbox"]) {
+        width: 100%;
+      }
+    }
+    .vechicle-tab {
+      width: 90% !important;
+    }
+    /**
    * FOOTER
    */
 
-  section.login form {
-    width: 70%;
-  }
+    section.login form {
+      width: 70%;
+    }
 
-  .header-bottom-actions a {
-    flex-direction: column;
+    .header-bottom-actions a {
+      flex-direction: column;
+    }
   }
 }
-
 /**
  * responsive for larger than 768px screen
  */
