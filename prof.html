@@ -169,7 +169,9 @@
             <div class="navbar-bottom">
               <ul class="navbar-list">
                 <li>
-                  <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                  <a href="index.html" class="navbar-link" data-nav-link
+                    >Home</a
+                  >
                 </li>
 
                 <li>
@@ -212,15 +214,11 @@
               <span>Search</span>
             </button>
 
-            <button
-              class="header-bottom-actions-btn"
-              id="login-btn"
-              aria-label="Profile"
-            >
+            <a href="login.html">
               <ion-icon name="person-outline"></ion-icon>
 
               <span>Profile</span>
-            </button>
+            </a>
 
             <button
               class="header-bottom-actions-btn"
@@ -312,17 +310,17 @@
         <section class="prof-top">
           <div class="container">
             <ul class="menu">
-              <li><a href="#" class="sec-link">Dashboard</a></li>
-              <li><a href="#" class="sec-link">My Transactions</a></li>
-              <li><a href="#" class="sec-link">My Vechicles</a></li>
-              <li><a href="#" class="sec-link">My Cards</a></li>
-              <li><a href="#" class="sec-link">Account</a></li>
+              <li><a href="#" class="sec-dash">Dashboard</a></li>
+              <li><a href="#" class="sec-transaction">My Transactions</a></li>
+              <li><a href="#" class="sec-vehicle-sec">My Vechicles</a></li>
+              <li><a href="#" class="sec-cards">My Cards</a></li>
+              <li><a href="#" class="sec-acount-det">Account</a></li>
             </ul>
           </div>
         </section>
         <h2>hello, <span class="name-user"></span></h2>
 
-        <div class="dash">
+        <div class="dash active">
           <p>Your Details</p>
           <div class="container">
             <div class="details">
@@ -332,14 +330,45 @@
                   <span><i class="fa-regular fa-user"></i></span>
                   <p>Information</p>
 
-                  <p class="name">aaaa</p>
-                  <p class="email">@@@@</p>
+                  <p class="name"></p>
+                  <p class="email"></p>
+                  <br />
+                  <p class="phone-user"></p>
                 </div>
                 <div class="vechicle">
                   <h3>vechicles</h3>
-                  <p class="serial">1241564</p>
+
+                  <table class="vechicle-tab">
+                    <tr class="items">
+                      <th>type</th>
+                      <th>model</th>
+                      <th>plate</th>
+                    </tr>
+                    <tr class="item">
+                      <td class="type"></td>
+                      <td class="model"></td>
+                      <td>
+                        <span class="letters"></span>
+                        <span class="numbers"></span>
+                      </td>
+                    </tr>
+                    <!-- todo -->
+                    <tr class="item1">
+                      <td class="type1"></td>
+                      <td class="model1"></td>
+                      <td>
+                        <span class="letters1"></span>
+                        <span class="numbers1"></span>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- <p class="type"></p> -->
+                  <!-- <p class="model"></p>
+                  <p class="letters"></p>
+                  <p class="numbers"></p> -->
                 </div>
-                <div class="cards">
+                <div class="cards" style="display: block; text-align: left">
                   <h3>Cards</h3>
                   <p>xxx-xxxx-xxx-xxx</p>
                 </div>
@@ -377,6 +406,85 @@
               </label>
               <input type="submit" value="send" />
             </div>
+          </div>
+        </div>
+
+        <div class="transaction">
+          <div class="container">
+            <h3>My Operations</h3>
+            <div class="noneOp">
+              <img src="assets/images/transaction-none.png" alt="" />
+
+              <p>You don't have operations yet</p>
+              <span
+                >Take a look at our products and buy without handling fees. You
+                will save up to 70%.</span
+              >
+              <a href="#" class="btn">sea products</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-sec">
+          <div class="container">
+            <h3>MY VEHICLES</h3>
+            <p class="add">ADD A VEHICLE</p>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Vehicle Registration Number"
+            />
+            <input type="text" name="" id="" placeholder="Make" />
+            <input type="text" name="" id="" placeholder="Model" />
+            <input type="text" name="" id="" placeholder="Color" />
+            <a href="#" class="btn">Add</a>
+          </div>
+        </div>
+
+        <div class="cards card-sec">
+          <div class="container">
+            <h3>My payment methods</h3>
+            <img src="assets/images/prof-cards.png" alt="" />
+            <p>There are no payment methods associated with your account.</p>
+            <span>Add your card data.</span>
+            <a href="#" class="btn">ADD PAYMENT METHOD</a>
+          </div>
+        </div>
+
+        <div class="acount-det">
+          <div class="container">
+            <h3>MY ACCOUNT DETAILS</h3>
+            <div class="datails">
+              <div class="name">
+                <input type="text" value="ahmed" />
+                <input type="text" value="kilany" />
+              </div>
+              <div class="email">
+                <input type="text" value="ahmed@k.com" />
+                <input type="text" value="012454547" />
+              </div>
+            </div>
+
+            <h3>BILLING ADDRESS</h3>
+            <div class="datails2">
+              <div class="name">
+                <input type="text" value="address1" />
+                <input type="text" value="address2" />
+              </div>
+              <div class="email">
+                <input type="text" value="postal code" />
+                <input type="text" value="city" />
+              </div>
+              <div class="check">
+                <input type="checkbox" name="address" id="address" />
+                <label for="address">
+                  I agree to my personal data being stored and used to receive
+                  the newsletter
+                </label>
+              </div>
+            </div>
+            <input type="submit" value="send" />
           </div>
         </div>
       </article>
@@ -579,6 +687,7 @@
     <!-- 
     - ionicon link
   -->
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -598,26 +707,71 @@
     ></script>
 
     <script>
-      window.onload = function () {
-        const token = JSON.parse(localStorage.getItem("token"));
+      let profTop = document.querySelectorAll(".prof-top .menu li");
+      profTop.forEach(function (el) {
+        el.onclick = function () {
+          profTop.forEach(function (el) {
+            el.classList.remove("active");
+          });
+          this.classList.add("active");
+        };
+      });
 
-        fetch("https://gara4ko.onrender.com/api/v1/user/", {
-          method: "GET",
-          headers: {
-            token: token,
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            document.querySelector(".name-user").innerText = data.data.userName;
-            document.querySelector(".name").innerText = data.data.userName;
-            document.querySelector(".email").innerText = data.data.email;
-            document.querySelector(".phone-user").innerText = data.phoneNumber;
-          })
-          .catch((error) => console.error("Error:", error));
+      let menu = document.querySelectorAll(".prof-top .menu li");
+      let dash = document.querySelectorAll(".dash");
+      let tran = document.querySelectorAll(".transaction");
+      let vec = document.querySelectorAll(".vehicle-sec");
+      let cards = document.querySelectorAll(".card-sec");
+      let acountDet = document.querySelectorAll(".acount-det");
+
+      menu[0].onclick = () => {
+        dash[0].classList.add("active");
+
+        tran[0].classList.remove("active");
+        vec[0].classList.remove("active");
+        cards[0].classList.remove("active");
+        acountDet[0].classList.remove("active");
       };
+      menu[1].onclick = () => {
+        dash[0].classList.remove("active");
+        tran[0].classList.add("active");
+        vec[0].classList.remove("active");
+        cards[0].classList.remove("active");
+        acountDet[0].classList.remove("active");
+      };
+      menu[2].onclick = () => {
+        dash[0].classList.remove("active");
+        tran[0].classList.remove("active");
+        vec[0].classList.add("active");
+        cards[0].classList.remove("active");
+        acountDet[0].classList.remove("active");
+      };
+      menu[3].onclick = () => {
+        dash[0].classList.remove("active");
+        tran[0].classList.remove("active");
+        cards[0].classList.add("active");
+        vec[0].classList.remove("active");
+        acountDet[0].classList.remove("active");
+      };
+      menu[4].onclick = () => {
+        dash[0].classList.remove("active");
+        tran[0].classList.remove("active");
+        vec[0].classList.remove("active");
+        cards[0].classList.remove("active");
+        acountDet[0].classList.add("active");
+      };
+
+      //********************
+
+      userData();
+      vicData();
+      /////*****
+      setTimeout(function () {
+        let userElement = document.querySelector(".name-user");
+        if (!userElement || !userElement.textContent.trim()) {
+          window.location.href = "login.html";
+        }
+      }, 3000);
     </script>
   </body>
 </html>

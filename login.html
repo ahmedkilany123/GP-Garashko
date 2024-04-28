@@ -169,9 +169,7 @@
             <div class="navbar-bottom">
               <ul class="navbar-list">
                 <li>
-                  <a href="index.html" class="navbar-link" data-nav-link
-                    >Home</a
-                  >
+                  <a href="#home" class="navbar-link" data-nav-link>Home</a>
                 </li>
 
                 <li>
@@ -214,11 +212,15 @@
               <span>Search</span>
             </button>
 
-            <a href="login.html">
+            <button
+              class="header-bottom-actions-btn"
+              id="login-btn"
+              aria-label="Profile"
+            >
               <ion-icon name="person-outline"></ion-icon>
 
               <span>Profile</span>
-            </a>
+            </button>
 
             <button
               class="header-bottom-actions-btn"
@@ -571,6 +573,25 @@
     <!-- 
     - ionicon link
   -->
+    <script>
+      /**
+       * login page
+       */
 
+      let btnLog = document.querySelector("section.login .log-btn");
+      let btnCreat = document.querySelector("section.login .creat-btn");
+      let logForm = document.querySelector("section.login .form-login");
+      let creatForm = document.querySelector("section.login .form-creat");
+
+      btnLog.onclick = () => {
+        creatForm.style.display = "none";
+        logForm.style.display = "block";
+      };
+
+      btnCreat.onclick = () => {
+        logForm.style.display = "none";
+        creatForm.style.display = "block";
+      };
+    </script>
   </body>
 </html>
