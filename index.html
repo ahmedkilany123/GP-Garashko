@@ -1415,5 +1415,17 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        // فحص وجود الـ token
+        if (localStorage.getItem("token")) {
+          // تحويل المستخدم بعد 3 ثواني
+          setTimeout(() => {
+            window.location.href = "prof.html";
+          }, 3000);
+        }
+      });
+    </script>
   </body>
 </html>
