@@ -1,220 +1,3 @@
-// let token;
-// if (!localStorage.getItem("token")) {
-//   token = JSON.parse(localStorage.getItem("token"));
-// }
-// let = {} || JSON.parse(localStorage.getItem("user"));
-// let vehicles = [];
-// // todo ------------------------------
-// async function getUser() {
-//   const token = JSON.parse(localStorage.getItem("token"));
-//   console.log(token);
-// fetch("https://gara4ko.onrender.com/api/v1/user/", {
-//   method: "GET",
-//   headers: {
-//     token: token,
-//     Accept: "application/json, text/plain, */*",
-//     "Content-Type": "application/json",
-//   },
-// })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     document.querySelector(".name-user").innerText = data.data.userName;
-//     document.querySelector(".name").innerText = data.data.userName;
-//     document.querySelector(".email").innerText = data.data.email;
-//     document.querySelector(".phone-user").innerText = data.phoneNumber;
-//   })
-//   .catch((error) => console.error("Error:", error));
-
-///////////////////////////////////////////////////////
-//   const response = await fetch("https://gara4ko.onrender.com/api/v1/user/", {
-//     method: "GET",
-//     headers: {
-//       token,
-//       Accept: "application/json, text/plain, */*",
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   let data =
-//     (await response.json()) || JSON.parse(localStorage.getItem("user"));
-//   console.log("dataaa", data);
-//   localStorage.setItem("user", JSON.stringify(data.data));
-
-//   console.log(data);
-//   return data;
-// }
-
-// setInterval(async () => {
-//   userData = await getUser().then((res) => res.data);
-
-//   console.log("userDataa", userDataa);
-// }, 5000);
-// document.querySelector(".name-user").innerText =
-//   data.data.userName || userData.userName;
-// document.querySelector(".name").innerText =
-//   data.data.userName || userData.userName;
-// document.querySelector(".email").innerText = data.data.email || userData.email;
-// document.querySelector(".phone-user").innerText =
-//   data.phoneNumber || userData.phoneNumber;
-
-// todo ------------------------------
-
-// // sign in
-// document
-//   .getElementById("loging-form")
-//   .addEventListener("submit", async function (e) {
-//     e.preventDefault();
-
-//     // استخدم FormData لجمع البيانات من النموذج
-//     const formData = new FormData(this);
-//     const email = formData.get("email");
-//     const password = formData.get("password");
-
-//     console.log(
-//       JSON.stringify({
-//         email,
-//         password,
-//       })
-//     );
-
-//     const response = await fetch(
-//       "https://gara4ko.onrender.com/api/v1/auth/signIn",
-//       {
-//         method: "POST",
-//         body: JSON.stringify({
-//           email,
-//           password,
-//         }),
-
-//         headers: {
-//           Accept: "application/json, text/plain, */*",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-
-//     const data = await response.json();
-
-//     if (data?.success) {
-//       token = data.token;
-//       localStorage.setItem("token", JSON.stringify(data.token));
-//       console.log(data);
-//       const userResponse = await getUser();
-//       console.log("userResponse", userResponse);
-//       setTimeout(() => {
-//         window.location.href = "prof.html";
-//       }, 3000);
-
-//       //اخيرا
-//     } else {
-//       document.querySelector(".message-serv2").innerText =
-//         "wrong email or password";
-//     }
-//   });
-
-//-------------------------------------
-//sign up
-document
-  .querySelector(".form-creat")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    var userName = document.getElementById("userName").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var phoneNumber = document.getElementById("phoneNumber").value;
-
-    var data = {
-      userName: userName,
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber,
-    };
-
-    fetch("https://gara4ko.onrender.com/api/v1/auth/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        document.querySelector(".message-serv").innerText = data.message;
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  });
-
-// todo vihcle //
-// function vicData() {
-//   // const token = JSON.parse(localStorage.getItem("token"));
-//   const token =
-//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ";
-//   fetch("https://gara4ko.onrender.com/api/v1/vehicle/vehicles", {
-//     method: "GET",
-//     headers: {
-//       token: token,
-//       Accept: "application/json, text/plain, */*",
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       document.querySelector(".serial").innerText = data.data.vehicle_info;
-//       console.log(data);
-//     })
-//     .catch((error) => console.error("Error:", error));
-// }
-// todo  user //
-// async function getUser() {
-//   const token = localStorage.getItem("token");
-
-//   const response = await fetch("https://gara4ko.onrender.com/api/v1/user", {
-//     headers: {
-//       token:
-//         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ",
-//     },
-//   });
-//   const data = await response.json();
-//   console.log(data);
-//   vicData();
-//   return data;
-// }
-// getUser();
-
-// getUser();
-// vicData();
-// ("use strict");
-
-//******************************* */
-//******************************* */
-// ملغية حاليا
-// function userData() {
-//   const token = JSON.parse(localStorage.getItem("token"));
-
-//   fetch("https://gara4ko.onrender.com/api/v1/user/", {
-//     method: "GET",
-//     headers: {
-//       token: token,
-//       Accept: "application/json, text/plain, */*",
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       document.querySelector(".name-user").innerText = data.data.userName;
-//       document.querySelector(".name").innerText = data.data.userName;
-//       document.querySelector(".email").innerText = data.data.email;
-//       document.querySelector(".phone-user").innerText = data.data.phoneNumber;
-//     })
-//     .catch((error) => console.error("Error:", error));
-// }
-// userData();
-
-// الداتا بيز وقعت
-
 /**
  * element toggle function
  */
@@ -316,55 +99,6 @@ cart.addEventListener("click", function (event) {
 
 ///*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
 
-// الداتا بيز وقعت
-
-// sign in
-document
-  .getElementById("loging-form")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    // استخدم FormData لجمع البيانات من النموذج
-    const formData = new FormData(this);
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    console.log(
-      JSON.stringify({
-        email,
-        password,
-      })
-    );
-
-    const response = await fetch(
-      "https://gara4ko.onrender.com/api/v1/auth/signIn",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    const data = await response.json();
-    console.log("#===>token", data.token);
-    if (data?.success) {
-      localStorage.setItem("token", JSON.stringify(data.token));
-      window.location.href = "prof.html";
-      //اخيرا
-    } else {
-      console.log(data);
-      document.querySelector(".message-serv2").innerText =
-        "wrong email or password";
-    }
-  });
-
 // user data
 
 function userData() {
@@ -388,7 +122,16 @@ function userData() {
     .catch((error) => console.error("Error:", error));
 }
 
-// vechicle
+// function deleteVehicle(id) {
+//   console.log(JSON.parse(id));
+// const response = await fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`,{
+//   headers:{
+//     token:JSON.parse(localStorage.getItem("token"))
+//   }
+// })
+// const data = await response.json()
+// console.log('response delete',data)
+// }
 
 function vicData() {
   // const token = JSON.parse(localStorage.getItem("token"));
@@ -407,34 +150,132 @@ function vicData() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      document.querySelector(
-        ".type"
-      ).innerText = `${data.data[0].vehicle_info.type}`;
-      document.querySelector(
-        ".model"
-      ).innerText = `${data.data[0].vehicle_info.model}`;
-      document.querySelector(
-        ".letters"
-      ).innerText = `${data.data[0].vehicle_license.licenseLetters.join(" ")}`;
-      document.querySelector(
-        ".numbers"
-      ).innerText = `${data.data[0].vehicle_license.licenseNumbers.join(" ")} `;
+      let box = ``;
+      // let vec1 = data.data[0]?._id;
+      // let vec2 = data.data[1]?._id;
+      // let vec3 = data.data[2]?._id;
 
-      // vec2
+      for (let i = 0; i < data.data.length; i++) {
+        console.log("data loop", data.data[i]?._id);
+        
+        box += `
+        <tr class="item">
+          <td>${i + 1}</td>
+          <td>${data.data[i]?.vehicle_info.type}</td>
+          <td>${data.data[i]?.vehicle_info.model}</td>
+          <td>${data.data[i]?.vehicle_license.licenseNumbers.join(" ")}</td>
+          <td>${data.data[i]?.vehicle_license.licenseLetters.join(" ")}</td>
+          <td><i class="fa-solid fa-pen-to-square"></i></td>
+          <td><i class="fa-solid fa-trash" onclick="deleteVehicle('${data.data[i]?._id}')"></i></td>
+        </tr>
+        `;
+        ;
+      }
+      document.getElementById("vehiceRow").innerHTML = box;
+
       console.log(data);
-      document.querySelector(
-        ".type1"
-      ).innerText = `${data.data[1].vehicle_info.type}`;
-      document.querySelector(
-        ".model1"
-      ).innerText = `${data.data[1].vehicle_info.model}`;
-      document.querySelector(
-        ".letters1"
-      ).innerText = `${data.data[1].vehicle_license.licenseLetters.join(" ")}`;
-      document.querySelector(
-        ".numbers1"
-      ).innerText = `${data.data[1].vehicle_license.licenseNumbers.join(" ")} `;
     })
 
     .catch((error) => console.error("Error:", error));
 }
+// Add vechicle
+
+function vecAdd() {
+  document
+    .querySelector(".vec-creat")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var licenseLetters = document.getElementById("licenseLetters").value;
+      var licenseNumbers = document.getElementById("licenseNumbers").value;
+      var type = document.getElementById("type").value;
+      var model = document.getElementById("model").value;
+      var endOfLicense = document.getElementById("endOfLicense").value;
+      var beginningOfLicense =
+        document.getElementById("beginningOfLicense").value;
+
+      // تحويل القيم إلى مصفوفات إذا كانت سلاسل نصية
+      if (typeof licenseLetters === "string") {
+        licenseLetters = licenseLetters.split("");
+      }
+      if (typeof licenseNumbers === "string") {
+        licenseNumbers = licenseNumbers.split("").map(Number);
+      }
+
+      var data = {
+        licenseLetters: licenseLetters,
+        licenseNumbers: licenseNumbers,
+        type: type,
+        model: model,
+        endOfLicense: endOfLicense,
+        BeginningOfLicense: beginningOfLicense,
+      };
+
+      var token = JSON.parse(localStorage.getItem("token"));
+
+      fetch("https://gara4ko.onrender.com/api/v1/vehicle/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          token: token,
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          document.querySelector(".messageVec").innerText = data.message;
+
+          if (
+            document.querySelector(".messageVec").innerText ===
+            "vehicle added successfully"
+          ) {
+            document.getElementById("licenseLetters").value = "";
+            document.getElementById("licenseNumbers").value = "";
+            document.getElementById("type").value = "";
+            document.getElementById("model").value = "";
+            document.getElementById("endOfLicense").value = "";
+            document.getElementById("beginningOfLicense").value = "";
+            setTimeout(() => {
+              document.querySelector(".messageVec").innerText = "";
+            }, 3000);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+}
+
+// delet vechicle
+
+function deleteVehicle(id) {
+  // يفترض أن الـ token مخزن في localStorage
+  const token = JSON.parse(localStorage.getItem("token"));
+  if (confirm('هل أنت متأكد أنك تريد حذف المركبة؟')) {
+  fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      token: token,
+    },
+  })
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      console.error("HTTP Error:", response.statusText);
+      throw new Error("Something went wrong");
+    }
+  })
+  .then((data) => {
+    console.log("Vehicle deleted:", data);
+    // يمكنك هنا إعادة تحميل البيانات أو تحديث الواجهة
+    vicData()
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
+}
+
