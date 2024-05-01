@@ -151,7 +151,9 @@ body {
   padding-inline: 15px;
   margin: 0 auto;
 }
-
+.none {
+  display: none;
+}
 button,
 a {
   transition: var(--transition);
@@ -2339,11 +2341,11 @@ h2 {
   }
   .vec-edit {
     text-align: center;
-    h3{
+    h3 {
       margin: 20px auto 10px;
       background: var(--cadet);
       width: 50%;
-      padding: 5px ;
+      padding: 5px;
       color: white;
     }
     input {
@@ -2362,6 +2364,7 @@ h2 {
       padding: 7px 15px;
       width: fit-content;
     }
+  
   }
   .contact-us {
     padding: 20px;
@@ -2371,6 +2374,19 @@ h2 {
     /* ****** */
 
     /* ****** */
+  }
+}
+.bt {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  .close-btn {
+    background: rgb(229, 89, 89);
+    padding: 0px 7px;
+    height: 40px;
+    /* color: white; */
+    width: fit-content;
   }
 }
 

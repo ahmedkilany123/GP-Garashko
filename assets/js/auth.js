@@ -1,6 +1,6 @@
-//-------------------------------------
-//sign up
 
+
+//todo => sign up
 document
   .querySelector(".form-creat")
   .addEventListener("submit", function (event) {
@@ -36,7 +36,7 @@ document
       });
   });
 
-// sign in
+//todo => sign in
 document
   .getElementById("loging-form")
   .addEventListener("submit", async function (e) {
@@ -82,3 +82,5 @@ document
         "wrong email or password";
     }
   });
+
+
