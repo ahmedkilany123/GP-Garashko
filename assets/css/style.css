@@ -1718,6 +1718,14 @@ section.login .log-form form input[type="submit"] {
   border-radius: 10px;
   margin: 10px auto;
   display: block;
+
+}
+section.login  form input[type="submit"]{
+  transition: .5s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 section.login .log-form form .or {
   text-align: center;
@@ -2339,8 +2347,11 @@ h2 {
       position: relative;
     }
   }
-  .vec-edit {
+  .vec-update {
+    margin: 10px auto;
+    width: 300px;
     text-align: center;
+
     h3 {
       margin: 20px auto 10px;
       background: var(--cadet);
@@ -2349,7 +2360,7 @@ h2 {
       color: white;
     }
     input {
-      width: 50% !important;
+      width: 100% !important;
       margin: 0 auto 15px !important;
     }
     h3 {
@@ -2364,7 +2375,6 @@ h2 {
       padding: 7px 15px;
       width: fit-content;
     }
-  
   }
   .contact-us {
     padding: 20px;
@@ -2426,6 +2436,9 @@ input:not(input[type="checkbox"]) {
 }
 .vehicle-sec {
   display: none;
+}
+.vehicle-sec,
+.vec-update {
   padding: 20px 0 40px 0;
   text-align: center;
   label {

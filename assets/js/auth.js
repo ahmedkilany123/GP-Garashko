@@ -1,6 +1,6 @@
 
 
-//todo => sign up
+//sign up
 document
   .querySelector(".form-creat")
   .addEventListener("submit", function (event) {
@@ -36,7 +36,7 @@ document
       });
   });
 
-//todo => sign in
+//sign in
 document
   .getElementById("loging-form")
   .addEventListener("submit", async function (e) {

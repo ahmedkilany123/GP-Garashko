@@ -134,9 +134,6 @@ function userData() {
 function vicData() {
   const token = JSON.parse(localStorage.getItem("token"));
 
-  // const token =
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTc1NmE3MDYwYjI1YzY4MWE0NDdiOSIsImVtYWlsIjoidmlwdGUzbzJAZ21haWwuY29tIiwidXNlck5hbWUiOiJtb2hhbWVkbW90ZTMiLCJjcmVhdGVkQXQiOiIyMDI0LTAzLTA1VDE3OjMwOjE1LjU1N1oiLCJyb2xlIjoic3VwZXJBZG1pbiIsImlhdCI6MTcxNDA2NzYwMiwiZXhwIjoxNzE0ODQ1MjAyfQ.Mmv2rL-JI782uyudPsCz492FrgYPzNdFuFp9c8IzZFQ";
-
   fetch("https://gara4ko.onrender.com/api/v1/vehicle/vehicles", {
     method: "GET",
     headers: {
@@ -160,10 +157,13 @@ function vicData() {
           <td>${data.data[i]?.vehicle_info.model}</td>
           <td>${data.data[i]?.vehicle_license.licenseNumbers.join(" ")}</td>
           <td>${data.data[i]?.vehicle_license.licenseLetters.join(" ")}</td>
-          <td><i class="fa-solid fa-pen-to-square" onclick="updateVehicle('${
-            data.data[i]?._id
-          }')"></i></td>
-          <td><i class="fa-solid fa-trash" onclick="deleteVehicle('${
+          <td>
+          <i class="fa-solid fa-pen-to-square" id="editIcon"  onclick="updateVehicle('${
+            data.data[0]?._id
+          }')"></i>
+          </td>
+          <td>
+          <i class="fa-solid fa-trash" onclick="deleteVehicle('${
             data.data[i]?._id
           }')"></i></td>
         </tr>
@@ -172,6 +172,25 @@ function vicData() {
       document.getElementById("vehiceRow").innerHTML = box;
 
       console.log(data);
+      console.log(data.data[0]?.BeginningOfLicense);
+
+      document.getElementById("typeE").value = data.data[0]?.vehicle_info.type;
+      document.getElementById("modelE").value =
+        data.data[0]?.vehicle_info.model;
+      document.getElementById("licenseLettersE").value =
+        data.data[0]?.vehicle_license.licenseLetters.join("");
+      document.getElementById("licenseNumbersE").value =
+        data.data[0]?.vehicle_license.licenseNumbers.join("");
+
+      let dateEnd = new Date(data.data[0]?.endOfLicense)
+        .toISOString()
+        .slice(0, 10);
+      document.getElementById("endOfLicenseE").value = dateEnd;
+
+      let datebeginning = new Date(data.data[0]?.BeginningOfLicense)
+        .toISOString()
+        .slice(0, 10);
+      document.getElementById("beginningOfLicenseE").value = datebeginning;
     })
 
     .catch((error) => console.error("Error:", error));
@@ -204,6 +223,19 @@ function vecAdd() {
         licenseNumbers = licenseNumbers.split("").map(Number);
       }
 
+      // التحقق من القيم قبل الإرسال
+      if (
+        !licenseLetters ||
+        !licenseNumbers ||
+        !type ||
+        !model ||
+        !endOfLicense ||
+        !beginningOfLicense
+      ) {
+        console.error("Error: One or more fields are empty.");
+        return;
+      }
+
       var data = {
         licenseLetters: licenseLetters,
         licenseNumbers: licenseNumbers,
@@ -215,7 +247,7 @@ function vecAdd() {
 
       var token = JSON.parse(localStorage.getItem("token"));
 
-      fetch("https://gara4ko.onrender.com/api/v1/vehicle/", {
+      fetch("https://gara4ko.onrender.com/api/v1/vehicle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -250,76 +282,69 @@ function vecAdd() {
 }
 
 // edit vechle
+// Function to update vehicle data
 function updateVehicle(id) {
-  document
-    .querySelector(".vec-update")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
+  const token = JSON.parse(localStorage.getItem("token"));
+  const form = document.querySelector(".vec-update");
 
-      var licenseLetters = document.getElementById(
-        "licenseLetters".trim()
-      ).value;
-      var licenseNumbers = document.getElementById(
-        "licenseNumbers".trim()
-      ).value;
-      var type = document.getElementById("type".trim()).value;
-      var model = document.getElementById("model".trim()).value;
-      var endOfLicense = document.getElementById("endOfLicense").value;
-      var beginningOfLicense =
-        document.getElementById("beginningOfLicense").value;
+  document.getElementById("licenseLettersE");
+  document.getElementById("licenseNumbersE");
 
-      // تحويل القيم إلى مصفوفات إذا كانت سلاسل نصية
-      if (typeof licenseLetters === "string") {
-        licenseLetters = licenseLetters.split("");
-      }
-      if (typeof licenseNumbers === "string") {
-        licenseNumbers = licenseNumbers.split("").map(Number);
-      }
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.getElementById("typeE");
+    document.getElementById("modelE");
+    document.getElementById("endOfLicenseE");
+    document.getElementById("beginningOfLicenseE");
 
-      var data = {
-        licenseLetters: licenseLetters,
-        licenseNumbers: licenseNumbers,
-        type: type,
-        model: model,
-        endOfLicense: endOfLicense,
-        BeginningOfLicense: beginningOfLicense,
-      };
+    // Collecting updated vehicle data from the form
+    const updatedData = {
+      licenseLetters: document
+        .getElementById("licenseLettersE")
+        .value.split(" "),
+      licenseNumbers: document
+        .getElementById("licenseNumbersE")
+        .value.split("")
+        .map(Number),
+      type: document.getElementById("typeE").value,
+      model: document.getElementById("modelE").value,
+      endOfLicense: document.getElementById("endOfLicenseE").value,
+      BeginningOfLicense: document.getElementById("beginningOfLicenseE").value,
+    };
 
-      var token = JSON.parse(localStorage.getItem("token"));
-
-      fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          token: token,
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+    // Sending the PUT request to update the vehicle data
+    fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        token: token,
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(id);
+        console.log(data);
+        if (data.success) {
           document.querySelector(".messageVec").innerText = data.message;
-
-          if (
-            document.querySelector(".messageVec").innerText ===
-            "vehicle updated successfully"
-          ) {
-            document.getElementById("licenseLetters").value = "";
-            document.getElementById("licenseNumbers").value = "";
-            document.getElementById("type").value = "";
-            document.getElementById("model").value = "";
-            document.getElementById("endOfLicense").value = "";
-            document.getElementById("beginningOfLicense").value = "";
-            setTimeout(() => {
-              document.querySelector(".messageVec").innerText = "";
-            }, 3000);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
+          // Clear form fields after successful update
+          form.reset();
+          // Refresh vehicle data display
+          vicData();
+        } else {
+          document.querySelector(".messageVec").innerText =
+            "Update failed ";
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        document.querySelector(".messageVec").innerText =
+          "Update failed: " + error.message;
+      });
+  });
 }
+
+// Call this function when the edit icon is clicked, passing the vehicle ID
 
 // delet vechicle
 function deleteVehicle(id) {
