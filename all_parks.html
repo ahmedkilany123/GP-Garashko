@@ -30,7 +30,7 @@
     <meta property="fb:app_id" content="61557761423216" />
     <meta name="twitter:site" content="@garashko_eg" />
 
-    <title>Garashko</title>
+    <title>parks</title>
 
     <!-- 
     - favicon
@@ -64,13 +64,63 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .parks {
+        background: var(--cultured-2);
+        padding-block: var(--section-padding);
+      }
+      .grid-boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        .box {
+          position: relative;
+          background: var(--white);
+          padding: 40px 30px;
+          box-shadow: var(--shadow-2);
+          border-radius: 6px;
+
+          h3 {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+          }
+          p.location {
+            display: flex;
+            align-items: center;
+            span.city {
+              font-size: 14px;
+              font-weight: 700;
+              margin-right: 5px;
+              color: var(--main-color);
+              padding: 5px 10px;
+              background: hsla(9, 100%, 62%, 0.1);
+              width: max-content;
+              border-radius: 50px;
+            }
+          }
+          p.cridPrice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+          }
+          .btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            .btn {
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <!-- 
-    - #HEADER
-  -->
-
     <header class="header" data-header>
       <div class="overlay" data-overlay></div>
 
@@ -307,273 +357,42 @@
 
     <main>
       <article>
-        <section class="prof-top">
+        <section class="parks">
           <div class="container">
-            <ul class="menu">
-              <li>
-                <a href="#" class="sec-dash" onclick="vicData()">Dashboard</a>
-              </li>
-              <li><a href="#" class="sec-transaction">My Transactions</a></li>
-              <li><a href="#" class="sec-vehicle-sec">My Vechicles</a></li>
-              <li><a href="#" class="sec-cards">My Cards</a></li>
-              <li><a href="#" class="sec-acount-det">Account</a></li>
-            </ul>
+            <div class="grid-boxes"></div>
           </div>
         </section>
-        <h2>hello, <span class="name-user"></span></h2>
-
-        <div class="dash active">
-          <p>Your Details</p>
-          <div class="container">
-            <div class="details">
-              <div class="info">
-                <h3>My Acount</h3>
-                <div class="acount">
-                  <span><i class="fa-regular fa-user"></i></span>
-                  <p>Information</p>
-
-                  <p class="name"></p>
-                  <p class="email"></p>
-                  <br />
-                  <p class="phone-user"></p>
-                </div>
-                <div class="vechicle">
-                  <h3>vechicles</h3>
-
-                  <table class="vechicle-tab none">
-                    <thead>
-                      <th>#</th>
-                      <th>Type</th>
-                      <th>Model</th>
-                      <th>Numbers</th>
-                      <th>Letters</th>
-                      <th>edit</th>
-                      <th>del</th>
-                    </thead>
-                    <tbody id="vehiceRow"></tbody>
-                  </table>
-
-                  <!-- <p class="type"></p> -->
-                  <!-- <p class="model"></p>
-                  <p class="letters"></p>
-                  <p class="numbers"></p> -->
-                </div>
-                <div class="cards" style="display: block; text-align: left">
-                  <h3>Cards</h3>
-                  <p>xxx-xxxx-xxx-xxx</p>
-                </div>
-              </div>
-              <img src="assets/images/transaction-cars.png" alt="" />
-            </div>
-
-            <form class="vec-update none">
-              <label for="licenseLettersE">license Letters</label>
-              <input
-                type="text"
-                name=""
-                id="licenseLettersE"
-                placeholder="EX: س ن د"
-              />
-
-              <label for="licenseNumbersE">license Numbers</label>
-              <input
-                type="text"
-                name=""
-                id="licenseNumbersE"
-                placeholder="ُEx: 324"
-              />
-
-              <label for="modelE">Model</label>
-              <input type="text" name="" id="modelE" placeholder="Ex: 2019" />
-
-              <label for="typeE">Type</label>
-              <input type="text" name="" id="typeE" placeholder="Ex: tyota" />
-
-              <label for="beginningOfLicenseE">beginning Of License</label>
-              <input
-                type="date"
-                name=""
-                id="beginningOfLicenseE"
-                placeholder="Ex:20-04-2024"
-                value=""
-              />
-
-              <label for="endOfLicenseE">end Of License</label>
-              <input
-                type="date"
-                name=""
-                id="endOfLicenseE"
-                placeholder="Ex: 20-04-2030"
-              />
-
-              <p class="messageVec"></p>
-              <input type="submit" value="edit" />
-              <div class="bt">
-                <input type="button" class="close-btn" value="cancel" />
-              </div>
-            </form>
-            <div class="contact-us">
-              <h3>Email Us</h3>
-              <input type="text" placeholder="Category" />
-              <input type="text" placeholder="Enter Name Of Car Park" />
-              <input type="text" placeholder="Vehicle registration" />
-              <input type="text" placeholder="Booking reference" />
-              <input type="text" placeholder="Subject" />
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Message"
-              ></textarea>
-              <input type="file" placeholder="choose file" />
-
-              <input type="checkbox" name="receive" id="receive" />
-              <label for="receive">
-                I agree to receive information and commercial offers about Saba
-                e.g updates
-              </label>
-              <br />
-              <br />
-              <input type="checkbox" name="personal" id="personal" />
-              <label for="personal">
-                I agree to my personal data being stored and used to receive the
-                newsletter
-              </label>
-              <input type="submit" value="send" />
-            </div>
-          </div>
-        </div>
-
-        <div class="transaction">
-          <div class="container">
-            <h3>My Operations</h3>
-            <div class="noneOp">
-              <img src="assets/images/transaction-none.png" alt="" />
-
-              <p>You don't have operations yet</p>
-              <span
-                >Take a look at our products and buy without handling fees. You
-                will save up to 70%.</span
-              >
-              <a href="#" class="btn">sea products</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="vehicle-sec">
-          <div class="container">
-            <h3>MY VEHICLES</h3>
-            <p class="add">ADD A VEHICLE</p>
-            <form class="vec-creat">
-              <label for="licenseLetters">license Letters</label>
-              <input
-                type="text"
-                name=""
-                id="licenseLetters"
-                placeholder="EX: س ن د"
-              />
-
-              <label for="licenseNumbers">license Numbers</label>
-              <input
-                type="text"
-                name=""
-                id="licenseNumbers"
-                placeholder="ُEx: 324"
-              />
-
-              <label for="model">Model</label>
-              <input type="text" name="" id="model" placeholder="Ex: 2019" />
-
-              <label for="type">Type</label>
-              <input type="text" name="" id="type" placeholder="Ex: tyota" />
-
-              <label for="beginningOfLicense">beginning Of License</label>
-              <input
-                type="date"
-                name=""
-                id="beginningOfLicense"
-                placeholder="Ex:20-04-2024"
-              />
-
-              <label for="endOfLicense">end Of License</label>
-              <input
-                type="date"
-                name=""
-                id="endOfLicense"
-                placeholder="Ex: 20-04-2030"
-              />
-
-              <p class="messageVec"></p>
-              <input type="submit" value="add" />
-            </form>
-          </div>
-        </div>
-
-        <div class="cards card-sec">
-          <div class="container">
-            <h3>My payment methods</h3>
-            <img src="assets/images/prof-cards.png" alt="" />
-            <p>There are no payment methods associated with your account.</p>
-            <span>Add your card data.</span>
-            <a href="#" class="btn">ADD PAYMENT METHOD</a>
-          </div>
-        </div>
-
-        <div class="acount-det">
-          <div class="container">
-            <h3>MY ACCOUNT DETAILS</h3>
-            <div class="datails">
-              <div class="name">
-                <div>
-                  <label for="fName">first name</label>
-                  <input id="fName" type="text" value="" />
-                </div>
-                <div>
-                  <label for="lName">last name</label>
-                  <input id="lName" type="text" value="" />
-                </div>
-              </div>
-              <div class="email">
-                <div>
-                  <label for="uEmail">email</label>
-                  <input id="uEmail" type="email" value="" />
-                </div>
-                <div>
-                  <label for="uTel">email</label>
-
-                  <input id="uTel" type="tel" value="012454547" />
-                </div>
-              </div>
-            </div>
-
-            <h3>BILLING ADDRESS</h3>
-            <div class="datails2">
-              <div class="name">
-                <input type="text" value="address1" />
-                <input type="text" value="address2" />
-              </div>
-              <div class="email">
-                <input type="text" value="postal code" />
-                <input type="text" value="city" />
-              </div>
-              <div class="check">
-                <input type="checkbox" name="address" id="address" />
-                <label for="address">
-                  I agree to my personal data being stored and used to receive
-                  the newsletter
-                </label>
-              </div>
-            </div>
-            <input type="submit" value="send" />
-          </div>
-        </div>
+        <br />
+        <!-- ----------- -->
+        <form id="addParkingForm">
+          <label for="parking_name">اسم الجراج:</label><br />
+          <input type="text" id="parking_name" name="parking_name" /><br />
+          <label for="city">المدينة:</label><br />
+          <input type="text" id="city" name="city" /><br />
+          <label for="state">الولاية:</label><br />
+          <input type="text" id="state" name="state" /><br />
+          <label for="address">العنوان:</label><br />
+          <input type="text" id="address" name="address" /><br />
+          <label for="totalPlace">المكان الكلي:</label><br />
+          <input type="number" id="totalPlace" name="totalPlace" /><br />
+          <label for="creditPointPerHour">نقاط الائتمان في الساعة:</label><br />
+          <input
+            type="number"
+            id="creditPointPerHour"
+            name="creditPointPerHour"
+          /><br />
+          <label for="locationMap">خريطة الموقع:</label><br />
+          <input type="text" id="locationMap" name="locationMap" /><br />
+          <label for="creditPointPerMonth">نقاط الائتمان في الشهر:</label><br />
+          <input
+            type="number"
+            id="creditPointPerMonth"
+            name="creditPointPerMonth"
+          /><br />
+          <input type="submit" value="إضافة جراج" />
+        </form>
       </article>
     </main>
-
-    <!-- 
-    - #FOOTER
-  -->
 
     <footer class="footer">
       <div class="footer-top">
@@ -760,145 +579,85 @@
       </div>
     </footer>
 
-    <!-- 
-    - custom js link
-  -->
-    <script src="./assets/js/script.js"></script>
-
-    <!-- 
-    - ionicon link
-  -->
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-
-    <!-- sweet alert  -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
-      let profTop = document.querySelectorAll(".prof-top .menu li");
-      profTop.forEach(function (el) {
-        el.onclick = function () {
-          profTop.forEach(function (el) {
-            el.classList.remove("active");
-          });
-          this.classList.add("active");
-        };
-      });
+      const token = JSON.parse(localStorage.getItem("token"));
 
-      let menu = document.querySelectorAll(".prof-top .menu li");
-      let dash = document.querySelectorAll(".dash");
-      let tran = document.querySelectorAll(".transaction");
-      let vec = document.querySelectorAll(".vehicle-sec");
-      let cards = document.querySelectorAll(".card-sec");
-      let acountDet = document.querySelectorAll(".acount-det");
+      function ParkingData() {
+        const gridBoxes = document.querySelector(".grid-boxes");
 
-      menu[0].onclick = () => {
-        dash[0].classList.add("active");
+        fetch("https://gara4ko.onrender.com/api/v1/parking", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console, console.log(data);
+            for (let i = 0; i < data.data.length; i++) {
+              const parking = data.data[i];
 
-        tran[0].classList.remove("active");
-        vec[0].classList.remove("active");
-        cards[0].classList.remove("active");
-        acountDet[0].classList.remove("active");
-      };
-      menu[1].onclick = () => {
-        dash[0].classList.remove("active");
-        tran[0].classList.add("active");
-        vec[0].classList.remove("active");
-        cards[0].classList.remove("active");
-        acountDet[0].classList.remove("active");
-      };
-      menu[2].onclick = () => {
-        dash[0].classList.remove("active");
-        tran[0].classList.remove("active");
-        vec[0].classList.add("active");
-        cards[0].classList.remove("active");
-        acountDet[0].classList.remove("active");
-      };
-      menu[3].onclick = () => {
-        dash[0].classList.remove("active");
-        tran[0].classList.remove("active");
-        cards[0].classList.add("active");
-        vec[0].classList.remove("active");
-        acountDet[0].classList.remove("active");
-      };
-      menu[4].onclick = () => {
-        dash[0].classList.remove("active");
-        tran[0].classList.remove("active");
-        vec[0].classList.remove("active");
-        cards[0].classList.remove("active");
-        acountDet[0].classList.add("active");
-      };
+              const box = document.createElement("div");
+              box.className = "box";
 
-      //********************
+              box.innerHTML = `
+          <img src="" alt="">
+          <h3 class="parkName">${parking.parking_name}</h3>
+          <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
+          <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
+          <div class="btns">
+            <a href="#" class="btn">find in map</a>
+            <a href="#" class="btn">ticket now</a>
+          </div>
+        `;
 
-      // let editIcon = document.querySelector("#editIcon");
-      // let vecUpdate = document.querySelector(".vec-update");
+              gridBoxes.appendChild(box);
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
 
-      // editIcon.onclick = function () {
-      //   vecUpdate.classList.toggle("none");
-      // };
+      ParkingData();
 
-      //********************
+      document
+  .getElementById("addParkingForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      userData();
-      vicData();
-      vecAdd();
-      updateVehicle()
-      /////*****
-      let tab = document.querySelector(".vechicle-tab");
-      setTimeout(function () {
-        if (document.querySelector(".vechicle-tab tbody").rows.length === 0) {
-          tab.classList.add("none");
-        } else {
-          tab.classList.remove("none");
+    // تحويل قيمة locationMap إلى كائن
+    let locationMapValue = document.getElementById("locationMap").value;
+    let locationMapObject = {};
+    try {
+      locationMapObject = JSON.parse(locationMapValue);
+    } catch (error) {
+      console.error("Parsing error:", error);
+    }
 
-          let editIcons = document.querySelectorAll("#editIcon");
-          let vecUpdate = document.querySelector(".vec-update");
-          let closeBtn = document.querySelectorAll(".close-btn");
+    let data = {
+      parking_name: document.getElementById("parking_name").value,
+      city: document.getElementById("city").value,
+      state: document.getElementById("state").value,
+      address: document.getElementById("address").value,
+      totalPlace: document.getElementById("totalPlace").value,
+      creditPointPerHour: document.getElementById("creditPointPerHour").value,
+      locationMap: locationMapObject, // استخدام الكائن هنا
+      creditPointPerMonth: document.getElementById("creditPointPerMonth").value,
+    };
 
-          editIcons.forEach(function (editIcon) {
-            editIcon.onclick = function () {
-              vecUpdate.classList.toggle("none");
-              // إضافة سكرول بمقدار 30 بكسل للأسفل
-              window.scrollBy(0, 600);
-            };
-          });
+    fetch("https://gara4ko.onrender.com/api/v1/parking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: token,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error));
+  });
 
-          closeBtn.forEach(function (closeBtn) {
-            closeBtn.onclick = function () {
-              vecUpdate.classList.toggle("none");
-              // إضافة سكرول بمقدار 30 بكسل للأسفل
-              window.scrollBy(0, -600);
-            };
-          });
-        }
-      }, 3000);
-      //************************************
-
-      /////*****
-
-      setTimeout(function () {
-        let userElement = document.querySelector(".name-user");
-        if (!userElement || !userElement.textContent.trim()) {
-          window.location.href = "login.html";
-        }
-      }, 5000);
     </script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
