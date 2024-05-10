@@ -535,6 +535,7 @@ input:invalid {
   box-shadow: var(--shadow-2);
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .header-bottom-actions a ion-icon {
@@ -2724,6 +2725,9 @@ main div.active {
       flex-direction: column;
     }
   }
+  section.login .log-form img {
+    width: 360px;
+}
 }
 /**
  * responsive for larger than 768px screen
