@@ -1102,6 +1102,9 @@ input {
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
+  img {
+    height: 100%;
+  }
 }
 
 .author-name > a {
