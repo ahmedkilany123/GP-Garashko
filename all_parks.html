@@ -81,6 +81,10 @@
           box-shadow: var(--shadow-2);
           border-radius: 6px;
 
+          img {
+            width: 100%;
+          }
+
           h3 {
             font-size: 26px;
             font-weight: 700;
@@ -364,33 +368,36 @@
         </section>
         <br />
         <!-- ----------- -->
-        <form id="addParkingForm">
-          <label for="parking_name">اسم الجراج:</label><br />
-          <input type="text" id="parking_name" name="parking_name" /><br />
-          <label for="city">المدينة:</label><br />
-          <input type="text" id="city" name="city" /><br />
-          <label for="state">الولاية:</label><br />
-          <input type="text" id="state" name="state" /><br />
-          <label for="address">العنوان:</label><br />
-          <input type="text" id="address" name="address" /><br />
-          <label for="totalPlace">المكان الكلي:</label><br />
-          <input type="number" id="totalPlace" name="totalPlace" /><br />
-          <label for="creditPointPerHour">نقاط الائتمان في الساعة:</label><br />
-          <input
-            type="number"
-            id="creditPointPerHour"
-            name="creditPointPerHour"
-          /><br />
-          <label for="locationMap">خريطة الموقع:</label><br />
-          <input type="text" id="locationMap" name="locationMap" /><br />
-          <label for="creditPointPerMonth">نقاط الائتمان في الشهر:</label><br />
-          <input
-            type="number"
-            id="creditPointPerMonth"
-            name="creditPointPerMonth"
-          /><br />
-          <input type="submit" value="إضافة جراج" />
-        </form>
+        <div class="container">
+          <form id="addParkingForm">
+            <label for="parking_name">Park Name:</label><br />
+            <input type="text" id="parking_name" name="parking_name" /><br />
+            <label for="city">City:</label><br />
+            <input type="text" id="city" name="city" /><br />
+            <label for="state">State:</label><br />
+            <input type="text" id="state" name="state" /><br />
+            <label for="address">Address:</label><br />
+            <input type="text" id="address" name="address" /><br />
+            <label for="totalPlace">Total Places</label><br />
+            <input type="number" id="totalPlace" name="totalPlace" /><br />
+            <label for="creditPointPerHour">credit Point Per Hour</label><br />
+            <input
+              type="number"
+              id="creditPointPerHour"
+              name="creditPointPerHour"
+            /><br />
+            <label for="locationMap">خريطة الموقع:</label><br />
+            <input type="text" id="locationMap" name="locationMap" /><br />
+            <label for="creditPointPerMonth">نقاط الائتمان في الشهر:</label
+            ><br />
+            <input
+              type="number"
+              id="creditPointPerMonth"
+              name="creditPointPerMonth"
+            /><br />
+            <input type="submit" value="إضافة جراج" />
+          </form>
+        </div>
       </article>
     </main>
 
@@ -579,6 +586,14 @@
       </div>
     </footer>
 
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script>
       const token = JSON.parse(localStorage.getItem("token"));
 
@@ -601,7 +616,7 @@
               box.className = "box";
 
               box.innerHTML = `
-          <img src="" alt="">
+          <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
           <h3 class="parkName">${parking.parking_name}</h3>
           <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
           <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
@@ -620,43 +635,44 @@
       ParkingData();
 
       document
-  .getElementById("addParkingForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+        .getElementById("addParkingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-    // تحويل قيمة locationMap إلى كائن
-    let locationMapValue = document.getElementById("locationMap").value;
-    let locationMapObject = {};
-    try {
-      locationMapObject = JSON.parse(locationMapValue);
-    } catch (error) {
-      console.error("Parsing error:", error);
-    }
+          // تحويل قيمة locationMap إلى كائن
+          let locationMapValue = document.getElementById("locationMap").value;
+          let locationMapObject = {};
+          try {
+            locationMapObject = JSON.parse(locationMapValue);
+          } catch (error) {
+            console.error("Parsing error:", error);
+          }
 
-    let data = {
-      parking_name: document.getElementById("parking_name").value,
-      city: document.getElementById("city").value,
-      state: document.getElementById("state").value,
-      address: document.getElementById("address").value,
-      totalPlace: document.getElementById("totalPlace").value,
-      creditPointPerHour: document.getElementById("creditPointPerHour").value,
-      locationMap: locationMapObject, // استخدام الكائن هنا
-      creditPointPerMonth: document.getElementById("creditPointPerMonth").value,
-    };
+          let data = {
+            parking_name: document.getElementById("parking_name").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            address: document.getElementById("address").value,
+            totalPlace: document.getElementById("totalPlace").value,
+            creditPointPerHour:
+              document.getElementById("creditPointPerHour").value,
+            locationMap: locationMapObject, // استخدام الكائن هنا
+            creditPointPerMonth: document.getElementById("creditPointPerMonth")
+              .value,
+          };
 
-    fetch("https://gara4ko.onrender.com/api/v1/parking", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        token: token,
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error("Error:", error));
-  });
-
+          fetch("https://gara4ko.onrender.com/api/v1/parking", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              token: token,
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error("Error:", error));
+        });
     </script>
     <script src="assets/js/script.js"></script>
   </body>
