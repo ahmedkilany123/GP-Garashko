@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="description" content="Put your description here." />
     <!--  Essential META Tags -->
     <meta property="og:title" content="Garashko EG" />
     <meta property="og:type" content="website" />
@@ -148,7 +148,7 @@
       <div class="header-bottom">
         <div class="container">
           <a href="#" class="logo">
-            <img src="https://i.ibb.co/jVzbNZS/logo.png" alt="Garashko logo" />
+            <img loading="lazy"src="https://i.ibb.co/jVzbNZS/logo.png" alt="Garashko logo" />
           </a>
 
           <nav class="navbar" data-navbar>
@@ -161,6 +161,7 @@
               </a>
 
               <button
+                type="button"
                 class="nav-close-btn"
                 data-nav-close-btn
                 aria-label="Close Menu"
@@ -172,7 +173,11 @@
             <div class="navbar-bottom">
               <ul class="navbar-list">
                 <li>
-                  <a href="index.html" class="navbar-link" data-nav-link
+                  <a
+                    title="home"
+                    href="index.html"
+                    class="navbar-link"
+                    data-nav-link
                     >Home</a
                   >
                 </li>
@@ -208,22 +213,24 @@
 
           <div class="header-bottom-actions">
             <button
+              type="button"
               class="header-bottom-actions-btn"
               id="search-btn"
               aria-label="Search"
             >
-              <ion-icon id="search-btn" name="search-outline"></ion-icon>
+              <ion-icon id="" name="search-outline"></ion-icon>
 
               <span>Search</span>
             </button>
 
-            <a href="login.html">
+            <a title="login" href="login.html">
               <ion-icon name="person-outline"></ion-icon>
 
               <span>Profile</span>
             </a>
 
             <button
+              type="button"
               class="header-bottom-actions-btn"
               id="cart-btn"
               aria-label="Cart"
@@ -234,6 +241,7 @@
             </button>
 
             <button
+              type="button"
               class="header-bottom-actions-btn"
               data-nav-open-btn
               aria-label="Open Menu"
@@ -256,7 +264,7 @@
             <div class="shopping-cart">
               <div class="box">
                 <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
+                <img loading="lazy"src="assets/images/cash.png" alt="" />
                 <div class="content">
                   <h3>50 points</h3>
                   <span class="price">50 Egp</span>
@@ -265,7 +273,7 @@
               </div>
               <div class="box">
                 <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
+                <img loading="lazy"src="assets/images/cash.png" alt="" />
                 <div class="content">
                   <h3>100 points</h3>
                   <span class="price">100 Egp</span>
@@ -274,7 +282,7 @@
               </div>
               <div class="box">
                 <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
+                <img loading="lazy"src="assets/images/cash.png" alt="" />
                 <div class="content">
                   <h3>150 points</h3>
                   <span class="price">150 Egp</span>
@@ -300,7 +308,10 @@
                 placeholder="your password"
               />
               <p>forget your password ? <a href="#">click here</a></p>
-              <p>don't have acount ? <a href="login.html">creat now</a></p>
+              <p>
+                don't have acount ?
+                <a title="login" href="login.html">creat now</a>
+              </p>
               <input type="submit" class="btn btn-log" value="login" />
             </form>
           </div>
@@ -329,9 +340,7 @@
                 The cleanliness and safety of your car with Garashko
               </p>
 
-              <a href="#about" class="btn" style="width: fit-content"
-                >Read More</a
-              >
+              <a href="#about" class="btn">Read More</a>
             </div>
 
             <figure class="hero-banner">
@@ -445,7 +454,7 @@
                   </p>
 
                   <a href="parkServ.htm" class="card-link">
-                    <span>Read More</span>
+                    <span>more</span>
 
                     <ion-icon name="arrow-forward-outline"></ion-icon>
                   </a>
@@ -462,7 +471,7 @@
                   </div>
 
                   <h3 class="h3 card-title">
-                    <a href="washServ.html">Car Wash</a>
+                    <a title="wash Serv" href="washServ.html">Car Wash</a>
                   </h3>
 
                   <p class="card-text">
@@ -470,8 +479,8 @@
                     technologies, and there are also monthly packages
                   </p>
 
-                  <a href="washServ.html" class="card-link">
-                    <span>Read More</span>
+                  <a title="wash Serv" href="washServ.html" class="card-link">
+                    <span>more</span>
 
                     <ion-icon name="arrow-forward-outline"></ion-icon>
                   </a>
@@ -488,7 +497,7 @@
                   </div>
 
                   <h3 class="h3 card-title">
-                    <a href="repairServ.html">Maintenance</a>
+                    <a title="repairServ" href="repairServ.html">Maintenance</a>
                   </h3>
 
                   <p class="card-text">
@@ -496,8 +505,12 @@
                     breaks down or you want to have it checked
                   </p>
 
-                  <a href="repairServ.html" class="card-link">
-                    <span>Read More</span>
+                  <a
+                    title="repairServ"
+                    href="repairServ.html"
+                    class="card-link"
+                  >
+                    <span>more</span>
 
                     <ion-icon name="arrow-forward-outline"></ion-icon>
                   </a>
@@ -524,7 +537,7 @@
                 <div class="property-card">
                   <figure class="card-banner">
                     <a href="#">
-                      <img
+                      <img loading="lazy"loading="lazy"
                         src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="New Apartment Nice View"
                         class="w-100"
@@ -591,15 +604,27 @@
                     </div>
 
                     <div class="card-footer-actions">
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="resize-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="add-circle-outline"></ion-icon>
                       </button>
                     </div>
@@ -678,15 +703,27 @@
                     </div>
 
                     <div class="card-footer-actions">
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="resize-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="add-circle-outline"></ion-icon>
                       </button>
                     </div>
@@ -765,15 +802,27 @@
                     </div>
 
                     <div class="card-footer-actions">
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="resize-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
-                      <button class="card-footer-actions-btn">
+                      <button
+                        type="button"
+                        title="."
+                        class="card-footer-actions-btn"
+                      >
                         <ion-icon name="add-circle-outline"></ion-icon>
                       </button>
                     </div>
@@ -1051,8 +1100,7 @@
 
                       <h3 class="h3 blog-title">
                         <a href="#"
-                          >New maintenance are being added in our
-                          branches</a
+                          >New maintenance are being added in our branches</a
                         >
                       </h3>
                     </div>
@@ -1079,14 +1127,38 @@
             <h2 class="h2 section-title">Our Gallery</h2>
 
             <article class="gallery">
-              <img src="https://images.unsplash.com/photo-1597985933897-cfbf9e2464d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-              <img src="https://images.unsplash.com/photo-1572701203787-6e3f196126cc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-              <img src="https://images.unsplash.com/photo-1572701190336-15d91f69a1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-              <img src="https://th.bing.com/th/id/OIG1.eZKWJdOBQdKsCm6AxBB5?pid=ImgGn" alt="" />
-              <img src="https://images.pexels.com/photos/3849555/pexels-photo-3849555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-              <img src="https://images.pexels.com/photos/372810/pexels-photo-372810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-              <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-              <img src="https://images.pexels.com/photos/8986145/pexels-photo-8986145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+              <img
+                src="https://images.unsplash.com/photo-1597985933897-cfbf9e2464d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+              <img
+                src="https://images.unsplash.com/photo-1572701203787-6e3f196126cc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+              <img
+                src="https://images.unsplash.com/photo-1572701190336-15d91f69a1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+              <img
+                src="https://th.bing.com/th/id/OIG1.eZKWJdOBQdKsCm6AxBB5?pid=ImgGn"
+                alt=""
+              />
+              <img
+                src="https://images.pexels.com/photos/3849555/pexels-photo-3849555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <img
+                src="https://images.pexels.com/photos/372810/pexels-photo-372810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <img
+                src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <img
+                src="https://images.pexels.com/photos/8986145/pexels-photo-8986145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
             </article>
           </div>
         </section>
@@ -1098,12 +1170,20 @@
           <div class="container">
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/d20DyVV/kilany.png" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/d20DyVV/kilany.png" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1114,12 +1194,20 @@
 
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/BTjzS18/abdelrahman.jpg" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/BTjzS18/abdelrahman.jpg" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1129,12 +1217,20 @@
             </div>
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/Qb73hTt/fares.jpg" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/Qb73hTt/fares.jpg" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1144,12 +1240,20 @@
             </div>
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/5rhvdx7/mote3.jpg" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/5rhvdx7/mote3.jpg" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1159,12 +1263,20 @@
             </div>
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/w6NF4rR/omar.jpg" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/w6NF4rR/omar.jpg" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1174,12 +1286,20 @@
             </div>
             <div class="box">
               <div class="data">
-                <img src="https://i.ibb.co/DtLMgMf/jupa.jpg" alt="" />
+                <img loading="lazy"src="https://i.ibb.co/DtLMgMf/jupa.jpg" alt="" />
                 <div class="social">
-                  <a href="#"> <i class="fab fa-facebook"></i></a>
-                  <a href="#"> <i class="fab fa-twitter"></i></a>
-                  <a href="#"> <i class="fab fa-linkedin"></i></a>
-                  <a href="#"> <i class="fab fa-youtube"></i></a>
+                  <a title="facebook" href="#">
+                    <i class="fab fa-facebook"></i
+                  ></a>
+                  <a title="twitter" href="#">
+                    <i class="fab fa-twitter"></i
+                  ></a>
+                  <a title="linkedin" href="#">
+                    <i class="fab fa-linkedin"></i
+                  ></a>
+                  <a title="youtube" href="#">
+                    <i class="fab fa-youtube"></i
+                  ></a>
                 </div>
               </div>
               <div class="info">
@@ -1266,6 +1386,7 @@
             <ul class="social-list">
               <li>
                 <a
+                  title="facebook"
                   href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
                   class="header-top-social-link"
                   target="_blank"
@@ -1276,6 +1397,7 @@
 
               <li>
                 <a
+                  title="twitter"
                   href="https://twitter.com/garashko_eg"
                   class="header-top-social-link"
                   target="_blank"
@@ -1286,6 +1408,7 @@
 
               <li>
                 <a
+                  title="instagram"
                   href="https://www.instagram.com/garashko_eg"
                   class="header-top-social-link"
                   target="_blank"
@@ -1296,6 +1419,7 @@
 
               <li>
                 <a
+                  title="tiktok"
                   href="https://www.tiktok.com/@garashko_eg"
                   class="header-top-social-link"
                   target="_blank"

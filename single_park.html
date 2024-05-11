@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+      var token = JSON.parse(localStorage.getItem("token"));
+
+      function reserveParking(id) {
+        let data = {
+          increase: true,
+        };
+
+        fetch(`https://gara4ko.onrender.com/api/v1/parking/reserved/${id}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.getItem("token"),
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            swal("تم!", "تم حجز الجراج بنجاح", "success");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            swal("خطأ!", "حدث خطأ أثناء حجز الجراج", "error");
+          });
+      }
+
+      window.onload = function () {
+        // الحصول على الـ id من المعلمات في الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+
+        fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+          method: "GET",
+          headers: {
+            token: token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const parking = data.data;
+
+            console.log(parking)
+            const box = document.createElement("div");
+            box.className = "box";
+
+            box.innerHTML = `
+    <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
+    <h3 class="parkName">${parking.parking_name}</h3>
+    <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
+    <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
+    <div class="btns">
+      <a href="#" class="btn">find in map</a>
+      <a href="#" class="btn" onclick="reserveParking('${parking._id}')">ticket now</a>
+    </div>
+  `;
+
+            document.body.appendChild(box);
+          })
+          .catch((error) => console.error("Error:", error));
+          console.log(parking)
+
+      };
+    </script>
+  </body>
+</html>

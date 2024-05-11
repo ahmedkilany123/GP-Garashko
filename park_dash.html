@@ -368,7 +368,7 @@
         </section>
         <br />
         <!-- ----------- -->
-        <div class="container">
+        <!-- <div class="container">
           <form id="addParkingForm">
             <label for="parking_name">Park Name:</label><br />
             <input type="text" id="parking_name" name="parking_name" /><br />
@@ -397,7 +397,35 @@
             /><br />
             <input type="submit" value="إضافة جراج" />
           </form>
-        </div>
+        </div> -->
+
+        <form id="editParkingForm">
+          <label for="parking_nameEdit">Park Name:</label><br />
+          <input type="text" id="parking_nameEdit" name="parking_name" /><br />
+          <label for="cityEdit">City:</label><br />
+          <input type="text" id="cityEdit" name="city" /><br />
+          <label for="stateEdit">State:</label><br />
+          <input type="text" id="stateEdit" name="state" /><br />
+          <label for="addressEdit">Address:</label><br />
+          <input type="text" id="addressEdit" name="address" /><br />
+          <label for="totalPlaceEdit">Total Places</label><br />
+          <input type="number" id="totalPlaceEdit" name="totalPlace" /><br />
+          <label for="creditPointPerHourEdit">credit Point Per Hour</label><br />
+          <input
+            type="number"
+            id="creditPointPerHourEdit"
+            name="creditPointPerHour"
+          /><br />
+          <label for="locationMapEdit">خريطة الموقع:</label><br />
+          <input type="text" id="locationMapEdit" name="locationMap" /><br />
+          <label for="creditPointPerMonthEdit">نقاط الائتمان في الشهر:</label><br />
+          <input
+            type="number"
+            id="creditPointPerMonthEdit"
+            name="creditPointPerMonth"
+          /><br />
+          <input type="submit" value="تعديل" />
+        </form>
       </article>
     </main>
 
@@ -597,6 +625,43 @@
     <script>
       const token = JSON.parse(localStorage.getItem("token"));
 
+      function ParkingData() {
+        const gridBoxes = document.querySelector(".grid-boxes");
+
+        fetch("https://gara4ko.onrender.com/api/v1/parking", {
+          method: "GET",
+          headers: {
+            token: token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            for (let i = 0; i < data.data.length; i++) {
+              const parking = data.data[i];
+
+              const box = document.createElement("div");
+              box.className = "box";
+
+              box.innerHTML = `
+                  <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
+                  <h3 class="parkName">${parking.parking_name}</h3>
+                  <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
+                  <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
+                  <div class="btns">
+                    <a href="#" class="btn" onclick="editPark('${parking._id}')">edit</a>
+                    <a href="#" class="btn" onclick="deletePark('${parking._id}')">delete</a>
+                  </div>
+                `;
+
+              gridBoxes.appendChild(box);
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+
+      
       function addPark() {
         document
           .getElementById("addParkingForm")
@@ -635,49 +700,169 @@
               body: JSON.stringify(data),
             })
               .then((response) => response.json())
-              .then((data) => console.log(data))
-              .catch((error) => console.error("Error:", error));
+              .then((data) => {
+                console.log(data);
+                // مسح البيانات من النموذج
+                document.getElementById("parking_name").value = "";
+                document.getElementById("city").value = "";
+                document.getElementById("state").value = "";
+                document.getElementById("address").value = "";
+                document.getElementById("totalPlace").value = "";
+                document.getElementById("creditPointPerHour").value = "";
+                document.getElementById("locationMap").value = "";
+                document.getElementById("creditPointPerMonth").value = "";
+                // إظهار رسالة تأكيد بعد إضافة الجراج
+                swal({
+                  title: "تم!",
+                  text: "تم إضافة الجراج بنجاح",
+                  icon: "success",
+                  buttons: {
+                    confirm: {
+                      text: "موافق",
+                      value: true,
+                      visible: true,
+                      closeModal: true,
+                    },
+                  },
+                  closeOnClickOutside: false,
+                }).then((value) => {
+                  location.reload();
+                });
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                swal({
+                  title: "خطأ!",
+                  text: "حدث خطأ أثناء إضافة الجراج",
+                  icon: "error",
+                  buttons: {
+                    confirm: {
+                      text: "موافق",
+                      value: true,
+                      visible: true,
+                      closeModal: true,
+                    },
+                  },
+                  closeOnClickOutside: false,
+                });
+              });
           });
       }
 
-      function ParkingData() {
-        const gridBoxes = document.querySelector(".grid-boxes");
+      function fillForm(id) {
+    fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+      method: "GET",
+      headers: {
+        token: token,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const parking = data.data;
+        document.getElementById("parking_nameEdit").value = parking.parking_name;
+        document.getElementById("cityEdit").value = parking.location.city;
+        document.getElementById("stateEdit").value = parking.location.state;
+        document.getElementById("addressEdit").value = parking.location.address;
+        document.getElementById("totalPlaceEdit").value = parking.totalPlace;
+        document.getElementById("creditPointPerHourEdit").value = parking.creditPointPerHour;
+        document.getElementById("locationMapEdit").value = JSON.stringify(parking.locationMap);
+        document.getElementById("creditPointPerMonthEdit").value = parking.creditPointPerMonth;
+      })
+      .catch((error) => console.error("Error:", error));
+}
 
-        fetch("https://gara4ko.onrender.com/api/v1/parking", {
-          method: "GET",
+function editPark(id) {
+    fillForm(id); // ملء النموذج ببيانات الجراج
+
+    document
+      .getElementById("editParkingForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // تحويل قيمة locationMap إلى كائن
+        let locationMapValue = document.getElementById("locationMapEdit").value;
+        let locationMapObject = {};
+        try {
+          locationMapObject = JSON.parse(locationMapValue);
+        } catch (error) {
+          console.error("Parsing error:", error);
+        }
+
+        let data = {
+          parking_name: document.getElementById("parking_nameEdit").value,
+          city: document.getElementById("cityEdit").value,
+          state: document.getElementById("stateEdit").value,
+          address: document.getElementById("addressEdit").value,
+          totalPlace: document.getElementById("totalPlaceEdit").value,
+          creditPointPerHour:
+            document.getElementById("creditPointPerHourEdit").value,
+          locationMap: locationMapObject, // استخدام الكائن هنا
+          creditPointPerMonth: document.getElementById(
+            "creditPointPerMonthEdit"
+          ).value,
+        };
+
+        fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+          method: "PUT",
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+            token: token,
           },
+          body: JSON.stringify(data),
         })
           .then((response) => response.json())
           .then((data) => {
-            console, console.log(data);
-            for (let i = 0; i < data.data.length; i++) {
-              const parking = data.data[i];
-
-              const box = document.createElement("div");
-              box.className = "box";
-
-              box.innerHTML = `
-    <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
-    <h3 class="parkName">${parking.parking_name}</h3>
-    <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
-    <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
-    <div class="btns">
-      <a href="#" class="btn">find in map</a>
-      <a href="single_park.html?id=${parking._id}" class="btn">ticket now</a>
-    </div>
-  `;
-
-              gridBoxes.appendChild(box);
-            }
+            console.log(data);
+            swal("تم!", "تم تعديل الجراج بنجاح", "success");
+            // location.reload();
           })
-          .catch((error) => console.error("Error:", error));
+          .catch((error) => {
+            console.error("Error:", error);
+            swal("خطأ!", "حدث خطأ أثناء تعديل الجراج", "error");
+          });
+      });
+}
+
+      function deletePark(id) {
+        swal({
+          title: "هل أنت متأكد؟",
+          text: "هل تريد حذف الجراج؟",
+          icon: "warning",
+          buttons: ["لا", "نعم"],
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+              method: "DELETE",
+              headers: {
+                token: token,
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log(data);
+                swal("تم!", "تم حذف الجراج بنجاح", "success");
+                location.reload();
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                swal("خطأ!", "حدث خطأ أثناء حذف الجراج", "error");
+              });
+          } else {
+            swal("تم إلغاء الحذف");
+          }
+        });
       }
 
       ParkingData();
       addPark();
     </script>
     <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
