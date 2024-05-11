@@ -1597,7 +1597,7 @@ input {
 
 .footer-list-title {
   font-family: var(--ff-poppins);
-  font-size: var(--fs-3);
+  font-size: 18px;
   font-weight: var(--fw-700);
   margin-bottom: 15px;
 }
