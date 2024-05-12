@@ -443,6 +443,7 @@
                 newsletter
               </label>
               <input type="submit" value="send" />
+              <input onclick="logout()" type="button" value="log out">
             </div>
           </div>
         </div>
@@ -792,6 +793,7 @@
     <!-- sweet alert  -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="assets/js/auth.js"></script>
     <script>
       let profTop = document.querySelectorAll(".prof-top .menu li");
       profTop.forEach(function (el) {

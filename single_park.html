@@ -11,29 +11,6 @@
     <script>
       var token = JSON.parse(localStorage.getItem("token"));
 
-      function reserveParking(id) {
-        let data = {
-          increase: true,
-        };
-
-        fetch(`https://gara4ko.onrender.com/api/v1/parking/reserved/${id}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            swal("تم!", "تم حجز الجراج بنجاح", "success");
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            swal("خطأ!", "حدث خطأ أثناء حجز الجراج", "error");
-          });
-      }
 
       window.onload = function () {
         // الحصول على الـ id من المعلمات في الرابط
@@ -71,6 +48,35 @@
           console.log(parking)
 
       };
+
+
+      function reserveParking(id) {
+        let data = {
+          increase: true,
+        };
+
+        fetch(`https://gara4ko.onrender.com/api/v1/parking/reserved/${id}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: token,
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            swal("تم!", "تم حجز الجراج بنجاح", "success");
+            console.log(id);
+
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            swal("خطأ!", "حدث خطأ أثناء حجز الجراج", "error");
+          });
+      }
+
+
     </script>
   </body>
 </html>
