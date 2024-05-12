@@ -1,5 +1,3 @@
-
-
 //sign up
 document
   .querySelector(".form-creat")
@@ -83,4 +81,12 @@ document
     }
   });
 
+// log out
 
+function logout() {
+  localStorage.removeItem("token");
+
+  location.reload();
+
+  // window.location.href = 'login.html';
+}
