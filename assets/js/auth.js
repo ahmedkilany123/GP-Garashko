@@ -16,7 +16,7 @@ document
       phoneNumber: phoneNumber,
     };
 
-    fetch("https://gara4ko.onrender.com/api/v1/auth/signUp", {
+    fetch("https://gara4ko-p8wm.onrender.com/api/v1/auth/signUp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ document
     );
 
     const response = await fetch(
-      "https://gara4ko.onrender.com/api/v1/auth/signIn",
+      "https://gara4ko-p8wm.onrender.com/api/v1/auth/signIn",
       {
         method: "POST",
         body: JSON.stringify({
@@ -72,7 +72,7 @@ document
     console.log("#===>token", data.token);
     if (data?.success) {
       localStorage.setItem("token", JSON.stringify(data.token));
-      window.location.href = "prof.html";
+      window.location.href = "home.html";
       //اخيرا
     } else {
       console.log(data);

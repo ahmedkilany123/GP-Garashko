@@ -36,17 +36,42 @@ for (let i = 0; i < navElemArr.length; i++) {
   });
 }
 
+let imgProf = document.querySelector(".ul-icon-img");
 let saerchform = document.querySelector(".search-form");
+let shoppingCart = document.querySelector(".shopping-cart");
+let servList = document.querySelector(".listOfServ");
+
 document.querySelector("#search-btn").onclick = () => {
   saerchform.classList.toggle("active");
+  imgProf.classList.remove("active");
+
   shoppingCart.classList.remove("active");
   loginForm.classList.remove("active");
   navbar.classList.remove("active");
+  servList.classList.remove("active");
 };
 
-let shoppingCart = document.querySelector(".shopping-cart");
 document.querySelector("#cart-btn").onclick = () => {
   shoppingCart.classList.toggle("active");
+  imgProf.classList.remove("active");
+  saerchform.classList.remove("active");
+  loginForm.classList.remove("active");
+  navbar.classList.remove("active");
+  servList.classList.remove("active");
+};
+
+document.querySelector(".prof-icon-div").onclick = () => {
+  imgProf.classList.toggle("active");
+  shoppingCart.classList.remove("active");
+  saerchform.classList.remove("active");
+  loginForm.classList.remove("active");
+  navbar.classList.remove("active");
+  servList.classList.remove("active");
+};
+
+document.querySelector(".serv-list").onclick = () => {
+  servList.classList.toggle("active");
+  shoppingCart.classList.remove("active");
   saerchform.classList.remove("active");
   loginForm.classList.remove("active");
   navbar.classList.remove("active");
@@ -104,7 +129,7 @@ todo => Database Apis ^^
 function userData() {
   const token = JSON.parse(localStorage.getItem("token"));
 
-  fetch("https://gara4ko.onrender.com/api/v1/user/", {
+  fetch("https://gara4ko-p8wm.onrender.com/api/v1/user/", {
     method: "GET",
     headers: {
       token: token,
@@ -115,9 +140,13 @@ function userData() {
     .then((response) => response.json())
     .then((data) => {
       document.querySelector(".name-user").innerText = data.data.userName;
-      document.querySelector(".name").innerText = data.data.userName;
-      document.querySelector(".email").innerText = data.data.email;
-      document.querySelector(".phone-user").innerText = data.data.phoneNumber;
+      document.querySelector(
+        ".name"
+      ).innerHTML = `<pre>user name:</pre> ${data.data.userName}`;
+      document.querySelector(".email").innerText = `email: ${data.data.email}`;
+      document.querySelector(
+        ".phone-user"
+      ).innerText = `tel: ${data.data.phoneNumber}`;
 
       // acc form
       document.querySelector(".name #fName").value =
@@ -127,75 +156,6 @@ function userData() {
       document.querySelector(".email #uEmail").value = data.data.email;
       document.querySelector(".email #uTel").value = data.data.phoneNumber;
     })
-    .catch((error) => console.error("Error:", error));
-}
-
-// vec data
-function vicData() {
-  const token = JSON.parse(localStorage.getItem("token"));
-
-  fetch(`https://gara4ko.onrender.com/api/v1/vehicle/vehicles?limit=9999`, {
-    method: "GET",
-    headers: {
-      token: token,
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      let box = ``;
-
-      for (let i = 0; i < data.data.length; i++) {
-        const vehicle = data.data[i];
-        if (vehicle && vehicle._id) {
-          console.log("data loop", vehicle._id);
-
-          box += `
-            <tr class="item">
-              <td>${i + 1}</td>
-              <td>${vehicle.vehicle_info.type}</td>
-              <td>${vehicle.vehicle_info.model}</td>
-              <td>${vehicle.vehicle_license.licenseNumbers.join(" ")}</td>
-              <td>${vehicle.vehicle_license.licenseLetters.join(" ")}</td>
-              <td>
-              <i class="fa-solid fa-pen-to-square" id="editIcon"  onclick="updateVehicle('${
-                vehicle._id
-              }')"></i>
-              </td>
-              <td>
-              <i class="fa-solid fa-trash" onclick="deleteVehicle('${
-                vehicle._id
-              }')"></i></td>
-            </tr>
-            `;
-        }
-      }
-      document.getElementById("vehiceRow").innerHTML = box;
-
-      console.log(data);
-      console.log(data.data[0]?.BeginningOfLicense);
-
-      document.getElementById("typeE").value = data.data[0]?.vehicle_info.type;
-      document.getElementById("modelE").value =
-        data.data[0]?.vehicle_info.model;
-      document.getElementById("licenseLettersE").value =
-        data.data[0]?.vehicle_license.licenseLetters.join("");
-      document.getElementById("licenseNumbersE").value =
-        data.data[0]?.vehicle_license.licenseNumbers.join("");
-
-      let dateEnd = new Date(data.data[0]?.endOfLicense)
-        .toISOString()
-        .slice(0, 10);
-      document.getElementById("endOfLicenseE").value = dateEnd;
-
-      let datebeginning = new Date(data.data[0]?.BeginningOfLicense)
-        .toISOString()
-        .slice(0, 10);
-      document.getElementById("beginningOfLicenseE").value = datebeginning;
-    })
-
     .catch((error) => console.error("Error:", error));
 }
 
@@ -235,7 +195,11 @@ function vecAdd() {
         !endOfLicense ||
         !beginningOfLicense
       ) {
-        console.error("Error: One or more fields are empty.");
+        Swal.fire({
+          icon: 'error',
+          title: 'خطأ',
+          text: 'واحد أو أكثر من الحقول فارغة',
+        });
         return;
       }
 
@@ -250,7 +214,7 @@ function vecAdd() {
 
       var token = JSON.parse(localStorage.getItem("token"));
 
-      fetch("https://gara4ko.onrender.com/api/v1/vehicle", {
+      fetch("https://gara4ko-p8wm.onrender.com/api/v1/vehicle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -261,28 +225,111 @@ function vecAdd() {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          document.querySelector(".messageVec").innerText = data.message;
-
-          if (
-            document.querySelector(".messageVec").innerText ===
-            "vehicle added successfully"
-          ) {
+          if (data.message === "vehicle added successfully") {
+            Swal.fire({
+              icon: 'success',
+              title: 'تم بنجاح',
+              text: 'تمت إضافة المركبة بنجاح',
+            });
             document.getElementById("licenseLetters").value = "";
             document.getElementById("licenseNumbers").value = "";
             document.getElementById("type").value = "";
             document.getElementById("model").value = "";
             document.getElementById("endOfLicense").value = "";
             document.getElementById("beginningOfLicense").value = "";
-            setTimeout(() => {
-              document.querySelector(".messageVec").innerText = "";
-            }, 3000);
+          } else {
+            Swal.fire({
+              icon: 'error',
+            title: 'error',
+              text: data.message,
+            });
           }
         })
         .catch((error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'error',
+            text: 'try again',
+          });
           console.error("Error:", error);
         });
     });
 }
+
+
+
+
+// vec data
+function vicData() {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  fetch(`https://gara4ko-p8wm.onrender.com/api/v1/vehicle/vehicles`, {
+    method: "GET",
+    headers: {
+      token: token,
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      let box = ``;
+
+      for (let i = 0; i < data.data.length; i++) {
+        const vehicle = data.data[i];
+        if (vehicle && vehicle._id) {
+          console.log("data loop", data.data[i]._id);
+
+          box += `
+            <tr class="item">
+              <td>${i + 1}</td>
+              <td>${vehicle.vehicle_info.type}</td>
+              <td>${vehicle.vehicle_info.model}</td>
+              <td>${vehicle.vehicle_license.licenseNumbers.join(" ")}</td>
+              <td>${vehicle.vehicle_license.licenseLetters.join(" ")}</td>
+              <td>
+              <i class="fa-solid fa-pen-to-square" id="editIcon"  onclick="updateVehicle('${
+                data.data[i]._id
+              }')"></i>
+              </td>
+              <td>
+              <i class="fa-solid fa-trash" onclick="deleteVehicle('${
+                vehicle._id
+              }')"></i></td>
+            </tr>
+            `;
+        }
+      }
+      
+      document.getElementById("vehiceRow").innerHTML = box;
+      
+      // console.log("data loop", vehicle._id);
+      // console.log(data);
+      // console.log(data.data[0]?.BeginningOfLicense);
+
+      document.getElementById("typeE").value = data.data[0]?.vehicle_info.type;
+      document.getElementById("modelE").value =
+        data.data[0]?.vehicle_info.model;
+      document.getElementById("licenseLettersE").value =
+        data.data[0]?.vehicle_license.licenseLetters.join("");
+      document.getElementById("licenseNumbersE").value =
+        data.data[0]?.vehicle_license.licenseNumbers.join("");
+
+      let dateEnd = new Date(data.data[0]?.endOfLicense)
+        .toISOString()
+        .slice(0, 10);
+      document.getElementById("endOfLicenseE").value = dateEnd;
+
+      let datebeginning = new Date(data.data[0]?.BeginningOfLicense)
+        .toISOString()
+        .slice(0, 10);
+      document.getElementById("beginningOfLicenseE").value = datebeginning;
+    })
+
+    .catch((error) => console.error("Error:", error));
+}
+
 
 // edit vechle
 // Function to update vehicle data
@@ -310,7 +357,7 @@ function updateVehicle(id) {
     };
 
     // Sending the PUT request to update the vehicle data
-    fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`, {
+    fetch(`https://gara4ko-p8wm.onrender.com/api/v1/vehicle/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -340,6 +387,10 @@ function updateVehicle(id) {
   });
 }
 
+
+
+
+
 // Call this function when the edit icon is clicked, passing the vehicle ID
 
 // delet vechicle
@@ -355,7 +406,7 @@ function deleteVehicle(id) {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://gara4ko.onrender.com/api/v1/vehicle/${id}`, {
+      fetch(`https://gara4ko-p8wm.onrender.com/api/v1/vehicle/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
