@@ -480,6 +480,47 @@ input:invalid {
   color: var(--main-color);
 }
 
+.serv-list {
+  position: relative;
+  cursor: pointer;
+  color: var(--dark-jungle-green);
+  font-size: var(--fs-5);
+  font-weight: 600;
+  text-transform: uppercase;
+  --fs-5: 1.125rem;
+  text-transform: capitalize;
+  &:is(:hover, :focus) {
+    color: var(--main-color);
+  }
+  &::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f107";
+  }
+
+  ul {
+    display: none;
+    &.active {
+      display: block;
+    }
+    position: absolute;
+    top: 70px;
+    left: -10px;
+    border-radius: 6px;
+
+    li {
+      background: white;
+      padding: 5px 10px;
+      margin-bottom: 1px;
+      &:hover a {
+        color: var(--main-color);
+      }
+      a {
+        color: var(--black);
+      }
+    }
+  }
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -677,7 +718,48 @@ input {
   text-align: center;
   margin: 1rem;
 }
-
+.prof-icon-div {
+  position: relative;
+  cursor: pointer;
+  .prof-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 1s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  ul {
+    display: none;
+    &.active {
+      display: block;
+    }
+    position: absolute;
+    top: 78px;
+    left: -25px;
+    border: 1px solid rgb(239, 221, 221);
+    li {
+      background: white;
+      padding: 7px 15px;
+      width: 100px;
+      &:first-child {
+        margin-bottom: 2px;
+      }
+      &:hover {
+        background-color: var(--alice-blue);
+        &:last-child:hover a {
+          color: #ec1d23;
+        }
+      }
+      a {
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+  }
+}
 .header .login-form {
   position: absolute;
   top: 110%;
@@ -2082,15 +2164,17 @@ section.login .log-form form ion-icon[name="logo-google"] {
 }
 .box .top span {
   margin-top: -10px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .box .top .info {
   padding-top: 10px;
 }
 .box .top .info p {
+  text-align: left;
+
   font-size: 14px;
   font-weight: 600;
-  padding: 10px 0;
+  padding: 10px 10px 0;
 }
 .box .top .info p:not(:last-child) {
   border-bottom: 1px solid var(--cultured-1);
@@ -2103,19 +2187,19 @@ section.login .log-form form ion-icon[name="logo-google"] {
   padding: 10px 0;
 }
 .box .bottom h4 {
-  font-size: 34px;
+  font-size: 24px;
   padding-bottom: 20px;
 }
 .box .bottom {
   font-size: 34px;
   padding-bottom: 20px;
-}
-.box .bottom {
-  p,
-  span {
-    font-size: 18px;
+  p {
+    text-align: left;
+    font-size: 16px;
+    padding: 10px 10px 0;
   }
 }
+
 .box .bottom .btn {
   border: 1px solid var(--second-color);
   width: -moz-fit-content;
@@ -2305,7 +2389,7 @@ h2 {
       .vechicle-tab th {
         border: 1px solid var(--cadet);
         border-radius: 3px;
-        padding: 8px;
+        padding: 5px;
         text-align: center;
       }
       .vechicle-tab tr {
@@ -2705,9 +2789,11 @@ main div.active {
     .details {
       flex-direction: column;
       .info {
+        padding: 20px;
         width: 100%;
       }
       img {
+        width: 300px;
         top: 5px;
         left: 0;
         margin: 0 auto;
@@ -2988,6 +3074,9 @@ main div.active {
   .header-top-list,
   .header-top .wrapper {
     gap: 30px;
+  }
+  .header-bottom-actions-btn:nth-child(4) {
+    display: none;
   }
 
   /**
