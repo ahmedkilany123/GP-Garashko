@@ -4,20 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .parks {
+        background: var(--cultured-2);
+        padding-block: var(--section-padding);
+      }
+      .grid-boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        .box {
+          position: relative;
+          background: var(--white);
+          padding: 40px 30px;
+          box-shadow: var(--shadow-2);
+          border-radius: 6px;
+
+          img {
+            width: 100%;
+          }
+
+          h3 {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+          }
+          p.location {
+            display: flex;
+            align-items: center;
+            span.city {
+              font-size: 14px;
+              font-weight: 700;
+              margin-right: 5px;
+              color: var(--main-color);
+              padding: 5px 10px;
+              background: hsla(9, 100%, 62%, 0.1);
+              width: max-content;
+              border-radius: 50px;
+            }
+          }
+          p.cridPrice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+          }
+          .btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            .btn {
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    </style>
   </head>
   <body>
+    <section class="parks">
+      <div class="container">
+        <div class="grid-boxes">
+        </div>
+      </div>
+    </section>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
       var token = JSON.parse(localStorage.getItem("token"));
 
-
       window.onload = function () {
         // الحصول على الـ id من المعلمات في الرابط
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
+        const gridBoxes = document.querySelector(".grid-boxes");
 
-        fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
           method: "GET",
           headers: {
             token: token,
@@ -27,7 +93,8 @@
           .then((data) => {
             const parking = data.data;
 
-            console.log(parking)
+            console.log(parking);
+
             const box = document.createElement("div");
             box.className = "box";
 
@@ -42,20 +109,18 @@
     </div>
   `;
 
-            document.body.appendChild(box);
+            gridBoxes.appendChild(box);
           })
           .catch((error) => console.error("Error:", error));
-          console.log(parking)
-
+        console.log(parking);
       };
-
 
       function reserveParking(id) {
         let data = {
           increase: true,
         };
 
-        fetch(`https://gara4ko.onrender.com/api/v1/parking/reserved/${id}`, {
+        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/reserved/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -66,17 +131,14 @@
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-            swal("تم!", "تم حجز الجراج بنجاح", "success");
+            swal("done!", "تم حجز الجراج بنجاح", "success");
             console.log(id);
-
           })
           .catch((error) => {
             console.error("Error:", error);
-            swal("خطأ!", "حدث خطأ أثناء حجز الجراج", "error");
+            swal("error", "حدث خطأ أثناء حجز الجراج", "error");
           });
       }
-
-
     </script>
   </body>
 </html>

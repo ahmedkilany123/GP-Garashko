@@ -174,31 +174,22 @@
                   >
                 </li>
 
-                <li>
-                  <a href="#about" class="navbar-link" data-nav-link>About</a>
+                <li class="serv-list">
+                    services
+                    <ul class="listOfServ">
+                      <li><a href="#">parks</a></li>
+                      <li><a href="#">car wash</a></li>
+                      <li><a href="#"> maintenance </a></li>
+                    </ul>
                 </li>
 
                 <li>
-                  <a href="#service" class="navbar-link" data-nav-link
-                    >Service</a
-                  >
+                  <a href="#about" class="navbar-link" data-nav-link>about</a>
                 </li>
 
                 <li>
                   <a href="#property" class="navbar-link" data-nav-link
-                    >Property</a
-                  >
-                </li>
-
-                <li>
-                  <a href="all_parks.html" class="navbar-link" data-nav-link
-                    >all_parks</a
-                  >
-                </li>
-
-                <li>
-                  <a href="#contact" class="navbar-link" data-nav-link
-                    >Contact</a
+                    >contact</a
                   >
                 </li>
               </ul>
@@ -211,16 +202,10 @@
               id="search-btn"
               aria-label="Search"
             >
-              <ion-icon id="search-btn" name="search-outline"></ion-icon>
+              <ion-icon id="" name="search-outline"></ion-icon>
 
               <span>Search</span>
             </button>
-
-            <a href="login.html">
-              <ion-icon name="person-outline"></ion-icon>
-
-              <span>Profile</span>
-            </a>
 
             <button
               class="header-bottom-actions-btn"
@@ -231,6 +216,18 @@
 
               <span>Cart</span>
             </button>
+
+            <div class="prof-icon-div">
+              <img
+                class="prof-icon"
+                src="https://i.ibb.co/7pTkfv1/prof1.png"
+                alt=""
+              />
+              <ul id="ul-icon-img" class="ul-icon-img">
+                <li><a href="prof.html">porfile</a></li>
+                <li><a href="index.html" onclick="logout()">log out</a></li>
+              </ul>
+            </div>
 
             <button
               class="header-bottom-actions-btn"
@@ -315,9 +312,9 @@
               <li>
                 <a href="#" class="sec-dash" onclick="vicData()">Dashboard</a>
               </li>
-              <li><a href="#" class="sec-transaction">My Transactions</a></li>
-              <li><a href="#" class="sec-vehicle-sec">My Vechicles</a></li>
-              <li><a href="#" class="sec-cards">My Cards</a></li>
+              <li><a href="#" class="sec-transaction">Transactions</a></li>
+              <li><a href="#" class="sec-vehicle-sec">Vechicles</a></li>
+              <li><a href="#" class="sec-cards">Cards</a></li>
               <li><a href="#" class="sec-acount-det">Account</a></li>
             </ul>
           </div>
@@ -443,7 +440,6 @@
                 newsletter
               </label>
               <input type="submit" value="send" />
-              <input onclick="logout()" type="button" value="log out">
             </div>
           </div>
         </div>
@@ -849,6 +845,9 @@
         acountDet[0].classList.add("active");
       };
 
+
+
+
       //********************
 
       // let editIcon = document.querySelector("#editIcon");
@@ -862,8 +861,8 @@
 
       userData();
       vicData();
-      vecAdd();
       updateVehicle();
+      vecAdd();
       /////*****
       let tab = document.querySelector(".vechicle-tab");
       setTimeout(function () {

@@ -628,7 +628,7 @@
       function ParkingData() {
         const gridBoxes = document.querySelector(".grid-boxes");
 
-        fetch("https://gara4ko.onrender.com/api/v1/parking", {
+        fetch("https://gara4ko-p8wm.onrender.com/api/v1/parking", {
           method: "GET",
           headers: {
             token: token,
@@ -691,7 +691,7 @@
               ).value,
             };
 
-            fetch("https://gara4ko.onrender.com/api/v1/parking", {
+            fetch("https://gara4ko-p8wm.onrender.com/api/v1/parking", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -750,7 +750,7 @@
       }
 
       function fillForm(id) {
-    fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+    fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
       method: "GET",
       headers: {
         token: token,
@@ -802,7 +802,7 @@ function editPark(id) {
           ).value,
         };
 
-        fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -832,7 +832,7 @@ function editPark(id) {
           dangerMode: true,
         }).then((willDelete) => {
           if (willDelete) {
-            fetch(`https://gara4ko.onrender.com/api/v1/parking/${id}`, {
+            fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
               method: "DELETE",
               headers: {
                 token: token,
