@@ -72,8 +72,7 @@ document
     console.log("#===>token", data.token);
     if (data?.success) {
       localStorage.setItem("token", JSON.stringify(data.token));
-      window.location.href = "home.html";
-      //اخيرا
+      window.location.href = "prof.html";
     } else {
       console.log(data);
       document.querySelector(".message-serv2").innerText =
@@ -88,5 +87,4 @@ function logout() {
 
   location.reload();
 
-  // window.location.href = 'login.html';
 }

@@ -64,7 +64,6 @@ document.querySelector(".prof-icon-div").onclick = () => {
   imgProf.classList.toggle("active");
   shoppingCart.classList.remove("active");
   saerchform.classList.remove("active");
-  loginForm.classList.remove("active");
   navbar.classList.remove("active");
   servList.classList.remove("active");
 };
@@ -73,7 +72,6 @@ document.querySelector(".serv-list").onclick = () => {
   servList.classList.toggle("active");
   shoppingCart.classList.remove("active");
   saerchform.classList.remove("active");
-  loginForm.classList.remove("active");
   navbar.classList.remove("active");
 };
 
