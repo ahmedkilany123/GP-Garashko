@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtfYcDx4iVRM0Pqvhu62JGeIbQYgu_mU" async defer></script>
+
     <style>
+      .y-star {
+        color: yellow;
+      }
+      .d-star{
+        color: gray;
+      }
       .parks {
         background: var(--cultured-2);
         padding-block: var(--section-padding);
@@ -64,8 +73,7 @@
       }
     </style>
   </head>
-  <body>
-
+  <body onload="initMap()"> 
     <header class="header" data-header>
       <div class="overlay" data-overlay></div>
 
@@ -170,12 +178,12 @@
                 </li>
 
                 <li class="serv-list">
-                    services
-                    <ul class="listOfServ">
-                      <li><a href="all_parks.html">parks</a></li>
-                      <li><a href="washServ.html">car wash</a></li>
-                      <li><a href="repairServ.html"> maintenance </a></li>
-                    </ul>
+                  services
+                  <ul class="listOfServ">
+                    <li><a href="all_parks.html">parks</a></li>
+                    <li><a href="washServ.html">car wash</a></li>
+                    <li><a href="repairServ.html"> maintenance </a></li>
+                  </ul>
                 </li>
 
                 <li>
@@ -299,70 +307,116 @@
       </div>
     </header>
 
-
-
-
-
-
-
-
-
     <section class="parks">
       <div class="container">
-        <div class="grid-boxes">
-        </div>
+        <div class="grid-boxes"></div>
       </div>
     </section>
 
+    
+    <script src="assets/js/script.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+
 
     <script>
       var token = JSON.parse(localStorage.getItem("token"));
 
       window.onload = function () {
-        // الحصول على الـ id من المعلمات في الرابط
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
-        const gridBoxes = document.querySelector(".grid-boxes");
+  // الحصول على الـ id من المعلمات في الرابط
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+  const gridBoxes = document.querySelector(".grid-boxes");
 
-        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
-          method: "GET",
-          headers: {
-            token: token,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            const parking = data.data;
+  fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
+    method: "GET",
+    headers: {
+      token: token,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const parking = data.data;
 
-            console.log(parking);
+      console.log(parking); // طباعة الكائن parking هنا
 
-            const box = document.createElement("div");
-            box.className = "box";
+      const box = document.createElement("div");
+      box.className = "box";
 
-            box.innerHTML = `
-    <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
-    <h3 class="parkName">${parking.parking_name}</h3>
-    <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
-    <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
-    <div class="btns">
-      <a href="#" class="btn">find in map</a>
-      <a href="#" class="btn" onclick="reserveParking('${parking._id}')">ticket now</a>
-    </div>
+      box.innerHTML = `
+  <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
+  <h3 class="parkName">${parking.parking_name}</h3>
+  <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
+  <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
+  <p class="cridPrice"> ${parking.creditPointPerMonth} <span class="crid">cridet point per month</span></p>
+  <p class="rating">${getStars(parking.rate)} <span class="crid"></span></p>
+  <p class="cridPrice"> ${parking.remainingSpace} <span class="crid">remaining Space</span></p>
+  <div class="btns">
+    <a href="#" class="btn">find in map</a>
+    <a href="#" class="btn" onclick="reserveParking('${parking._id}')">book now</a>
+  </div>
+`;
+
+      gridBoxes.appendChild(box);
+    })
+    .then((data) => {
+  const parking = data.data;
+
+  console.log(parking); // طباعة الكائن parking هنا
+
+  const box = document.createElement("div");
+  box.className = "box";
+
+  box.innerHTML = `
+    <!-- الكود الخاص بك هنا -->
   `;
 
-            gridBoxes.appendChild(box);
-          })
-          .catch((error) => console.error("Error:", error));
-        console.log(parking);
-      };
+  gridBoxes.appendChild(box);
+
+  // تهيئة الخريطة
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: parking.locationMap.coordinates[0], lng: parking.locationMap.coordinates[1]},
+    zoom: 8
+  });
+  var marker = new google.maps.Marker({position: {lat: parking.locationMap.coordinates[0], lng: parking.locationMap.coordinates[1]}, map: map});
+})
+
+    .catch((error) => console.error("Error:", error));
+};
+
+
+
+
+
+
+
+
+
+
+
 
       function reserveParking(id) {
         let data = {
-          increase: true,
+          paymentMethod: "Cash", // يجب توفير طريقة الدفع هنا، يمكنك استبدال "Cash" بأي قيمة أخرى مقبولة
+          quantity: 5,
+          isHour:true,
+          isMonth:false,
+          fromDate:"2024-06-28 08:10",
+          toDate:"2024-09-08 08:10",
+          vehicle:"65dfb840b76e4ed36d65dabe",
+
+
         };
 
-        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/reserved/${id}`, {
+        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/reservation/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -372,8 +426,8 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
             swal("done!", "تم حجز الجراج بنجاح", "success");
+            console.log(data);
             console.log(id);
           })
           .catch((error) => {
@@ -381,6 +435,20 @@
             swal("error", "حدث خطأ أثناء حجز الجراج", "error");
           });
       }
+    
+    
+
+
+
+
+  
+
+
+
+
+
+
+
     </script>
   </body>
 </html>

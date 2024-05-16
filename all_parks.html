@@ -229,12 +229,12 @@
                 </li>
 
                 <li class="serv-list">
-                    services
-                    <ul class="listOfServ">
-                      <li><a href="all_parks.html">parks</a></li>
-                      <li><a href="washServ.html">car wash</a></li>
-                      <li><a href="repairServ.html"> maintenance </a></li>
-                    </ul>
+                  services
+                  <ul class="listOfServ">
+                    <li><a href="all_parks.html">parks</a></li>
+                    <li><a href="washServ.html">car wash</a></li>
+                    <li><a href="repairServ.html"> maintenance </a></li>
+                  </ul>
                 </li>
 
                 <li>
@@ -367,36 +367,6 @@
         </section>
         <br />
         <!-- ----------- -->
-        <div class="container">
-          <form id="addParkingForm">
-            <label for="parking_name">Park Name:</label><br />
-            <input type="text" id="parking_name" name="parking_name" /><br />
-            <label for="city">City:</label><br />
-            <input type="text" id="city" name="city" /><br />
-            <label for="state">State:</label><br />
-            <input type="text" id="state" name="state" /><br />
-            <label for="address">Address:</label><br />
-            <input type="text" id="address" name="address" /><br />
-            <label for="totalPlace">Total Places</label><br />
-            <input type="number" id="totalPlace" name="totalPlace" /><br />
-            <label for="creditPointPerHour">credit Point Per Hour</label><br />
-            <input
-              type="number"
-              id="creditPointPerHour"
-              name="creditPointPerHour"
-            /><br />
-            <label for="locationMap">خريطة الموقع:</label><br />
-            <input type="text" id="locationMap" name="locationMap" /><br />
-            <label for="creditPointPerMonth">نقاط الائتمان في الشهر:</label
-            ><br />
-            <input
-              type="number"
-              id="creditPointPerMonth"
-              name="creditPointPerMonth"
-            /><br />
-            <input type="submit" value="إضافة جراج" />
-          </form>
-        </div>
       </article>
     </main>
 
@@ -596,49 +566,6 @@
     <script>
       const token = JSON.parse(localStorage.getItem("token"));
 
-      function addPark() {
-        document
-          .getElementById("addParkingForm")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            // تحويل قيمة locationMap إلى كائن
-            let locationMapValue = document.getElementById("locationMap").value;
-            let locationMapObject = {};
-            try {
-              locationMapObject = JSON.parse(locationMapValue);
-            } catch (error) {
-              console.error("Parsing error:", error);
-            }
-
-            let data = {
-              parking_name: document.getElementById("parking_name").value,
-              city: document.getElementById("city").value,
-              state: document.getElementById("state").value,
-              address: document.getElementById("address").value,
-              totalPlace: document.getElementById("totalPlace").value,
-              creditPointPerHour:
-                document.getElementById("creditPointPerHour").value,
-              locationMap: locationMapObject, // استخدام الكائن هنا
-              creditPointPerMonth: document.getElementById(
-                "creditPointPerMonth"
-              ).value,
-            };
-
-            fetch("https://gara4ko-p8wm.onrender.com/api/v1/parking", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                token: token,
-              },
-              body: JSON.stringify(data),
-            })
-              .then((response) => response.json())
-              .then((data) => console.log(data))
-              .catch((error) => console.error("Error:", error));
-          });
-      }
-
       function ParkingData() {
         const gridBoxes = document.querySelector(".grid-boxes");
 
@@ -658,10 +585,21 @@
               box.className = "box";
 
               box.innerHTML = `
-    <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
-    <h3 class="parkName">${parking.parking_name}</h3>
-    <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
-    <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
+              <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
+  <h3 class="parkName">${parking.parking_name}</h3>
+  <p class="location"><span class="city">${parking.location.city}</span>${
+                parking.location.address
+              }</p>
+  <p class="cridPrice"> ${
+    parking.creditPointPerHour
+  } <span class="crid">cridet point per hour</span></p>
+  <p class="cridPrice"> ${
+    parking.creditPointPerMonth
+  } <span class="crid">cridet point per month</span></p>
+  <p class="rating">${getStars(parking.rate)} <span class="crid"></span></p>
+  <p class="cridPrice"> ${
+    parking.remainingSpace
+  } <span class="crid">remaining Space</span></p>
     <div class="btns">
       <a href="#" class="btn">find in map</a>
       <a href="single_park.html?id=${parking._id}" class="btn">ticket now</a>
@@ -675,7 +613,6 @@
       }
 
       ParkingData();
-      addPark();
     </script>
     <script src="assets/js/script.js"></script>
   </body>
