@@ -425,7 +425,7 @@ input:invalid {
 .header-bottom .logo img {
   margin-inline: auto;
   width: 180px;
-  height: 55px;
+  height: 50px;
 }
 
 .navbar {
@@ -447,6 +447,10 @@ input:invalid {
   visibility: visible;
   transform: translateX(310px);
   transition: 0.25s ease-out;
+
+  .serv-list {
+    
+  }
 }
 
 .navbar-top {

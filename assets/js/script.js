@@ -68,12 +68,13 @@ document.querySelector(".prof-icon-div").onclick = () => {
   servList.classList.remove("active");
 };
 
-document.querySelector(".serv-list").onclick = () => {
-  servList.classList.toggle("active");
-  shoppingCart.classList.remove("active");
-  saerchform.classList.remove("active");
-  navbar.classList.remove("active");
-};
+// document.querySelector(".serv-list").mouseover = () => {
+//   servList.classList.toggle("active");
+//   shoppingCart.classList.remove("active");
+//   saerchform.classList.remove("active");
+//   navbar.classList.remove("active");
+//   this.style.margin = "0 0 40px"
+// };
 
 /**
  * header active state
@@ -329,6 +330,7 @@ function vicData() {
 }
 
 
+
 // edit vechle
 // Function to update vehicle data
 function updateVehicle(id) {
@@ -429,3 +431,41 @@ function deleteVehicle(id) {
     }
   });
 }
+
+
+
+
+
+function getStars(rating) {
+  // تحويل التقييم إلى عدد صحيح
+  rating = Math.round(rating);
+
+  let stars = '';
+  // إضافة نجمة صلبة لكل نقطة تقييم
+  for (let i = 0; i < rating; i++) {
+    stars += '<i class="fas fa-star y-star"></i>';
+
+  }
+  // إضافة نجمة فارغة للنقاط المتبقية
+  for (let i = 0; i < (5 - rating); i++) {
+    stars += '<i class="far fa-star d-star"></i>';
+
+  }
+  return stars;
+}
+
+
+
+
+
+
+document.querySelector('.serv-list').addEventListener('click', function() {
+  this.classList.toggle("active");
+
+  if (this.classList.contains('active')) {
+    document.querySelector('.listOfServ').style="display :block;  position: static;";
+  }else {
+    document.querySelector('.listOfServ').style="display :none;";
+
+  }
+});
