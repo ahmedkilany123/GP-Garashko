@@ -1832,6 +1832,21 @@
 
 
 
+    if (window.matchMedia("(max-width: 991px)").matches) {
+      document.querySelector(".downloadApp").classList.remove("none");
+    }
+
+    if (window.matchMedia("(min-width: 991px)").matches) {
+      document.querySelector(".downloadApp").classList.toggle("none");
+
+      document
+        .querySelector(".closeDownloadApp")
+        .addEventListener("click", function () {
+          document.querySelector(".downloadApp").classList.toggle("active");
+        });
+    }
+
+
   </script>
 </body>
 
