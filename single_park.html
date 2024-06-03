@@ -1,454 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtfYcDx4iVRM0Pqvhu62JGeIbQYgu_mU" async defer></script>
 
-    <style>
-      .y-star {
-        color: yellow;
-      }
-      .d-star{
-        color: gray;
-      }
-      .parks {
-        background: var(--cultured-2);
-        padding-block: var(--section-padding);
-      }
-      .grid-boxes {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        .box {
-          position: relative;
-          background: var(--white);
-          padding: 40px 30px;
-          box-shadow: var(--shadow-2);
-          border-radius: 6px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtfYcDx4iVRM0Pqvhu62JGeIbQYgu_mU"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtfYcDx4iVRM0Pqvhu62JGeIbQYgu_mU"></script>
 
-          img {
-            width: 100%;
-          }
+  <style>
+    #map {
+      height: 500px;
 
-          h3 {
-            font-size: 26px;
+    }
+
+    .y-star {
+      color: yellow;
+    }
+
+    .d-star {
+      color: gray;
+    }
+
+    .parks {
+      background: var(--cultured-2);
+      padding-block: var(--section-padding);
+    }
+
+    .grid-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+
+      .box {
+        position: relative;
+        background: var(--white);
+        padding: 40px 30px;
+        box-shadow: var(--shadow-2);
+        border-radius: 6px;
+
+        img {
+          width: 100%;
+        }
+
+        h3 {
+          font-size: 26px;
+          font-weight: 700;
+          text-align: center;
+        }
+
+        p.location {
+          display: flex;
+          align-items: center;
+
+          span.city {
+            font-size: 14px;
             font-weight: 700;
-            text-align: center;
+            margin-right: 5px;
+            color: var(--main-color);
+            padding: 5px 10px;
+            background: hsla(9, 100%, 62%, 0.1);
+            width: max-content;
+            border-radius: 50px;
           }
-          p.location {
-            display: flex;
-            align-items: center;
-            span.city {
-              font-size: 14px;
-              font-weight: 700;
-              margin-right: 5px;
-              color: var(--main-color);
-              padding: 5px 10px;
-              background: hsla(9, 100%, 62%, 0.1);
-              width: max-content;
-              border-radius: 50px;
-            }
-          }
-          p.cridPrice {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-          }
-          .btns {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            .btn {
-              padding: 5px 10px;
-            }
+        }
+
+        p.cridPrice {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .btns {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 20px;
+
+          .btn {
+            padding: 5px 10px;
           }
         }
       }
-    </style>
-  </head>
-  <body onload="initMap()"> 
-    <header class="header" data-header>
-      <div class="overlay" data-overlay></div>
+    }
+  </style>
+</head>
 
-      <div class="header-top">
-        <div class="container">
-          <ul class="header-top-list">
+<body onload="initMap()">
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+        <ul class="header-top-list">
+          <li>
+            <a href="mailto:garashko.eg@gmail.com" class="header-top-link">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <span>garashko.eg@gmail.com</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="header-top-link">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Alexandria , Egypt</address>
+            </a>
+          </li>
+        </ul>
+
+        <div class="wrapper">
+          <ul class="header-top-social-list">
             <li>
-              <a href="mailto:garashko.eg@gmail.com" class="header-top-link">
-                <ion-icon name="mail-outline"></ion-icon>
-
-                <span>garashko.eg@gmail.com</span>
+              <a href="https://www.facebook.com/profile.php?id=61558267896246" rel="noopener" title="facebook"
+                class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="header-top-link">
+              <a href="https://twitter.com/garashko_eg" class="header-top-social-link" rel="noopener" title="twitter"
+                target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/garashko_eg" class="header-top-social-link" rel="noopener"
+                title="instagram" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link" rel="noopener" title="tiktok"
+                target="_blank">
+                <ion-icon name="logo-tiktok"></ion-icon>
+              </a>
+            </li>
+          </ul>
+
+          <a href="#" class="btn">
+            <ion-icon name="wallet-outline"></ion-icon>
+            <p>0</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+              <li>
+                <a href="home.html" class="navbar-link" data-nav-link>Home</a>
+              </li>
+
+              <li class="serv-list">
+                services
+                <ul class="listOfServ">
+                  <li><a href="all_parks.html">parks</a></li>
+                  <li><a href="washServ.html">car wash</a></li>
+                  <li><a href="carMaintence.html"> maintenance </a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#about" class="navbar-link" data-nav-link>about</a>
+              </li>
+
+              <li>
+                <a href="#property" class="navbar-link" data-nav-link>contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="header-bottom-actions">
+          <button class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
+            <ion-icon id="" name="search-outline"></ion-icon>
+
+            <span>Search</span>
+          </button>
+
+          <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
+            <ion-icon name="cart-outline"></ion-icon>
+
+            <span>Cart</span>
+          </button>
+
+          <div class="prof-icon-div">
+            <img class="prof-icon" src="https://i.ibb.co/7pTkfv1/prof1.png" alt="" />
+            <ul id="ul-icon-img" class="ul-icon-img">
+              <li><a href="prof.html">porfile</a></li>
+              <li><a href="index.html" onclick="logout()">log out</a></li>
+            </ul>
+          </div>
+
+          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+            <ion-icon name="menu-outline"></ion-icon>
+
+            <span>Menu</span>
+          </button>
+
+          <form action="" class="search-form">
+            <input dir="auto" type="search" id="shearch-box" placeholder="search here..." />
+            <label for="search-box" class="fas fa-search"></label>
+          </form>
+
+          <div class="shopping-cart">
+            <div class="box">
+              <i class="fas fa-trash"></i>
+              <img src="assets/images/cash.png" alt="" />
+              <div class="content">
+                <h3>50 points</h3>
+                <span class="price">50 Egp</span>
+                <span class="quantity"></span>
+              </div>
+            </div>
+            <div class="box">
+              <i class="fas fa-trash"></i>
+              <img src="assets/images/cash.png" alt="" />
+              <div class="content">
+                <h3>100 points</h3>
+                <span class="price">100 Egp</span>
+                <span class="quantity"></span>
+              </div>
+            </div>
+            <div class="box">
+              <i class="fas fa-trash"></i>
+              <img src="assets/images/cash.png" alt="" />
+              <div class="content">
+                <h3>150 points</h3>
+                <span class="price">150 Egp</span>
+                <span class="quantity"></span>
+              </div>
+            </div>
+            <div class="total">total : 400 Egp</div>
+            <a href="#" class="btn check-cart">check out</a>
+          </div>
+
+          <form action="" class="login-form">
+            <h3>login now</h3>
+            <input type="email" name="email" class="box" placeholder="your email" />
+            <input type="password" name="password" class="box" placeholder="your password" />
+            <p>forget your password ? <a href="#">click here</a></p>
+            <p>don't have acount ? <a href="login.html">creat now</a></p>
+            <input type="submit" class="btn btn-log" value="login" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="parks">
+    <div class="container">
+      <div class="grid-boxes"></div>
+    </div>
+    <div id="map"></div>
+    <button id="getDirections" class="btn">Get Directions</button>
+  </section>
+
+
+
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+          </a>
+
+          <p class="section-text">
+            This project was established in the Faculty of Arts, Tanta University, as a graduation project for IT
+            students
+          </p>
+
+          <ul class="contact-list">
+            <li>
+              <a href="#" class="contact-link">
                 <ion-icon name="location-outline"></ion-icon>
 
                 <address>Alexandria , Egypt</address>
               </a>
             </li>
+
+            <li>
+              <a href="tel:+033014221" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+
+                <span>+03-3014221</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:garashko.eg@gmail.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>garashko.eg@gmail.com</span>
+              </a>
+            </li>
           </ul>
 
-          <div class="wrapper">
-            <ul class="header-top-social-list">
-              <li>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
-                  class="header-top-social-link"
-                  target="_blank"
-                >
-                  <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://twitter.com/garashko_eg"
-                  class="header-top-social-link"
-                  target="_blank"
-                >
-                  <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.instagram.com/garashko_eg"
-                  class="header-top-social-link"
-                  target="_blank"
-                >
-                  <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.tiktok.com/@garashko_eg"
-                  class="header-top-social-link"
-                  target="_blank"
-                >
-                  <ion-icon name="logo-tiktok"></ion-icon>
-                </a>
-              </li>
-            </ul>
-
-            <a href="#" class="btn">
-              <ion-icon name="wallet-outline"></ion-icon>
-              <p>0</p>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="header-bottom">
-        <div class="container">
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.png" alt="Garashko logo" />
-          </a>
-
-          <nav class="navbar" data-navbar>
-            <div class="navbar-top">
-              <a href="#" class="logo">
-                <img src="./assets/images/logo.png" alt="Garashko logo" />
+          <ul class="social-list">
+            <li>
+              <a rel="noopener" title="facebook" href="https://www.facebook.com/profile.php?id=61558267896246"
+                class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
               </a>
+            </li>
 
-              <button
-                class="nav-close-btn"
-                data-nav-close-btn
-                aria-label="Close Menu"
-              >
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-            </div>
+            <li>
+              <a rel="noopener" title="twitter" href="https://twitter.com/garashko_eg" class="header-top-social-link"
+                target="_blank">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
 
-            <div class="navbar-bottom">
-              <ul class="navbar-list">
-                <li>
-                  <a href="index.html" class="navbar-link" data-nav-link
-                    >Home</a
-                  >
-                </li>
+            <li>
+              <a rel="noopener" title="instagram" href="https://www.instagram.com/garashko_eg"
+                class="header-top-social-link" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
 
-                <li class="serv-list">
-                  services
-                  <ul class="listOfServ">
-                    <li><a href="all_parks.html">parks</a></li>
-                    <li><a href="washServ.html">car wash</a></li>
-                    <li><a href="repairServ.html"> maintenance </a></li>
-                  </ul>
-                </li>
+            <li>
+              <a rel="noopener" title="tiktok" href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link"
+                target="_blank">
+                <ion-icon name="logo-tiktok"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                <li>
-                  <a href="#about" class="navbar-link" data-nav-link>about</a>
-                </li>
+        <div class="footer-link-box">
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Pages</p>
+            </li>
 
-                <li>
-                  <a href="#property" class="navbar-link" data-nav-link
-                    >contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </nav>
+            <li>
+              <a href="login.html" class="footer-link">Login</a>
+            </li>
 
-          <div class="header-bottom-actions">
-            <button
-              class="header-bottom-actions-btn"
-              id="search-btn"
-              aria-label="Search"
-            >
-              <ion-icon id="" name="search-outline"></ion-icon>
+            <li>
+              <a href="all_parks.html" class="footer-link">Parks</a>
+            </li>
 
-              <span>Search</span>
-            </button>
+            <li>
+              <a href="carWash.html" class="footer-link">Car Wash</a>
+            </li>
 
-            <button
-              class="header-bottom-actions-btn"
-              id="cart-btn"
-              aria-label="Cart"
-            >
-              <ion-icon name="cart-outline"></ion-icon>
+            <li>
+              <a href="repairServ.html" class="footer-link">Repair Car</a>
+            </li>
 
-              <span>Cart</span>
-            </button>
+            <li>
+              <a href="prof.html" class="footer-link"> Profile</a>
+            </li>
 
-            <div class="prof-icon-div">
-              <img
-                class="prof-icon"
-                src="https://i.ibb.co/7pTkfv1/prof1.png"
-                alt=""
-              />
-              <ul id="ul-icon-img" class="ul-icon-img">
-                <li><a href="prof.html">porfile</a></li>
-                <li><a href="index.html" onclick="logout()">log out</a></li>
-              </ul>
-            </div>
+            <li>
+              <a href="#team" class="footer-link">Team</a>
+            </li>
+          </ul>
 
-            <button
-              class="header-bottom-actions-btn"
-              data-nav-open-btn
-              aria-label="Open Menu"
-            >
-              <ion-icon name="menu-outline"></ion-icon>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
 
-              <span>Menu</span>
-            </button>
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
 
-            <form action="" class="search-form">
-              <input
-                dir="auto"
-                type="search"
-                id="shearch-box"
-                placeholder="search here..."
-              />
-              <label for="search-box" class="fas fa-search"></label>
-            </form>
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
 
-            <div class="shopping-cart">
-              <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
-                <div class="content">
-                  <h3>50 points</h3>
-                  <span class="price">50 Egp</span>
-                  <span class="quantity"></span>
-                </div>
-              </div>
-              <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
-                <div class="content">
-                  <h3>100 points</h3>
-                  <span class="price">100 Egp</span>
-                  <span class="quantity"></span>
-                </div>
-              </div>
-              <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="assets/images/cash.png" alt="" />
-                <div class="content">
-                  <h3>150 points</h3>
-                  <span class="price">150 Egp</span>
-                  <span class="quantity"></span>
-                </div>
-              </div>
-              <div class="total">total : 400 Egp</div>
-              <a href="#" class="btn check-cart">check out</a>
-            </div>
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
 
-            <form action="" class="login-form">
-              <h3>login now</h3>
-              <input
-                type="email"
-                name="email"
-                class="box"
-                placeholder="your email"
-              />
-              <input
-                type="password"
-                name="password"
-                class="box"
-                placeholder="your password"
-              />
-              <p>forget your password ? <a href="#">click here</a></p>
-              <p>don't have acount ? <a href="login.html">creat now</a></p>
-              <input type="submit" class="btn btn-log" value="login" />
-            </form>
-          </div>
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Promotional Offers</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+
+              <iframe title="location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109180.12447439144!2d30.037286408466596!3d31.224084583536985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49126710fd3%3A0xb4e0cda629ee6bb9!2z2KfZhNil2LPZg9mG2K_YsdmK2KnYjCDZhdit2KfZgdi42Kkg2KfZhNil2LPZg9mG2K_YsdmK2Kk!5e0!3m2!1sar!2seg!4v1716846950745!5m2!1sar!2seg"
+                allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </div>
 
-    <section class="parks">
+    <div class="footer-bottom">
       <div class="container">
-        <div class="grid-boxes"></div>
+        <p class="copyright">
+          &copy; 2024 <a href="#">Garashko</a>. All Rights Reserved
+        </p>
       </div>
-    </section>
-
-    
-    <script src="assets/js/script.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    </div>
+  </footer>
 
 
-
-    <script>
-      var token = JSON.parse(localStorage.getItem("token"));
-
-      window.onload = function () {
-  // الحصول على الـ id من المعلمات في الرابط
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
-  const gridBoxes = document.querySelector(".grid-boxes");
-
-  fetch(`https://gara4ko-p8wm.onrender.com/api/v1/parking/${id}`, {
-    method: "GET",
-    headers: {
-      token: token,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      const parking = data.data;
-
-      console.log(parking); // طباعة الكائن parking هنا
-
-      const box = document.createElement("div");
-      box.className = "box";
-
-      box.innerHTML = `
-  <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
-  <h3 class="parkName">${parking.parking_name}</h3>
-  <p class="location"><span class="city">${parking.location.city}</span>${parking.location.address}</p>
-  <p class="cridPrice"> ${parking.creditPointPerHour} <span class="crid">cridet point per hour</span></p>
-  <p class="cridPrice"> ${parking.creditPointPerMonth} <span class="crid">cridet point per month</span></p>
-  <p class="rating">${getStars(parking.rate)} <span class="crid"></span></p>
-  <p class="cridPrice"> ${parking.remainingSpace} <span class="crid">remaining Space</span></p>
-  <div class="btns">
-    <a href="#" class="btn">find in map</a>
-    <a href="#" class="btn" onclick="reserveParking('${parking._id}')">book now</a>
-  </div>
-`;
-
-      gridBoxes.appendChild(box);
-    })
-    .then((data) => {
-  const parking = data.data;
-
-  console.log(parking); // طباعة الكائن parking هنا
-
-  const box = document.createElement("div");
-  box.className = "box";
-
-  box.innerHTML = `
-    <!-- الكود الخاص بك هنا -->
-  `;
-
-  gridBoxes.appendChild(box);
-
-  // تهيئة الخريطة
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: parking.locationMap.coordinates[0], lng: parking.locationMap.coordinates[1]},
-    zoom: 8
-  });
-  var marker = new google.maps.Marker({position: {lat: parking.locationMap.coordinates[0], lng: parking.locationMap.coordinates[1]}, map: map});
-})
-
-    .catch((error) => console.error("Error:", error));
-};
+  <script src="assets/js/script.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
+  <script>
+
+    singlePark()
 
 
+  </script>
+</body>
 
-
-
-
-
-
-
-
-      function reserveParking(id) {
-        let data = {
-          paymentMethod: "Cash", // يجب توفير طريقة الدفع هنا، يمكنك استبدال "Cash" بأي قيمة أخرى مقبولة
-          quantity: 5,
-          isHour:true,
-          isMonth:false,
-          fromDate:"2024-06-28 08:10",
-          toDate:"2024-09-08 08:10",
-          vehicle:"65dfb840b76e4ed36d65dabe",
-
-
-        };
-
-        fetch(`https://gara4ko-p8wm.onrender.com/api/v1/reservation/${id}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            token: token,
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            swal("done!", "تم حجز الجراج بنجاح", "success");
-            console.log(data);
-            console.log(id);
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            swal("error", "حدث خطأ أثناء حجز الجراج", "error");
-          });
-      }
-    
-    
-
-
-
-
-  
-
-
-
-
-
-
-
-    </script>
-  </body>
 </html>
