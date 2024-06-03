@@ -1,5 +1,6 @@
-let api = "https://gara4ko.onrender.com";
+const token = JSON.parse(localStorage.getItem("token"));
 
+let api = "http://localhost:3000";
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
@@ -121,27 +122,12 @@ if (window.matchMedia("(max-width: 991px)").matches) {
   });
 }
 
-if (window.matchMedia("(max-width: 991px)").matches) {
-  document.querySelector(".downloadApp").classList.remove("none");
-}
-
-if (window.matchMedia("(min-width: 991px)").matches) {
-  document.querySelector(".downloadApp").classList.toggle("none");
-
-  document
-    .querySelector(".closeDownloadApp")
-    .addEventListener("click", function () {
-      document.querySelector(".downloadApp").classList.toggle("active");
-    });
-}
-
 /*
 ----------------------------
 todo => Database Apis ^^
 ----------------------------
 */
 
-const token = JSON.parse(localStorage.getItem("token"));
 // user data
 function userData() {
   const token = JSON.parse(localStorage.getItem("token"));
@@ -537,12 +523,12 @@ function getStars(rating) {
   return stars;
 }
 
+let currentStepIndex = 0;
 let userLocation;
 let map, userMarker, directionsService, directionsRenderer;
-let currentStepIndex = 0;
 let steps;
 
-function singlePark() {
+function initMap() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
@@ -571,30 +557,30 @@ function singlePark() {
       box.className = "box";
 
       box.innerHTML = `
-          <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
-          <h3 class="parkName">${parking.parking_name}</h3>
-          <p class="location"><span class="city">${
-            parking.location.city
-          }</span>${parking.location.address}</p>
-          <p class="cridPrice">${
-            parking.creditPointPerHour
-          } <span class="crid">credit points per hour</span></p>
-          <p class="cridPrice">${
-            parking.creditPointPerMonth
-          } <span class="crid">credit points per month</span></p>
-          <p class="rating">${getStars(
-            parking.rate
-          )} <span class="crid"></span></p>
-          <p class="cridPrice">${
-            parking.remainingSpace
-          } <span class="crid">remaining Space</span></p>
-          <div class="btns">
-            <a href="#" class="btn" id="findInMap">find in map</a>
-            <a href="#" class="btn" onclick="reserveParking('${
-              parking._id
-            }')">book now</a>
-          </div>
-        `;
+        <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="">
+        <h3 class="parkName">${parking.parking_name}</h3>
+        <p class="location"><span class="city">${parking.location.city}</span>${
+        parking.location.address
+      }</p>
+        <p class="cridPrice">${
+          parking.creditPointPerHour
+        } <span class="crid">credit points per hour</span></p>
+        <p class="cridPrice">${
+          parking.creditPointPerMonth
+        } <span class="crid">credit points per month</span></p>
+        <p class="rating">${getStars(
+          parking.rate
+        )} <span class="crid"></span></p>
+        <p class="cridPrice">${
+          parking.remainingSpace
+        } <span class="crid">remaining Space</span></p>
+        <div class="btns">
+          <a href="#" class="btn" id="findInMap">find in map</a>
+          <a href="#" class="btn" onclick="reserveParking('${
+            parking._id
+          }')">book now</a>
+        </div>
+      `;
 
       gridBoxes.appendChild(box);
 

@@ -1,3 +1,5 @@
+// let api = "http://localhost:3000";
+
 //sign up
 document
   .querySelector(".form-creat")
@@ -16,7 +18,7 @@ document
       phoneNumber: phoneNumber,
     };
 
-    fetch("https://gara4ko-p8wm.onrender.com/api/v1/auth/signUp", {
+    fetch(`${api}/api/v1/auth/signUp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,21 +54,18 @@ document
       })
     );
 
-    const response = await fetch(
-      "https://gara4ko-p8wm.onrender.com/api/v1/auth/signIn",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+    const response = await fetch(`${api}/api/v1/auth/signIn`, {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
 
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-      }
-    );
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    });
 
     const data = await response.json();
     console.log("#===>token", data.token);
