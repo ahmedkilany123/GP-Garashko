@@ -86,5 +86,26 @@ function logout() {
   localStorage.removeItem("token");
 
   location.reload();
-
 }
+
+// async function deleteAccount(userId) {
+//   const apiUrl = "http://localhost:3000/api/v1/auth/";
+//   const deleteUrl = `${apiUrl}${userId}`;
+
+//   try {
+//     const response = await fetch(deleteUrl, {
+//       method: "DELETE",
+//       // You can add any necessary headers here (e.g., authentication tokens).
+//     });
+
+//     if (response.status === 200) {
+//       console.log("User account deleted successfully.");
+//     } else {
+//       console.error("Error deleting user account:", response.statusText);
+//     }
+//   } catch (error) {
+//     console.error("An error occurred while deleting the user account:", error);
+//   }
+// }
+
+// Example usage:
