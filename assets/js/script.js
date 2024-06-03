@@ -1,6 +1,6 @@
 const token = JSON.parse(localStorage.getItem("token"));
 
-let api = "https://gara4ko.onrender.com";
+let api = "http://localhost:3000";
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
@@ -116,11 +116,11 @@ cart.addEventListener("click", function (event) {
 //   }
 // });
 
-// if (window.matchMedia("(max-width: 991px)").matches) {
-//   document.querySelector(".serv-list").addEventListener("click", function () {
-//     document.querySelector(".listOfServ").classList.toggle("show");
-//   });
-// }
+if (window.matchMedia("(max-width: 991px)").matches) {
+  document.querySelector(".serv-list").addEventListener("click", function () {
+    document.querySelector(".listOfServ").classList.toggle("show");
+  });
+}
 
 /*
 ----------------------------
