@@ -1,4 +1,4 @@
-let api = "https://gara4ko.onrender.com";
+let api = "http://localhost:3000";
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
@@ -106,30 +106,27 @@ cart.addEventListener("click", function (event) {
   }
 });
 
-// download app
-document.addEventListener("DOMContentLoaded", function () {
-  const mediaQuery = window.matchMedia("(min-width: 768px)");
-  if (mediaQuery.matches) {
-    alert("Media Query Matched!");
-  }
-});
+// // download app
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mediaQuery = window.matchMedia("(min-width: 768px)");
+//   if (mediaQuery.matches) {
+//     alert("Media Query Matched!");
+//   }
+// });
 
-document
-  .querySelector(".closeDownloadApp")
-  .addEventListener("click", function () {
-    if (window.matchMedia("(max-width: 991px)").matches) {
-      this.classList.toggle("active");
-      if (this.classList.contains("active")) {
-        document.querySelector(".downloadApp").style =
-          "display: block; position: static;";
-      } else {
-        document.querySelector(".downloadApp").style = "display: none;";
-      }
-    } else if (window.matchMedia("(min-width: 991px)").matches) {
-      this.classList.toggle("active");
+if (window.matchMedia("(max-width: 991px)").matches) {
+  document.querySelector(".downloadApp").classList.remove("none");
+}
+
+if (window.matchMedia("(min-width: 991px)").matches) {
+  document.querySelector(".downloadApp").classList.toggle("none");
+
+  document
+    .querySelector(".closeDownloadApp")
+    .addEventListener("click", function () {
       document.querySelector(".downloadApp").classList.toggle("active");
-    }
-  });
+    });
+}
 
 /*
 ----------------------------
@@ -140,6 +137,8 @@ todo => Database Apis ^^
 const token = JSON.parse(localStorage.getItem("token"));
 // user data
 function userData() {
+  const token = JSON.parse(localStorage.getItem("token"));
+
   fetch(`${api}/api/v1/user/`, {
     method: "GET",
     headers: {
@@ -233,7 +232,6 @@ function vecAdd() {
         licenseNumbers = licenseNumbers.split("").map(Number);
       }
 
-      // التحقق من القيم قبل الإرسال
       if (
         !licenseLetters ||
         !licenseNumbers ||
@@ -244,8 +242,8 @@ function vecAdd() {
       ) {
         Swal.fire({
           icon: "error",
-          title: "خطأ",
-          text: "واحد أو أكثر من الحقول فارغة",
+          title: "error",
+          text: "one or more field is impty",
         });
         return;
       }
@@ -275,8 +273,8 @@ function vecAdd() {
           if (data.message === "vehicle added successfully") {
             Swal.fire({
               icon: "success",
-              title: "تم بنجاح",
-              text: "تمت إضافة المركبة بنجاح",
+              title: "success",
+              text: "vehicle added successfully",
             });
             document.getElementById("licenseLetters").value = "";
             document.getElementById("licenseNumbers").value = "";
@@ -288,7 +286,7 @@ function vecAdd() {
             Swal.fire({
               icon: "error",
               title: "error",
-              text: data.message,
+              text: data.error,
             });
           }
         })
@@ -296,9 +294,9 @@ function vecAdd() {
           Swal.fire({
             icon: "error",
             title: "error",
-            text: "try again",
+            text: data,
           });
-          console.error("Error:", error);
+          console.error("Error:", data.error);
         });
     });
 }
@@ -780,7 +778,7 @@ function calculateAndDisplayRoute() {
 
 //-----------------
 function walletTotal() {
-  fetch("http://localhost:3000/api/v1/wallet/user", {
+  fetch(`${api}/api/v1/wallet/user`, {
     method: "GET",
     headers: {
       token: token,

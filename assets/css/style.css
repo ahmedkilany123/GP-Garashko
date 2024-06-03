@@ -572,16 +572,12 @@ input:invalid {
   cursor: pointer;
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
+  flex-direction: column;
   background-color: white;
   background: var(--white);
   width: 50px;
   height: 50px;
-  box-shadow: var(--shadow-2);
-  display: flex;
-  align-items: center;
-  /* width: 100%; */
-  padding: 10px;
+  padding: 4px;
 }
 
 .header-bottom-actions a ion-icon {
@@ -3082,6 +3078,12 @@ main div.active {
   }
   section.login img {
     width: 360px;
+  }
+
+  .footer-list li iframe {
+    width: 320px;
+    height: 250px;
+    border: 0;
   }
 
   /*-----------------------------------*\

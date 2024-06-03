@@ -75,8 +75,7 @@ document
       window.location.href = "prof.html";
     } else {
       console.log(data);
-      document.querySelector(".message-serv2").innerText =
-        "wrong email or password";
+      document.querySelector(".message-serv2").innerText = data.error;
     }
   });
 
