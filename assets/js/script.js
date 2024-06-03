@@ -1,4 +1,5 @@
-let api = "http://localhost:3000";
+let api = "https://gara4ko.onrender.com";
+
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
