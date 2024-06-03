@@ -1,4 +1,4 @@
-let api = "https://gara4ko.onrender.com";
+let api = "http://localhost:3000";
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
@@ -113,6 +113,12 @@ cart.addEventListener("click", function (event) {
 //     alert("Media Query Matched!");
 //   }
 // });
+
+if (window.matchMedia("(max-width: 991px)").matches) {
+  document.querySelector(".serv-list").addEventListener("click", function () {
+    document.querySelector(".listOfServ").classList.toggle("show");
+  });
+}
 
 if (window.matchMedia("(max-width: 991px)").matches) {
   document.querySelector(".downloadApp").classList.remove("none");
@@ -833,20 +839,5 @@ function reserveParking(id) {
       swal("error", "حدث خطأ أثناء حجز الجراج", "error");
     });
 }
-
-document.querySelector(".serv-list").addEventListener("click", function () {
-  if (window.matchMedia("(max-width: 991px)").matches) {
-    this.classList.toggle("active");
-    if (this.classList.contains("active")) {
-      document.querySelector(".listOfServ").style =
-        "display: block; position: static;";
-    } else {
-      document.querySelector(".listOfServ").style = "display: none;";
-    }
-  } else if (window.matchMedia("(min-width: 991px)").matches) {
-    this.classList.toggle("active");
-    document.querySelector(".listOfServ").classList.toggle("active");
-  }
-});
 
 walletTotal();
