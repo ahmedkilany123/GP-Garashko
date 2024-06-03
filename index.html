@@ -1594,7 +1594,7 @@
     - #Download our app
   
   -->
-  <div class="downloadApp">
+  <div class="downloadApp none">
     <div class="closeDownloadApp">
       <i class="fa-solid fa-xmark"></i>
     </div>
@@ -1804,6 +1804,14 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <script>
+
+    if (window.matchMedia("(min-width: 991px)").matches) {
+      document.querySelector(".downloadApp").classList.toggle("none");
+    }
+
+
+
+
     // document.addEventListener("DOMContentLoaded", (event) => {
     //   // فحص وجود الـ token
     //   if (localStorage.getItem("token")) {
