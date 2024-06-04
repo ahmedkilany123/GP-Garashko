@@ -1,6 +1,6 @@
 const token = JSON.parse(localStorage.getItem("token"));
 
-let api = "https://gara4ko.onrender.com";
+let api = "http://localhost:3000";
 
 function toggle() {
   const navbar = document.querySelector("[data-navbar]");
