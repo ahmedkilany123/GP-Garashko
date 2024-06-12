@@ -145,13 +145,13 @@
     <div class="header-bottom">
       <div class="container">
         <a href="#" class="logo">
-          <img loading="lazy" loading="lazy" src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+          <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
         </a>
 
         <nav class="navbar" data-navbar>
           <div class="navbar-top">
             <a href="#" class="logo">
-              <img loading="lazy" src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+              <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
             </a>
 
             <button type="button" class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
@@ -189,9 +189,9 @@
         </nav>
 
         <div class="header-bottom-actions">
-          <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
+          <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search" onclick="searchBtn()">
             <ion-icon id="" name="search-outline"></ion-icon>
-
+          
             <span>Search</span>
           </button>
 
@@ -218,49 +218,6 @@
             <label for="search-box" class="fas fa-search"></label>
           </form>
 
-          <div class="shopping-cart">
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img loading="lazy" loading="lazy" src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>50 points</h3>
-                <span class="price">50 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img loading="lazy" loading="lazy" src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>100 points</h3>
-                <span class="price">100 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img loading="lazy" loading="lazy" src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>150 points</h3>
-                <span class="price">150 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="total">total : 400 Egp</div>
-            <a href="#" class="btn check-cart">check out</a>
-          </div>
-
-          <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" name="email" class="box" placeholder="your email" />
-            <input type="password" name="password" class="box" placeholder="your password" />
-            <p>forget your password ? <a href="#">click here</a></p>
-            <p>
-              don't have acount ?
-              <a title="login" href="login.html">creat now</a>
-            </p>
-            <input type="submit" class="btn btn-log" value="login" />
-          </form>
         </div>
       </div>
     </div>
@@ -271,6 +228,24 @@
       <!-- 
         - #HERO
       -->
+
+      <div id="cookie-consent" class="cookie-consent">
+        <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html"
+            title="privacy-policy">Learn
+            more</a>
+        </p>
+        <div class="btns">
+
+          <button type="button" id="accept-cookies" onclick="accCokies()">Accept</button>
+          <button type="button" id="decline-cookies" onclick="desCokies()">Decline</button>
+        </div>
+      </div>
+
+
+
+
+
+
 
       <section class="hero" id="home">
         <div class="container">
@@ -291,7 +266,7 @@
           </div>
 
           <figure class="hero-banner">
-            <img loading="lazy" src="https://i.ibb.co/nbxF56k/home.gif" alt="Garashko" class="w-100" />
+            <img src="https://i.ibb.co/nbxF56k/home.gif" alt="Garashko" class="w-100" />
           </figure>
         </div>
       </section>
@@ -302,7 +277,7 @@
       <section class="about" id="about">
         <div class="container">
           <figure class="about-banner">
-            <img loading="lazy" src="https://i.ibb.co/5KPsWDg/elc-door.gif" alt="House interior" />
+            <img src="https://i.ibb.co/5KPsWDg/elc-door.gif" alt="House interior" />
           </figure>
 
           <div class="about-content">
@@ -375,7 +350,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img loading="lazy" src="https://i.ibb.co/kx7BNHB/service-1.png" alt="Service icon" />
+                  <img src="https://i.ibb.co/kx7BNHB/service-1.png" alt="Service icon" />
                 </div>
 
                 <h3 class="h3 card-title">
@@ -389,7 +364,7 @@
                 </p>
 
                 <a href="parkServ.htm" title="link" class="card-link btn">
-                  <span>more</span>
+                  <span>Park Service</span>
 
                   <ion-icon name="arrow-forward-outline"></ion-icon>
                 </a>
@@ -399,7 +374,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img loading="lazy" src="https://i.ibb.co/KrqKg63/service-2.png" alt="Service icon" />
+                  <img src="https://i.ibb.co/KrqKg63/service-2.png" alt="Service icon" />
                 </div>
 
                 <h3 class="h3 card-title">
@@ -412,7 +387,7 @@
                 </p>
 
                 <a title="wash Serv" href="washServ.html" class="card-link btn">
-                  <span>more</span>
+                  <span>wash Service</span>
 
                   <ion-icon name="arrow-forward-outline"></ion-icon>
                 </a>
@@ -422,7 +397,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img loading="lazy" src="https://i.ibb.co/QdPKdyJ/service-3.png" alt="Service icon" />
+                  <img src="https://i.ibb.co/5KCSRk6/service-3.png" alt="Service icon" />
                 </div>
 
                 <h3 class="h3 card-title">
@@ -435,7 +410,7 @@
                 </p>
 
                 <a title="repairServ" href="repairServ.html" class="card-link btn">
-                  <span>more</span>
+                  <span>repair Service</span>
 
                   <ion-icon name="arrow-forward-outline"></ion-icon>
                 </a>
@@ -461,7 +436,7 @@
               <div class="property-card">
                 <figure class="card-banner">
                   <a href="#">
-                    <img loading="lazy" loading="lazy" loading="lazy"
+                    <img
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="New Apartment Nice View" class="w-100" />
                   </a>
@@ -509,7 +484,7 @@
                 <div class="card-footer">
                   <div class="card-author">
                     <figure class="author-avatar">
-                      <img loading="lazy"
+                      <img
                         src="https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="William Seklo" class="w-100" />
                     </figure>
@@ -544,9 +519,7 @@
               <div class="property-card">
                 <figure class="card-banner">
                   <a href="#">
-                    <img loading="lazy"
-                      src="https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt="Modern Apartments" class="w-100" />
+                    <img src="https://i.ibb.co/9ZwW5Hh/cash.jpg" alt="Modern Apartments" class="w-100" />
                   </a>
 
                   <div class="card-badge orange">Garashko</div>
@@ -592,7 +565,7 @@
                 <div class="card-footer">
                   <div class="card-author">
                     <figure class="author-avatar">
-                      <img loading="lazy"
+                      <img
                         src="https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="William Seklo" class="w-100" />
                     </figure>
@@ -627,7 +600,7 @@
               <div class="property-card">
                 <figure class="card-banner">
                   <a href="#">
-                    <img loading="lazy"
+                    <img
                       src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="Comfortable Apartment" class="w-100" />
                   </a>
@@ -675,7 +648,7 @@
                 <div class="card-footer">
                   <div class="card-author">
                     <figure class="author-avatar">
-                      <img loading="lazy"
+                      <img
                         src="https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="William Seklo" class="w-100" />
                     </figure>
@@ -847,7 +820,7 @@
             <li>
               <div class="blog-card">
                 <figure class="card-banner">
-                  <img loading="lazy"
+                  <img
                     src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="The Most Inspiring Interior Design Of 2021" class="w-100" />
                 </figure>
@@ -893,7 +866,7 @@
             <li>
               <div class="blog-card">
                 <figure class="card-banner">
-                  <img loading="lazy"
+                  <img
                     src="https://images.unsplash.com/photo-1605164599901-f8a1464a2c87?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Discounts and offers regarding car wash" class="w-100" />
                 </figure>
@@ -939,7 +912,7 @@
             <li>
               <div class="blog-card">
                 <figure class="card-banner">
-                  <img loading="lazy"
+                  <img
                     src="https://images.unsplash.com/photo-1596986952526-3be237187071?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="New maintenance services are being added in our branches" class="w-100" />
                 </figure>
@@ -994,26 +967,26 @@
           <h2 class="h2 section-title">Our Gallery</h2>
 
           <article class="gallery">
-            <img loading="lazy"
+            <img
               src="https://images.unsplash.com/photo-1597985933897-cfbf9e2464d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="" />
-            <img loading="lazy"
+            <img
               src="https://images.unsplash.com/photo-1572701203787-6e3f196126cc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="" />
-            <img loading="lazy"
+            <img
               src="https://images.unsplash.com/photo-1572701190336-15d91f69a1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="" />
-            <img loading="lazy" src="https://th.bing.com/th/id/OIG1.eZKWJdOBQdKsCm6AxBB5?pid=ImgGn" alt="" />
-            <img loading="lazy"
+            <img src="https://i.ibb.co/cgTRksV/alexPark.jpg" alt="" />
+            <img
               src="https://images.pexels.com/photos/3849555/pexels-photo-3849555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" />
-            <img loading="lazy"
+            <img
               src="https://images.pexels.com/photos/372810/pexels-photo-372810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" />
-            <img loading="lazy"
+            <img
               src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" />
-            <img loading="lazy"
+            <img
               src="https://images.pexels.com/photos/8986145/pexels-photo-8986145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" />
           </article>
@@ -1027,7 +1000,7 @@
         <div class="container">
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/d20DyVV/kilany.png" alt="" />
+              <img src="https://i.ibb.co/d20DyVV/kilany.png" alt="" />
               <div class="social">
                 <a title="facebook" href="https://www.facebook.com/ahmed.redakilany">
                   <i class="fab fa-facebook"></i></a>
@@ -1047,7 +1020,7 @@
 
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/BTjzS18/abdelrahman.jpg" alt="" />
+              <img src="https://i.ibb.co/BTjzS18/abdelrahman.jpg" alt="" />
               <div class="social">
                 <a title="facebook" href="#">
                   <i class="fab fa-facebook"></i></a>
@@ -1066,7 +1039,7 @@
           </div>
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/Qb73hTt/fares.jpg" alt="" />
+              <img src="https://i.ibb.co/Qb73hTt/fares.jpg" alt="" />
               <div class="social">
                 <a title="facebook" href="https://www.facebook.com/faress.walled.3">
                   <i class="fab fa-facebook"></i></a>
@@ -1085,7 +1058,7 @@
           </div>
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/5rhvdx7/mote3.jpg" alt="" />
+              <img src="https://i.ibb.co/5rhvdx7/mote3.jpg" alt="" />
               <div class="social">
                 <a title="facebook" href="https://www.facebook.com/te3a.fo2">
                   <i class="fab fa-facebook"></i></a>
@@ -1104,7 +1077,7 @@
           </div>
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/w6NF4rR/omar.jpg" alt="" />
+              <img src="https://i.ibb.co/w6NF4rR/omar.jpg" alt="" />
               <div class="social">
                 <a title="facebook" href="https://www.facebook.com/omar.reda.1293">
                   <i class="fab fa-facebook"></i></a>
@@ -1123,7 +1096,7 @@
           </div>
           <div class="box">
             <div class="data">
-              <img loading="lazy" loading="lazy" src="https://i.ibb.co/DtLMgMf/jupa.jpg" alt="" />
+              <img src="https://i.ibb.co/DtLMgMf/jupa.jpg" alt="" />
               <div class="social">
                 <a title="facebook" href="https://www.facebook.com/profile.php?id=100008184395430">
                   <i class="fab fa-facebook"></i></a>
@@ -1222,7 +1195,7 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+            <img src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
           </a>
 
           <p class="section-text">
@@ -1332,7 +1305,7 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link">Login</a>
+              <a href="login.html" class="footer-link">Login</a>
             </li>
 
             <li>

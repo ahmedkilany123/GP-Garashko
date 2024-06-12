@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!--  Essential META Tags -->
@@ -47,6 +46,230 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+
+  <style>
+    @media (max-width: 667px) {
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        text-wrap: balance;
+      }
+
+      .landing-serv .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        /* padding-block: 50px; */
+      }
+
+      .landing-serv .info .top {
+        position: absolute;
+      }
+
+      .landing-serv .info img {
+        width: 200px;
+        position: absolute;
+      }
+
+      .landing-serv .info .top h2 {
+        font-size: 30px;
+      }
+
+      .landing-serv .info .top p {
+        margin-right: 70px;
+      }
+
+      .landing-serv .container>img {
+        width: 115px;
+        bottom: 10px;
+      }
+
+      /* section consist start  */
+
+      .consist {
+        position: relative;
+        background: var(--alice-blue);
+      }
+
+      .consist img.svg {
+        top: -25px;
+        position: absolute;
+      }
+
+      .consist .info {
+        flex-direction: column;
+
+        img {
+          width: 200px;
+        }
+      }
+
+      .consist .info h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .consist .container {
+        padding-block: 50px;
+      }
+
+      .consist .boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 100px;
+      }
+
+      .consist .boxes .box h3 {
+        font-size: 20px;
+        padding-bottom: 0px;
+        height: 100px;
+
+      }
+
+      .consist .boxes .box img {
+        width: 300px;
+      }
+
+      .consist .boxes .box p {
+        position: relative;
+        font-weight: 600;
+        transform: translateX(20px);
+      }
+
+      .consist .boxes .box:nth-child(4) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .consist .boxes .box p.list::before {
+        content: "";
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        background: var(--second-color);
+        left: -20px;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+
+      /* start section how  */
+      .how {
+        position: relative;
+        background: var(--second-color);
+        transform: rotate(-1deg);
+        width: 110%;
+        left: -13px;
+        background-image: url(/assets/images/serv-page-back.png);
+        background-position: bottom;
+        background-size: cover;
+      }
+
+      .how .container {
+        padding-block: var(--section-padding);
+        position: relative;
+        text-align: center;
+        color: var(--alice-blue);
+        transform: rotate(1deg);
+      }
+
+      .how img:nth-child(1) {
+        position: absolute;
+        top: -40px;
+        width: 105%;
+        transform: rotate(2deg);
+        left: -30px;
+      }
+
+      .how .container h2 {
+        position: relative;
+        font-size: 34px;
+        padding-bottom: 10px;
+        width: -moz-fit-content;
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .how .container h2::after {
+        content: "";
+        position: absolute;
+        width: 20%;
+        height: 2px;
+        bottom: 0;
+        transform: translateX(-50%);
+        left: 50%;
+        background: orange;
+      }
+
+      .how .container p {
+        padding-top: 20px;
+      }
+
+      /* start section operation */
+      .operation {
+        padding-block: var(--section-padding);
+      }
+
+      .operation h2 {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 34px;
+        margin-bottom: 40px;
+
+        span {
+          color: var(--main-color);
+          display: inline-block;
+        }
+      }
+
+      .operation .boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+      }
+
+      .operation .box {
+        text-align: center;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: 0.5s;
+        border-radius: 10px;
+      }
+
+      .operation .box:hover {
+        transform: translateY(-10px);
+      }
+
+      .operation .box img {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+      }
+
+      .operation .box-bottom {
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .operation .box-bottom h2 {
+        font-size: 34px;
+        text-align: left;
+      }
+
+      .operation .box-bottom p {
+        line-height: 1.7;
+        width: 100%;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
@@ -69,10 +292,12 @@
           </li>
 
           <li>
-            <a href="#" class="header-top-link">
+            <a href="https://maps.app.goo.gl/JLYMcYRrxtyaYJyV7" class="header-top-link">
               <ion-icon name="location-outline"></ion-icon>
 
               <address>Alexandria , Egypt</address>
+
+
             </a>
           </li>
         </ul>
@@ -80,26 +305,29 @@
         <div class="wrapper">
           <ul class="header-top-social-list">
             <li>
-              <a href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
+              <a rel="noopener" title="social link" href="https://www.facebook.com/profile.php?id=61558267896246"
                 class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://twitter.com/garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://twitter.com/garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-twitter"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://www.instagram.com/garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://www.instagram.com/garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://www.tiktok.com/@garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-tiktok"></ion-icon>
               </a>
             </li>
@@ -125,7 +353,7 @@
               <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
             </a>
 
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <button type="button" class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
               <ion-icon name="close-outline"></ion-icon>
             </button>
           </div>
@@ -133,7 +361,7 @@
           <div class="navbar-bottom">
             <ul class="navbar-list">
               <li>
-                <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+                <a title="home" href="index.html" class="navbar-link" data-nav-link>Home</a>
               </li>
 
               <li>
@@ -160,25 +388,26 @@
         </nav>
 
         <div class="header-bottom-actions">
-          <button class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
-            <ion-icon id="search-btn" name="search-outline"></ion-icon>
+          <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search"
+            onclick="searchBtn()">
+            <ion-icon id="" name="search-outline"></ion-icon>
 
             <span>Search</span>
           </button>
 
-          <a href="login.html">
+          <a title="login" href="login.html">
             <ion-icon name="person-outline"></ion-icon>
 
             <span>Profile</span>
           </a>
 
-          <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
+          <button type="button" class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
             <ion-icon name="cart-outline"></ion-icon>
 
             <span>Cart</span>
           </button>
 
-          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+          <button type="button" class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
             <ion-icon name="menu-outline"></ion-icon>
 
             <span>Menu</span>
@@ -189,46 +418,6 @@
             <label for="search-box" class="fas fa-search"></label>
           </form>
 
-          <div class="shopping-cart">
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>50 points</h3>
-                <span class="price">50 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>100 points</h3>
-                <span class="price">100 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>150 points</h3>
-                <span class="price">150 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="total">total : 400 Egp</div>
-            <a href="#" class="btn check-cart">check out</a>
-          </div>
-
-          <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" name="email" class="box" placeholder="your email" />
-            <input type="password" name="password" class="box" placeholder="your password" />
-            <p>forget your password ? <a href="#">click here</a></p>
-            <p>don't have acount ? <a href="login.html">creat now</a></p>
-            <input type="submit" class="btn btn-log" value="login" />
-          </form>
         </div>
       </div>
     </div>
@@ -467,7 +656,7 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+            <img src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
           </a>
 
           <p class="section-text">
@@ -477,7 +666,7 @@
 
           <ul class="contact-list">
             <li>
-              <a href="#" class="contact-link">
+              <a href="https://maps.app.goo.gl/JLYMcYRrxtyaYJyV7" class="contact-link">
                 <ion-icon name="location-outline"></ion-icon>
 
                 <address>Alexandria , Egypt</address>
@@ -485,10 +674,10 @@
             </li>
 
             <li>
-              <a href="tel:+033014221" class="contact-link">
+              <a href="tel:+201124563673" class="contact-link">
                 <ion-icon name="call-outline"></ion-icon>
 
-                <span>+03-3014221</span>
+                <span>+201124563673</span>
               </a>
             </li>
 
@@ -503,8 +692,7 @@
 
           <ul class="social-list">
             <li>
-              <a rel="noopener" title="facebook"
-                href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
+              <a rel="noopener" title="facebook" href="https://www.facebook.com/profile.php?id=61558267896246"
                 class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
@@ -578,7 +766,7 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link">Login</a>
+              <a href="login.html" class="footer-link">Login</a>
             </li>
 
             <li>

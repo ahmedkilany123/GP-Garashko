@@ -86,6 +86,55 @@
         }
       }
     }
+
+
+
+    /* ///////////// */
+    .d-block {
+      display: block;
+
+      .box {
+        .headBox {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          img {
+            width: 350px;
+          }
+        }
+
+        p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 50px;
+          margin: 10px auto;
+        }
+
+        p.rating {
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+    }
+
+    .reserveation {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      background: white;
+      box-shadow: var(--shadow-1);
+      padding: 15px;
+      border-radius: 6px;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
+
+    .reserveation.show {
+      display: block;
+    }
   </style>
 </head>
 
@@ -144,9 +193,9 @@
             </li>
           </ul>
 
-          <a href="#" class="btn">
+          <a href="#" class="btn" rel="noopener" title="wallet">
             <ion-icon name="wallet-outline"></ion-icon>
-            <p>0</p>
+            <p id="wallet-total"></p>
           </a>
         </div>
       </div>
@@ -164,7 +213,7 @@
               <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
             </a>
 
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <button type="button" class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
               <ion-icon name="close-outline"></ion-icon>
             </button>
           </div>
@@ -175,11 +224,11 @@
                 <a href="home.html" class="navbar-link" data-nav-link>Home</a>
               </li>
 
-              <li class="serv-list">
+              <li class="serv-list" onclick="servHeadList()">
                 services
                 <ul class="listOfServ">
                   <li><a href="all_parks.html">parks</a></li>
-                  <li><a href="washServ.html">car wash</a></li>
+                  <li><a href="carWash.html">car wash</a></li>
                   <li><a href="carMaintence.html"> maintenance </a></li>
                 </ul>
               </li>
@@ -196,19 +245,20 @@
         </nav>
 
         <div class="header-bottom-actions">
-          <button class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
+          <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search"
+            onclick="searchBtn()">
             <ion-icon id="" name="search-outline"></ion-icon>
 
             <span>Search</span>
           </button>
 
-          <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
+          <button type="button" class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart" onclick="cartShow()">
             <ion-icon name="cart-outline"></ion-icon>
 
             <span>Cart</span>
           </button>
 
-          <div class="prof-icon-div">
+          <div class="prof-icon-div" onclick="profList()">
             <img class="prof-icon" src="https://i.ibb.co/7pTkfv1/prof1.png" alt="" />
             <ul id="ul-icon-img" class="ul-icon-img">
               <li><a href="prof.html">porfile</a></li>
@@ -216,7 +266,7 @@
             </ul>
           </div>
 
-          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+          <button type="button" class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
             <ion-icon name="menu-outline"></ion-icon>
 
             <span>Menu</span>
@@ -228,17 +278,9 @@
           </form>
 
           <div class="shopping-cart">
+
             <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>50 points</h3>
-                <span class="price">50 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
+              <i class="fas fa-trash" onclick="cartTrash()"></i>
               <img src="assets/images/cash.png" alt="" />
               <div class="content">
                 <h3>100 points</h3>
@@ -246,27 +288,12 @@
                 <span class="quantity"></span>
               </div>
             </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>150 points</h3>
-                <span class="price">150 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="total">total : 400 Egp</div>
+
+            <div class="total">100 Egp</div>
             <a href="#" class="btn check-cart">check out</a>
           </div>
 
-          <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" name="email" class="box" placeholder="your email" />
-            <input type="password" name="password" class="box" placeholder="your password" />
-            <p>forget your password ? <a href="#">click here</a></p>
-            <p>don't have acount ? <a href="login.html">creat now</a></p>
-            <input type="submit" class="btn btn-log" value="login" />
-          </form>
+
         </div>
       </div>
     </div>
@@ -274,10 +301,19 @@
 
   <section class="parks">
     <div class="container">
-      <div class="grid-boxes"></div>
+      <div class="grid-boxes d-block">
+
+      </div>
+
+      <div class="googleMap">
+        <div id="map"></div>
+        <button id="getDirections" class="btn">Get Directions</button>
+      </div>
+
+
+
     </div>
-    <div id="map"></div>
-    <button id="getDirections" class="btn">Get Directions</button>
+
   </section>
 
 
@@ -288,17 +324,19 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+            <img src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
           </a>
 
           <p class="section-text">
-            This project was established in the Faculty of Arts, Tanta University, as a graduation project for IT
+            This project was established in the Faculty of Arts, Tanta University, as a graduation
+            project
+            for IT
             students
           </p>
 
           <ul class="contact-list">
             <li>
-              <a href="#" class="contact-link">
+              <a href="https://maps.app.goo.gl/JLYMcYRrxtyaYJyV7" class="contact-link">
                 <ion-icon name="location-outline"></ion-icon>
 
                 <address>Alexandria , Egypt</address>
@@ -306,18 +344,18 @@
             </li>
 
             <li>
-              <a href="tel:+033014221" class="contact-link">
+              <a href="tel:+201124563673" class="contact-link">
                 <ion-icon name="call-outline"></ion-icon>
 
-                <span>+03-3014221</span>
+                <span>+201124563673</span>
               </a>
             </li>
 
             <li>
-              <a href="mailto:garashko.eg@gmail.com" class="contact-link">
+              <a href="mailto:contact@Garashko.com" class="contact-link">
                 <ion-icon name="mail-outline"></ion-icon>
 
-                <span>garashko.eg@gmail.com</span>
+                <span>contact@Garashko.com</span>
               </a>
             </li>
           </ul>
@@ -368,11 +406,11 @@
             </li>
 
             <li>
-              <a href="carWash.html" class="footer-link">Car Wash</a>
+              <a href="washServ.html" class="footer-link">Car Wash</a>
             </li>
 
             <li>
-              <a href="carMaintence.html" class="footer-link">Repair Car</a>
+              <a href="repairServ.html" class="footer-link">Repair Car</a>
             </li>
 
             <li>
@@ -386,11 +424,11 @@
 
           <ul class="footer-list">
             <li>
-              <p class="footer-list-title">Services</p>
+              <p class="footer-list-title">Other</p>
             </li>
 
             <li>
-              <a href="#" class="footer-link">Order tracking</a>
+              <a href="sub.html" class="footer-link">Help Center</a>
             </li>
 
             <li>
@@ -398,7 +436,7 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link">Login</a>
+              <a href="login.html" class="footer-link">Login</a>
             </li>
 
             <li>
@@ -443,6 +481,7 @@
 
 
   <script>
+    walletTotal();
 
     singlePark()
 

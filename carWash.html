@@ -54,187 +54,187 @@
     - #HEADER
   -->
 
-  <header class="header" data-header>
-    <div class="overlay" data-overlay></div>
+<header class="header" data-header>
+  <div class="overlay" data-overlay></div>
 
-    <div class="header-top">
-      <div class="container">
-        <ul class="header-top-list">
+  <div class="header-top">
+    <div class="container">
+      <ul class="header-top-list">
+        <li>
+          <a href="mailto:garashko.eg@gmail.com" class="header-top-link">
+            <ion-icon name="mail-outline"></ion-icon>
+
+            <span>garashko.eg@gmail.com</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="header-top-link">
+            <ion-icon name="location-outline"></ion-icon>
+
+            <address>Alexandria , Egypt</address>
+          </a>
+        </li>
+      </ul>
+
+      <div class="wrapper">
+        <ul class="header-top-social-list">
           <li>
-            <a href="mailto:garashko.eg@gmail.com" class="header-top-link">
-              <ion-icon name="mail-outline"></ion-icon>
-
-              <span>garashko.eg@gmail.com</span>
+            <a href="https://www.facebook.com/profile.php?id=61558267896246" rel="noopener" title="facebook"
+              class="header-top-social-link" target="_blank">
+              <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="header-top-link">
-              <ion-icon name="location-outline"></ion-icon>
+            <a href="https://twitter.com/garashko_eg" class="header-top-social-link" rel="noopener" title="twitter"
+              target="_blank">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
 
-              <address>Alexandria , Egypt</address>
+          <li>
+            <a href="https://www.instagram.com/garashko_eg" class="header-top-social-link" rel="noopener"
+              title="instagram" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link" rel="noopener" title="tiktok"
+              target="_blank">
+              <ion-icon name="logo-tiktok"></ion-icon>
             </a>
           </li>
         </ul>
 
-        <div class="wrapper">
-          <ul class="header-top-social-list">
+        <a href="#" class="btn">
+          <ion-icon name="wallet-outline"></ion-icon>
+          <p id="wallet-total"></p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-bottom">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
+          </a>
+
+          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="navbar-bottom">
+          <ul class="navbar-list">
             <li>
-              <a href="https://www.facebook.com/profile.php?id=61558267896246" rel="noopener" title="facebook"
-                class="header-top-social-link" target="_blank">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
+              <a href="home.html" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li class="serv-list">
+              services
+              <ul class="listOfServ">
+                <li><a href="all_parks.html">parks</a></li>
+                <li><a href="carWash.html">car wash</a></li>
+                <li><a href="carMaintence.html"> maintenance </a></li>
+              </ul>
             </li>
 
             <li>
-              <a href="https://twitter.com/garashko_eg" class="header-top-social-link" rel="noopener" title="twitter"
-                target="_blank">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
+              <a href="#about" class="navbar-link" data-nav-link>about</a>
             </li>
 
             <li>
-              <a href="https://www.instagram.com/garashko_eg" class="header-top-social-link" rel="noopener"
-                title="instagram" target="_blank">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link" rel="noopener" title="tiktok"
-                target="_blank">
-                <ion-icon name="logo-tiktok"></ion-icon>
-              </a>
+              <a href="#property" class="navbar-link" data-nav-link>contact</a>
             </li>
           </ul>
-
-          <a href="#" class="btn">
-            <ion-icon name="wallet-outline"></ion-icon>
-            <p>0</p>
-          </a>
         </div>
+      </nav>
+
+      <div class="header-bottom-actions">
+      <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search" onclick="searchBtn()">
+        <ion-icon id="" name="search-outline"></ion-icon>
+      
+        <span>Search</span>
+      </button>
+
+        <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
+          <ion-icon name="cart-outline"></ion-icon>
+
+          <span>Cart</span>
+        </button>
+
+        <div class="prof-icon-div">
+          <img class="prof-icon" src="https://i.ibb.co/7pTkfv1/prof1.png" alt="" />
+          <ul id="ul-icon-img" class="ul-icon-img">
+            <li><a href="prof.html">porfile</a></li>
+            <li><a href="index.html" onclick="logout()">log out</a></li>
+          </ul>
+        </div>
+
+        <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+          <ion-icon name="menu-outline"></ion-icon>
+
+          <span>Menu</span>
+        </button>
+
+        <form action="" class="search-form">
+          <input dir="auto" type="search" id="shearch-box" placeholder="search here..." />
+          <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="shopping-cart">
+          <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="assets/images/cash.png" alt="" />
+            <div class="content">
+              <h3>50 points</h3>
+              <span class="price">50 Egp</span>
+              <span class="quantity"></span>
+            </div>
+          </div>
+          <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="assets/images/cash.png" alt="" />
+            <div class="content">
+              <h3>100 points</h3>
+              <span class="price">100 Egp</span>
+              <span class="quantity"></span>
+            </div>
+          </div>
+          <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="assets/images/cash.png" alt="" />
+            <div class="content">
+              <h3>150 points</h3>
+              <span class="price">150 Egp</span>
+              <span class="quantity"></span>
+            </div>
+          </div>
+          <div class="total">total : 400 Egp</div>
+          <a href="#" class="btn check-cart">check out</a>
+        </div>
+
+        <form action="" class="login-form">
+          <h3>login now</h3>
+          <input type="email" name="email" class="box" placeholder="your email" />
+          <input type="password" name="password" class="box" placeholder="your password" />
+          <p>forget your password ? <a href="#">click here</a></p>
+          <p>don't have acount ? <a href="login.html">creat now</a></p>
+          <input type="submit" class="btn btn-log" value="login" />
+        </form>
       </div>
     </div>
-
-    <div class="header-bottom">
-      <div class="container">
-        <a href="#" class="logo">
-          <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
-        </a>
-
-        <nav class="navbar" data-navbar>
-          <div class="navbar-top">
-            <a href="#" class="logo">
-              <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
-            </a>
-
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-          </div>
-
-          <div class="navbar-bottom">
-            <ul class="navbar-list">
-              <li>
-                <a href="home.html" class="navbar-link" data-nav-link>Home</a>
-              </li>
-
-              <li class="serv-list">
-                services
-                <ul class="listOfServ">
-                  <li><a href="all_parks.html">parks</a></li>
-                  <li><a href="washServ.html">car wash</a></li>
-                  <li><a href="carMaintence.html"> maintenance </a></li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="#about" class="navbar-link" data-nav-link>about</a>
-              </li>
-
-              <li>
-                <a href="#property" class="navbar-link" data-nav-link>contact</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <div class="header-bottom-actions">
-          <button class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
-            <ion-icon id="" name="search-outline"></ion-icon>
-
-            <span>Search</span>
-          </button>
-
-          <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
-            <ion-icon name="cart-outline"></ion-icon>
-
-            <span>Cart</span>
-          </button>
-
-          <div class="prof-icon-div">
-            <img class="prof-icon" src="https://i.ibb.co/7pTkfv1/prof1.png" alt="" />
-            <ul id="ul-icon-img" class="ul-icon-img">
-              <li><a href="prof.html">porfile</a></li>
-              <li><a href="index.html" onclick="logout()">log out</a></li>
-            </ul>
-          </div>
-
-          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
-            <ion-icon name="menu-outline"></ion-icon>
-
-            <span>Menu</span>
-          </button>
-
-          <form action="" class="search-form">
-            <input dir="auto" type="search" id="shearch-box" placeholder="search here..." />
-            <label for="search-box" class="fas fa-search"></label>
-          </form>
-
-          <div class="shopping-cart">
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>50 points</h3>
-                <span class="price">50 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>100 points</h3>
-                <span class="price">100 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>150 points</h3>
-                <span class="price">150 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="total">total : 400 Egp</div>
-            <a href="#" class="btn check-cart">check out</a>
-          </div>
-
-          <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" name="email" class="box" placeholder="your email" />
-            <input type="password" name="password" class="box" placeholder="your password" />
-            <p>forget your password ? <a href="#">click here</a></p>
-            <p>don't have acount ? <a href="login.html">creat now</a></p>
-            <input type="submit" class="btn btn-log" value="login" />
-          </form>
-        </div>
-      </div>
-    </div>
-  </header>
+  </div>
+</header>
 
   <main>
     <section class="landing-wash">
@@ -341,7 +341,7 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+            <img  src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
           </a>
 
           <p class="section-text">
@@ -498,6 +498,11 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    walletTotal();
+
+  </script>
 </body>
 
 </html>

@@ -276,10 +276,12 @@
           </li>
 
           <li>
-            <a href="#" class="header-top-link">
+            <a href="https://maps.app.goo.gl/JLYMcYRrxtyaYJyV7" class="header-top-link">
               <ion-icon name="location-outline"></ion-icon>
 
               <address>Alexandria , Egypt</address>
+
+
             </a>
           </li>
         </ul>
@@ -287,26 +289,29 @@
         <div class="wrapper">
           <ul class="header-top-social-list">
             <li>
-              <a href="https://www.facebook.com/profile.php?id=61557761423216&mibextid=ZbWKwL"
+              <a rel="noopener" title="social link" href="https://www.facebook.com/profile.php?id=61558267896246"
                 class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://twitter.com/garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://twitter.com/garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-twitter"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://www.instagram.com/garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://www.instagram.com/garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="https://www.tiktok.com/@garashko_eg" class="header-top-social-link" target="_blank">
+              <a rel="noopener" title="social link" href="https://www.tiktok.com/@garashko_eg"
+                class="header-top-social-link" target="_blank">
                 <ion-icon name="logo-tiktok"></ion-icon>
               </a>
             </li>
@@ -332,7 +337,7 @@
               <img src="https://i.ibb.co/Z2MJvt5/logo.png" alt="Garashko logo" />
             </a>
 
-            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <button type="button" class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
               <ion-icon name="close-outline"></ion-icon>
             </button>
           </div>
@@ -340,52 +345,53 @@
           <div class="navbar-bottom">
             <ul class="navbar-list">
               <li>
-                <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+                <a title="home" href="index.html" class="navbar-link" data-nav-link>Home</a>
               </li>
 
               <li>
-                <a href="index.html#about" class="navbar-link" data-nav-link>About</a>
+                <a href="#about" class="navbar-link" data-nav-link>About</a>
               </li>
 
               <li>
-                <a href="index.html#service" class="navbar-link" data-nav-link>Service</a>
+                <a href="#service" class="navbar-link" data-nav-link>Service</a>
               </li>
 
               <li>
-                <a href="index.html#property" class="navbar-link" data-nav-link>Property</a>
+                <a href="#property" class="navbar-link" data-nav-link>Property</a>
               </li>
 
               <li>
-                <a href="index.html#blog" class="navbar-link" data-nav-link>Blog</a>
+                <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
               </li>
 
               <li>
-                <a href="index.html#contact" class="navbar-link" data-nav-link>Contact</a>
+                <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
               </li>
             </ul>
           </div>
         </nav>
 
         <div class="header-bottom-actions">
-          <button class="header-bottom-actions-btn" id="search-btn" aria-label="Search">
-            <ion-icon id="search-btn" name="search-outline"></ion-icon>
+          <button type="button" class="header-bottom-actions-btn" id="search-btn" aria-label="Search"
+            onclick="searchBtn()">
+            <ion-icon id="" name="search-outline"></ion-icon>
 
             <span>Search</span>
           </button>
 
-          <button class="header-bottom-actions-btn" id="login-btn" aria-label="Profile">
+          <a title="login" href="login.html">
             <ion-icon name="person-outline"></ion-icon>
 
             <span>Profile</span>
-          </button>
+          </a>
 
-          <button class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
+          <button type="button" class="header-bottom-actions-btn" id="cart-btn" aria-label="Cart">
             <ion-icon name="cart-outline"></ion-icon>
 
             <span>Cart</span>
           </button>
 
-          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+          <button type="button" class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
             <ion-icon name="menu-outline"></ion-icon>
 
             <span>Menu</span>
@@ -396,46 +402,6 @@
             <label for="search-box" class="fas fa-search"></label>
           </form>
 
-          <div class="shopping-cart">
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>50 points</h3>
-                <span class="price">50 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>100 points</h3>
-                <span class="price">100 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="box">
-              <i class="fas fa-trash"></i>
-              <img src="assets/images/cash.png" alt="" />
-              <div class="content">
-                <h3>150 points</h3>
-                <span class="price">150 Egp</span>
-                <span class="quantity"></span>
-              </div>
-            </div>
-            <div class="total">total : 400 Egp</div>
-            <a href="#" class="btn check-cart">check out</a>
-          </div>
-
-          <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" name="email" class="box" placeholder=" email" />
-            <input type="password" name="password" class="box" placeholder=" password" />
-            <p>forget password ? <a href="#">click here</a></p>
-            <p>don't have acount ? <a href="login.html">creat now</a></p>
-            <input type="submit" class="btn btn-log" value="login" />
-          </form>
         </div>
       </div>
     </div>
@@ -446,8 +412,8 @@
       <section class="login blur">
         <div class="container">
           <div class="buttons">
-            <button class="btn log-btn">login</button>
-            <button class="btn creat-btn">creat account</button>
+            <button type="button" class="btn log-btn" onclick="btnLog()">login</button>
+            <button type="button" class="btn creat-btn" onclick="btnCreat()">creat account</button>
           </div>
 
           <div class="log-form">
@@ -495,7 +461,7 @@
                 </div>
                 <a href="#">Forget Password ?</a>
               </div>
-              <input type="submit" value="Login" class="btn" />
+              <input type="submit" value="Login" class="btn" onclick="signIn()" />
             </form>
 
             <img src="assets/images/LoginVeg.png" alt="" />
@@ -517,7 +483,7 @@
               </svg>
               Privacy Policy
             </span>
-            <button class="icon-button">
+            <button type="button" title="icon btn" class="icon-button">
               <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0h24v24H0z" fill="none"></path>
                 <path
@@ -606,7 +572,7 @@
               us at [contact email or form]. Thank you for trusting Garashko with your information.</p>
           </section>
           <footer class="modal-container-footer">
-            <button class="button is-primary" id="acceptButton">Accept</button>
+            <button type="button" class="button is-primary" id="acceptButton" onclick="accBtn()">Accept</button>
           </footer>
         </article>
       </div>
@@ -625,7 +591,7 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img loading="lazy" src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
+            <img src="https://i.ibb.co/YXs5wf6/logo-white.png" alt="Garashko logo" />
           </a>
 
           <p class="section-text">
@@ -786,19 +752,6 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <script>
-    /**
-     * login page
-     */
-
-
-
-
-    document.getElementById('acceptButton').onclick = () => {
-      document.querySelector(".modal").classList.toggle('hide');
-      document.querySelector(".login").classList.toggle('blur');
-
-
-    }
 
 
 
@@ -806,32 +759,11 @@
 
 
 
-    // signUp();
-
-    let btnLog = document.querySelector("section.login .log-btn");
-    let btnCreat = document.querySelector("section.login .creat-btn");
-    let logForm = document.querySelector("section.login .form-login");
-    let creatForm = document.querySelector("section.login .form-creat");
-
-    btnLog.onclick = () => {
-      creatForm.style.display = "none";
-      logForm.style.display = "block";
-    };
-
-    btnCreat.onclick = () => {
-      logForm.style.display = "none";
-      creatForm.style.display = "block";
-    };
 
 
 
+    signUp();
     signIn();
-    signup();
-
-
-
-
-
   </script>
 </body>
 
